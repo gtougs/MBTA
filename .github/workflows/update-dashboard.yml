@@ -22,6 +22,10 @@ jobs:
       with:
         python-version: '3.11'
     
+    - name: Install dependencies
+      run: |
+        pip install requests
+    
     - name: Collect MBTA data
       env:
         MBTA_API_KEY: ${{ secrets.MBTA_API_KEY }}
