@@ -7,12 +7,12 @@ on:
   push:
     branches: [ main ]  # Run when you push to main branch
 
+permissions:
+  contents: write
+
 jobs:
   update-dashboard:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
     
     steps:
     - name: Checkout code
@@ -38,7 +38,7 @@ jobs:
         import requests
         import json
         import os
-        from datetime import datetime
+        from datetime import datetime, timedelta
         from collections import defaultdict
         
         # Get MBTA API key from environment
@@ -52,12 +52,14 @@ jobs:
         headers = {'x-api-key': api_key}
         
         try:
-            # Get routes
+            print('Collecting MBTA data...')
+            
+            # Get routes with detailed info
             routes_response = requests.get(f'{base_url}/routes', headers=headers)
             routes_data = routes_response.json()
             total_routes = len(routes_data.get('data', []))
             
-            # Get vehicles
+            # Get vehicles with real-time locations
             vehicles_response = requests.get(f'{base_url}/vehicles', headers=headers)
             vehicles_data = vehicles_response.json()
             active_vehicles = len(vehicles_data.get('data', []))
@@ -66,60 +68,105 @@ jobs:
             predictions_response = requests.get(f'{base_url}/predictions', headers=headers)
             predictions_data = predictions_response.json()
             
+            # Get alerts for service issues
+            alerts_response = requests.get(f'{base_url}/alerts', headers=headers)
+            alerts_data = alerts_response.json()
+            
             # Analyze delays and problems
             delays = []
             problem_routes = defaultdict(int)
             problem_stops = defaultdict(int)
+            vehicle_locations = []
+            hourly_vehicle_counts = defaultdict(int)
             
+            # Process vehicle locations for map
+            for vehicle in vehicles_data.get('data', []):
+                if 'attributes' in vehicle and 'latitude' in vehicle['attributes'] and 'longitude' in vehicle['attributes']:
+                    lat = vehicle['attributes']['latitude']
+                    lng = vehicle['attributes']['longitude']
+                    if lat and lng and lat != 0 and lng != 0:
+                        vehicle_locations.append({
+                            'lat': lat,
+                            'lng': lng,
+                            'route': vehicle.get('relationships', {}).get('route', {}).get('data', {}).get('id', 'Unknown'),
+                            'type': 'vehicle'
+                        })
+                        
+                        # Count vehicles by hour for chart
+                        current_hour = datetime.now().hour
+                        hourly_vehicle_counts[current_hour] += 1
+            
+            # Process predictions for delay analysis
             for pred in predictions_data.get('data', []):
                 if 'attributes' in pred:
                     attrs = pred['attributes']
-                    if 'departure_time' in attrs and 'arrival_time' in attrs:
-                        # Calculate delay
-                        scheduled = attrs.get('departure_time') or attrs.get('arrival_time')
-                        predicted = attrs.get('departure_time') or attrs.get('arrival_time')
-                        
-                        if scheduled and predicted:
-                            try:
-                                scheduled_time = datetime.fromisoformat(scheduled.replace('Z', '+00:00'))
-                                predicted_time = datetime.fromisoformat(predicted.replace('Z', '+00:00'))
-                                delay_minutes = (predicted_time - scheduled_time).total_seconds() / 60
+                    scheduled_time = attrs.get('departure_time') or attrs.get('arrival_time')
+                    predicted_time = attrs.get('departure_time') or attrs.get('arrival_time')
+                    
+                    if scheduled_time and predicted_time:
+                        try:
+                            # Parse times and calculate delays
+                            scheduled_dt = datetime.fromisoformat(scheduled_time.replace('Z', '+00:00'))
+                            predicted_dt = datetime.fromisoformat(predicted_time.replace('Z', '+00:00'))
+                            delay_minutes = (predicted_dt - scheduled_dt).total_seconds() / 60
+                            
+                            if abs(delay_minutes) > 2:  # More than 2 minutes delay
+                                delays.append(delay_minutes)
                                 
-                                if abs(delay_minutes) > 2:  # More than 2 minutes delay
-                                    delays.append(delay_minutes)
-                                    
-                                    # Track problem routes
-                                    if 'relationships' in pred and 'route' in pred['relationships']:
-                                        route_id = pred['relationships']['route']['data']['id']
-                                        problem_routes[route_id] += 1
-                                    
-                                    # Track problem stops
-                                    if 'relationships' in pred and 'stop' in pred['relationships']:
-                                        stop_id = pred['relationships']['stop']['data']['id']
-                                        problem_stops[stop_id] += 1
-                            except:
-                                pass
+                                # Track problem routes
+                                if 'relationships' in pred and 'route' in pred['relationships']:
+                                    route_id = pred['relationships']['route']['data']['id']
+                                    problem_routes[route_id] += 1
+                                
+                                # Track problem stops
+                                if 'relationships' in pred and 'stop' in pred['relationships']:
+                                    stop_id = pred['relationships']['stop']['data']['id']
+                                    problem_stops[stop_id] += 1
+                        except Exception as e:
+                            print(f'Error processing prediction: {e}')
+                            continue
             
-            # Get alerts for service issues
-            alerts_response = requests.get(f'{base_url}/alerts', headers=headers)
-            alerts_data = alerts_response.json()
-            active_alerts = len([a for a in alerts_data.get('data', []) 
-                               if a.get('attributes', {}).get('active_period')])
+            # Process alerts for service issues
+            active_alerts = []
+            for alert in alerts_data.get('data', []):
+                if 'attributes' in alert:
+                    alert_attrs = alert['attributes']
+                    if alert_attrs.get('active_period'):
+                        active_alerts.append({
+                            'id': alert['id'],
+                            'title': alert_attrs.get('header', 'Service Alert'),
+                            'description': alert_attrs.get('description', ''),
+                            'severity': alert_attrs.get('severity', 'unknown')
+                        })
             
-            # Compile problem analysis
+            # Build hourly vehicle count chart data (fill in missing hours)
+            chart_data = []
+            for hour in range(24):
+                count = hourly_vehicle_counts.get(hour, 0)
+                chart_data.append(count)
+            
+            # Compile comprehensive problem analysis
             problem_analysis = {
                 'last_updated': datetime.now().isoformat(),
                 'total_routes': total_routes,
                 'active_vehicles': active_vehicles,
                 'total_predictions': len(predictions_data.get('data', [])),
-                'active_alerts': active_alerts,
+                'active_alerts': len(active_alerts),
                 'delays': {
                     'total_delays': len(delays),
                     'average_delay_minutes': round(sum(delays) / len(delays), 1) if delays else 0,
-                    'max_delay_minutes': round(max(delays), 1) if delays else 0
+                    'max_delay_minutes': round(max(delays), 1) if delays else 0,
+                    'delay_distribution': {
+                        'minor': len([d for d in delays if 2 <= d <= 5]),
+                        'moderate': len([d for d in delays if 5 < d <= 15]),
+                        'severe': len([d for d in delays if d > 15])
+                    }
                 },
                 'problem_routes': dict(sorted(problem_routes.items(), key=lambda x: x[1], reverse=True)[:10]),
                 'problem_stops': dict(sorted(problem_stops.items(), key=lambda x: x[1], reverse=True)[:10]),
+                'vehicle_locations': vehicle_locations[:100],  # Limit to 100 for performance
+                'hourly_vehicle_counts': chart_data,
+                'service_alerts': active_alerts[:20],  # Limit to 20 most recent
                 'status': 'active'
             }
             
@@ -127,11 +174,13 @@ jobs:
             with open('docs/data/latest_stats.json', 'w') as f:
                 json.dump(problem_analysis, f, indent=2)
             
-            print('Data collected successfully!')
-            print(f'Routes: {total_routes}, Vehicles: {active_vehicles}, Delays: {len(delays)}')
+            print('✅ Data collected successfully!')
+            print(f'Routes: {total_routes}, Vehicles: {active_vehicles}')
+            print(f'Delays: {len(delays)}, Alerts: {len(active_alerts)}')
+            print(f'Problem routes: {len(problem_routes)}, Problem stops: {len(problem_stops)}')
             
         except Exception as e:
-            print(f'Error collecting data: {e}')
+            print(f'❌ Error collecting data: {e}')
             exit(1)
         "
     
@@ -141,5 +190,4 @@ jobs:
         git config --local user.name "github-actions[bot]"
         git add docs/data/latest_stats.json
         git commit -m "Update dashboard data [skip ci]" || exit 0
-        git pull --rebase origin main
         git push origin main
