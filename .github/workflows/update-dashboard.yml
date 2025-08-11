@@ -38,6 +38,7 @@ jobs:
         import json
         import os
         from datetime import datetime
+        from collections import defaultdict
         
         # Get MBTA API key from environment
         api_key = os.getenv('MBTA_API_KEY')
@@ -45,31 +46,77 @@ jobs:
             print('No API key found')
             exit(1)
             
-        # Collect basic MBTA data
+        # Collect comprehensive MBTA data
         headers = {'x-api-key': api_key}
         
-        # Get routes
+        # Get routes with detailed info
         routes_response = requests.get('https://api-v3.mbta.com/routes', headers=headers)
         routes_data = routes_response.json() if routes_response.status_code == 200 else {'data': []}
         
-        # Get vehicles
+        # Get vehicles with location data
         vehicles_response = requests.get('https://api-v3.mbta.com/vehicles', headers=headers)
         vehicles_data = vehicles_response.json() if vehicles_response.status_code == 200 else {'data': []}
+        
+        # Get predictions to identify delays
+        predictions_response = requests.get('https://api-v3.mbta.com/predictions', headers=headers)
+        predictions_data = predictions_response.json() if predictions_response.status_code == 200 else {'data': []}
+        
+        # Get alerts for service disruptions
+        alerts_response = requests.get('https://api-v3.mbta.com/alerts', headers=headers)
+        alerts_data = alerts_response.json() if alerts_response.status_code == 200 else {'data': []}
+        
+        # Analyze problems by route
+        route_problems = defaultdict(lambda: {'delays': 0, 'alerts': 0, 'vehicles': 0})
+        
+        # Count vehicles per route
+        for vehicle in vehicles_data.get('data', []):
+            route_id = vehicle.get('relationships', {}).get('route', {}).get('data', {}).get('id')
+            if route_id:
+                route_problems[route_id]['vehicles'] += 1
+        
+        # Count delays per route
+        for prediction in predictions_data.get('data', []):
+            route_id = prediction.get('relationships', {}).get('route', {}).get('data', {}).get('id')
+            if route_id and prediction.get('attributes', {}).get('delay') and prediction.get('attributes', {}).get('delay') > 300:  # 5+ min delay
+                route_problems[route_id]['delays'] += 1
+        
+        # Count alerts per route
+        for alert in alerts_data.get('data', []):
+            for route in alert.get('relationships', {}).get('routes', {}).get('data', []):
+                route_id = route.get('id')
+                if route_id:
+                    route_problems[route_id]['alerts'] += 1
+        
+        # Get top problematic routes
+        problematic_routes = sorted(route_problems.items(), 
+                                  key=lambda x: (x[1]['alerts'], x[1]['delays']), 
+                                  reverse=True)[:10]
         
         # Create summary data
         summary = {
             'last_updated': datetime.now().isoformat(),
             'total_routes': len(routes_data.get('data', [])),
             'active_vehicles': len(vehicles_data.get('data', [])),
+            'total_delays': sum(r[1]['delays'] for r in route_problems.values()),
+            'total_alerts': sum(r[1]['alerts'] for r in route_problems.values()),
+            'problematic_routes': [
+                {
+                    'route_id': route_id,
+                    'alerts': data['alerts'],
+                    'delays': data['delays'],
+                    'vehicles': data['vehicles']
+                }
+                for route_id, data in problematic_routes
+            ],
             'status': 'active' if vehicles_data.get('data') else 'no_data'
         }
         
         # Save to docs/data directory
         os.makedirs('docs/data', exist_ok=True)
-        with open('docs/data/latest_data.json', 'w') as f:
+        with open('docs/data/latest_stats.json', 'w') as f:
             json.dump(summary, f, indent=2)
             
-        print('Data collected successfully')
+        print('Enhanced problem data collected successfully')
         "
         
     - name: Commit and push changes
