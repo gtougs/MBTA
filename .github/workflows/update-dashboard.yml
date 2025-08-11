@@ -52,7 +52,7 @@ jobs:
         headers = {'x-api-key': api_key}
         
         try:
-            print('Collecting MBTA data...')
+            print('Collecting detailed MBTA data...')
             
             # Get routes with detailed info
             routes_response = requests.get(f'{base_url}/routes', headers=headers)
@@ -78,18 +78,23 @@ jobs:
             problem_stops = defaultdict(int)
             vehicle_locations = []
             hourly_vehicle_counts = defaultdict(int)
+            route_vehicle_counts = defaultdict(int)
             
-            # Process vehicle locations for map
+            # Process vehicle locations for map and route counts
             for vehicle in vehicles_data.get('data', []):
                 if 'attributes' in vehicle and 'latitude' in vehicle['attributes'] and 'longitude' in vehicle['attributes']:
                     lat = vehicle['attributes']['latitude']
                     lng = vehicle['attributes']['longitude']
                     if lat and lng and lat != 0 and lng != 0:
+                        route_id = vehicle.get('relationships', {}).get('route', {}).get('data', {}).get('id', 'Unknown')
+                        route_vehicle_counts[route_id] += 1
+                        
                         vehicle_locations.append({
                             'lat': lat,
                             'lng': lng,
-                            'route': vehicle.get('relationships', {}).get('route', {}).get('data', {}).get('id', 'Unknown'),
-                            'type': 'vehicle'
+                            'route': route_id,
+                            'type': 'vehicle',
+                            'vehicle_id': vehicle.get('id', 'Unknown')
                         })
                         
                         # Count vehicles by hour for chart
@@ -126,17 +131,27 @@ jobs:
                             print(f'Error processing prediction: {e}')
                             continue
             
-            # Process alerts for service issues
+            # Process alerts for service issues with detailed info
             active_alerts = []
             for alert in alerts_data.get('data', []):
                 if 'attributes' in alert:
                     alert_attrs = alert['attributes']
                     if alert_attrs.get('active_period'):
+                        # Get affected routes for this alert
+                        affected_routes = []
+                        if 'informed_entity' in alert:
+                            for entity in alert['informed_entity']:
+                                if 'route' in entity:
+                                    affected_routes.append(entity['route'])
+                        
                         active_alerts.append({
                             'id': alert['id'],
                             'title': alert_attrs.get('header', 'Service Alert'),
                             'description': alert_attrs.get('description', ''),
-                            'severity': alert_attrs.get('severity', 'unknown')
+                            'severity': alert_attrs.get('severity', 'unknown'),
+                            'affected_routes': affected_routes,
+                            'created_at': alert_attrs.get('created_at', ''),
+                            'updated_at': alert_attrs.get('updated_at', '')
                         })
             
             # Build hourly vehicle count chart data (fill in missing hours)
@@ -144,6 +159,19 @@ jobs:
             for hour in range(24):
                 count = hourly_vehicle_counts.get(hour, 0)
                 chart_data.append(count)
+            
+            # Get route details for better labeling
+            route_details = {}
+            for route in routes_data.get('data', []):
+                route_id = route['id']
+                route_attrs = route.get('attributes', {})
+                route_details[route_id] = {
+                    'name': route_attrs.get('long_name', route_id),
+                    'short_name': route_attrs.get('short_name', route_id),
+                    'type': route_attrs.get('type', 'unknown'),
+                    'color': route_attrs.get('color', '#000000'),
+                    'text_color': route_attrs.get('text_color', '#FFFFFF')
+                }
             
             # Compile comprehensive problem analysis
             problem_analysis = {
@@ -164,9 +192,11 @@ jobs:
                 },
                 'problem_routes': dict(sorted(problem_routes.items(), key=lambda x: x[1], reverse=True)[:10]),
                 'problem_stops': dict(sorted(problem_stops.items(), key=lambda x: x[1], reverse=True)[:10]),
-                'vehicle_locations': vehicle_locations[:100],  # Limit to 100 for performance
+                'vehicle_locations': vehicle_locations[:200],  # Limit to 200 for performance
                 'hourly_vehicle_counts': chart_data,
-                'service_alerts': active_alerts[:20],  # Limit to 20 most recent
+                'route_vehicle_counts': dict(route_vehicle_counts),
+                'route_details': route_details,
+                'service_alerts': active_alerts[:30],  # Limit to 30 most recent
                 'status': 'active'
             }
             
@@ -174,10 +204,11 @@ jobs:
             with open('docs/data/latest_stats.json', 'w') as f:
                 json.dump(problem_analysis, f, indent=2)
             
-            print('✅ Data collected successfully!')
+            print('✅ Detailed data collected successfully!')
             print(f'Routes: {total_routes}, Vehicles: {active_vehicles}')
             print(f'Delays: {len(delays)}, Alerts: {len(active_alerts)}')
             print(f'Problem routes: {len(problem_routes)}, Problem stops: {len(problem_stops)}')
+            print(f'Route vehicle counts: {len(route_vehicle_counts)}')
             
         except Exception as e:
             print(f'❌ Error collecting data: {e}')
