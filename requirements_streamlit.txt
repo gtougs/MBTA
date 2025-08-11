@@ -1,0 +1,25 @@
+# Streamlit Dashboard Requirements
+# Core dependencies for the MBTA Transit Analytics Dashboard
+
+# Streamlit and visualization
+streamlit>=1.28.0
+plotly>=5.17.0
+pandas>=2.0.0
+
+# Database connectivity
+psycopg2-binary>=2.9.0
+sqlalchemy>=2.0.0
+
+# Data processing
+numpy>=1.24.0
+python-dateutil>=2.8.0
+
+# Environment and configuration
+python-dotenv>=1.0.0
+
+# Async support
+asyncio-mqtt>=0.16.0
+
+# Additional utilities
+requests>=2.31.0
+aiohttp>=3.8.0

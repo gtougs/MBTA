@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTA Transit Dashboard</title>
+    
+    <!-- CSS Frameworks -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Chart.js for visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Leaflet for maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --mbta-red: #DA291C;
+            --mbta-orange: #FF8C00;
+            --mbta-blue: #003DA5;
+            --mbta-green: #00843D;
+            --dark-bg: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-light: #ffffff;
+            --text-muted: #b0b0b0;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, var(--mbta-red), var(--mbta-orange)) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid #444;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, #333, #555);
+            border-bottom: 1px solid #444;
+            border-radius: 12px 12px 0 0 !important;
+            font-weight: 600;
+        }
+        
+        .metric-card {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .metric-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .status-excellent { color: #28a745; }
+        .status-good { color: #17a2b8; }
+        .status-fair { color: #ffc107; }
+        .status-poor { color: #dc3545; }
+        
+        .route-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 0.25rem;
+            display: inline-block;
+        }
+        
+        .route-red { background-color: var(--mbta-red); }
+        .route-orange { background-color: var(--mbta-orange); }
+        .route-blue { background-color: var(--mbta-blue); }
+        .route-green { background-color: var(--mbta-green); }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin: 1rem 0;
+        }
+        
+        #map {
+            height: 400px;
+            border-radius: 12px;
+            margin: 1rem 0;
+        }
+        
+        .realtime-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #28a745;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+        }
+        
+        .error {
+            background-color: #dc3545;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .nav-tabs .nav-link {
+            color: var(--text-muted);
+            border: none;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .nav-tabs .nav-link.active {
+            color: var(--text-light);
+            border-bottom-color: var(--mbta-red);
+            background: transparent;
+        }
+        
+        .table {
+            color: var(--text-light);
+        }
+        
+        .table th {
+            border-color: #444;
+            background-color: #333;
+        }
+        
+        .table td {
+            border-color: #444;
+        }
+        
+        .btn-primary {
+            background-color: var(--mbta-red);
+            border-color: var(--mbta-red);
+        }
+        
+        .btn-primary:hover {
+            background-color: #b91c1c;
+            border-color: #b91c1c;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-subway me-2"></i>
+                MBTA Transit Dashboard
+            </a>
+            <div class="navbar-nav ms-auto">
+                <span class="navbar-text">
+                    <span class="realtime-indicator me-2"></span>
+                    Real-time
+                </span>
+                <span class="navbar-text" id="last-update">
+                    Last update: --
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+        <!-- Overview Metrics -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card metric-card">
+                    <div class="metric-value" id="on-time-percentage">--</div>
+                    <div class="metric-label">On-Time %</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card metric-card">
+                    <div class="metric-value" id="total-trips">--</div>
+                    <div class="metric-label">Total Trips</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card metric-card">
+                    <div class="metric-value" id="avg-delay">--</div>
+                    <div class="metric-label">Avg Delay (min)</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card metric-card">
+                    <div class="metric-value" id="service-status">--</div>
+                    <div class="metric-label">Service Status</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Tabs -->
+        <ul class="nav nav-tabs" id="dashboardTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab">
+                    <i class="fas fa-chart-line me-2"></i>Overview
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="performance-tab" data-bs-toggle="tab" data-bs-target="#performance" type="button" role="tab">
+                    <i class="fas fa-tachometer-alt me-2"></i>Performance
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="analytics-tab" data-bs-toggle="tab" data-bs-target="#analytics" type="button" role="tab">
+                    <i class="fas fa-chart-bar me-2"></i>Analytics
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="map-tab" data-bs-toggle="tab" data-bs-target="#map-view" type="button" role="tab">
+                    <i class="fas fa-map-marked-alt me-2"></i>Map View
+                </button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="dashboardTabContent">
+            <!-- Overview Tab -->
+            <div class="tab-pane fade show active" id="overview" role="tabpanel">
+                <div class="row mt-4">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-chart-line me-2"></i>
+                                Performance Trends (Last 24 Hours)
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="performanceChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                Recent Anomalies
+                            </div>
+                            <div class="card-body">
+                                <div id="anomalies-list">
+                                    <div class="loading">Loading anomalies...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Tab -->
+            <div class="tab-pane fade" id="performance" role="tabpanel">
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-route me-2"></i>
+                                Route Performance
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="routePerformanceChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-clock me-2"></i>
+                                Peak Hour Analysis
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="peakHourChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div class="tab-pane fade" id="analytics" role="tabpanel">
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-search me-2"></i>
+                                Analytics Queries
+                            </div>
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <select class="form-select" id="query-selector">
+                                            <option value="performance">Performance Metrics</option>
+                                            <option value="delays">Delay Trends</option>
+                                            <option value="routes">Route Comparison</option>
+                                            <option value="stops">Stop Performance</option>
+                                            <option value="vehicles">Vehicle Performance</option>
+                                            <option value="alerts">Service Alerts</option>
+                                            <option value="headways">Headway Analysis</option>
+                                            <option value="peak">Peak Hour Analysis</option>
+                                            <option value="anomalies">Anomaly Detection</option>
+                                            <option value="geographic">Geographic Performance</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="form-select" id="route-filter">
+                                            <option value="">All Routes</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="form-select" id="time-filter">
+                                            <option value="1">Last Hour</option>
+                                            <option value="6">Last 6 Hours</option>
+                                            <option value="24" selected>Last 24 Hours</option>
+                                            <option value="48">Last 48 Hours</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button class="btn btn-primary" id="run-query">
+                                            <i class="fas fa-play me-2"></i>Run
+                                        </button>
+                                    </div>
+                                </div>
+                                <div id="query-results">
+                                    <div class="text-center text-muted">
+                                        Select a query and click Run to see results
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Tab -->
+            <div class="tab-pane fade" id="map-view" role="tabpanel">
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-map-marked-alt me-2"></i>
+                                Transit System Map
+                            </div>
+                            <div class="card-body">
+                                <div id="map"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="/static/dashboard.js"></script>
+</body>
+</html>
