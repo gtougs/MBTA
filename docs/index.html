@@ -144,6 +144,22 @@
             text-align: center;
             padding: 20px;
         }
+        .delay-distribution {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .delay-category {
+            text-align: center;
+            padding: 10px;
+            background: rgba(231, 76, 60, 0.1);
+            border-radius: 8px;
+            border: 1px solid #e74c3c;
+        }
+        .delay-category.minor { border-color: #f39c12; background: rgba(243, 156, 18, 0.1); }
+        .delay-category.moderate { border-color: #e67e22; background: rgba(230, 126, 34, 0.1); }
+        .delay-category.severe { border-color: #e74c3c; background: rgba(231, 76, 60, 0.1); }
     </style>
 </head>
 <body>
@@ -163,6 +179,20 @@
             <div class="stat-card delays">
                 <div class="stat-value" id="active-delays">--</div>
                 <div>Active Delays</div>
+                <div class="delay-distribution">
+                    <div class="delay-category minor">
+                        <div style="font-size: 1.2em; color: #f39c12;" id="minor-delays">--</div>
+                        <div style="font-size: 0.8em;">Minor</div>
+                    </div>
+                    <div class="delay-category moderate">
+                        <div style="font-size: 1.2em; color: #e67e22;" id="moderate-delays">--</div>
+                        <div style="font-size: 0.8em;">Moderate</div>
+                    </div>
+                    <div class="delay-category severe">
+                        <div style="font-size: 1.2em; color: #e74c3c;" id="severe-delays">--</div>
+                        <div style="font-size: 0.8em;">Severe</div>
+                    </div>
+                </div>
             </div>
             <div class="stat-card alerts">
                 <div class="stat-value" id="service-alerts">--</div>
@@ -187,7 +217,7 @@
         <div class="problem-routes">
             <h3>⚠️ Top Problematic Routes</h3>
             <div id="problem-routes-list">
-                <div class="no-problems">No major problems detected at this time</div>
+                <div class="no-problems">Loading problem analysis...</div>
             </div>
         </div>
         
@@ -216,25 +246,32 @@
                 const response = await fetch('data/latest_stats.json');
                 const data = await response.json();
                 
-                // Update stats
+                // Update stats with REAL data
                 document.getElementById('total-routes').textContent = data.total_routes || '--';
                 document.getElementById('active-vehicles').textContent = data.active_vehicles || '--';
                 document.getElementById('active-delays').textContent = data.delays?.total_delays || '--';
                 document.getElementById('service-alerts').textContent = data.active_alerts || '--';
                 
+                // Update delay distribution with REAL data
+                if (data.delays?.delay_distribution) {
+                    document.getElementById('minor-delays').textContent = data.delays.delay_distribution.minor || '--';
+                    document.getElementById('moderate-delays').textContent = data.delays.delay_distribution.moderate || '--';
+                    document.getElementById('severe-delays').textContent = data.delays.delay_distribution.severe || '--';
+                }
+                
                 // Update last updated time
                 const lastUpdated = new Date(data.last_updated).toLocaleString();
                 document.getElementById('last-updated').textContent = `Last updated: ${lastUpdated}`;
                 
-                // Update problem routes
+                // Update problem routes with REAL data
                 updateProblemRoutes(data.problem_routes || {});
                 
-                // Create charts
+                // Create charts with REAL data
                 createRealtimeChart(data);
                 createDelayTrendsChart(data);
                 
-                // Update map with sample data
-                updateMapWithData(data);
+                // Update map with REAL vehicle locations
+                updateMapWithRealData(data);
                 
             } catch (error) {
                 console.error('Error loading dashboard data:', error);
@@ -261,10 +298,9 @@
         }
 
         function createRealtimeChart(data) {
+            // Use REAL hourly vehicle count data
             const hours = Array.from({length: 24}, (_, i) => `${i}:00`);
-            const vehicleCounts = Array.from({length: 24}, () => 
-                Math.floor(Math.random() * 200) + (data.active_vehicles || 500)
-            );
+            const vehicleCounts = data.hourly_vehicle_counts || Array.from({length: 24}, () => 0);
 
             const trace = {
                 x: hours,
@@ -292,21 +328,35 @@
         }
 
         function createDelayTrendsChart(data) {
-            const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-            const delayCounts = days.map(() => Math.floor(Math.random() * 50) + 10);
+            // Use REAL delay data
+            const delayData = data.delays;
+            if (!delayData || delayData.total_delays === 0) {
+                // Show "no delays" message
+                document.getElementById('delay-trends').innerHTML = '<div style="text-align: center; padding: 40px; color: #27ae60;">✅ No delays detected at this time</div>';
+                return;
+            }
+
+            const categories = ['Minor (2-5 min)', 'Moderate (5-15 min)', 'Severe (>15 min)'];
+            const counts = [
+                delayData.delay_distribution?.minor || 0,
+                delayData.delay_distribution?.moderate || 0,
+                delayData.delay_distribution?.severe || 0
+            ];
 
             const trace = {
-                x: days,
-                y: delayCounts,
+                x: categories,
+                y: counts,
                 type: 'bar',
-                name: 'Daily Delays',
-                marker: {color: '#e74c3c'},
-                opacity: 0.8
+                name: 'Delay Severity',
+                marker: {
+                    color: ['#f39c12', '#e67e22', '#e74c3c'],
+                    opacity: 0.8
+                }
             };
 
             const layout = {
-                title: 'Weekly Delay Trends',
-                xaxis: {title: 'Day of Week', color: 'white'},
+                title: 'Current Delay Analysis',
+                xaxis: {title: 'Delay Severity', color: 'white'},
                 yaxis: {title: 'Number of Delays', color: 'white'},
                 paper_bgcolor: 'rgba(0,0,0,0)',
                 plot_bgcolor: 'rgba(0,0,0,0)',
@@ -317,41 +367,50 @@
             Plotly.newPlot('delay-trends', [trace], layout);
         }
 
-        function updateMapWithData(data) {
+        function updateMapWithRealData(data) {
             // Clear existing markers
             vehicleMarkers.forEach(marker => map.removeLayer(marker));
             problemMarkers.forEach(marker => map.removeLayer(marker));
             vehicleMarkers = [];
             problemMarkers = [];
 
-            // Add sample vehicle locations (in real implementation, use actual MBTA data)
-            const sampleLocations = [
-                {lat: 42.3601, lng: -71.0589, type: 'vehicle', route: 'Red Line'},
-                {lat: 42.3656, lng: -71.1044, type: 'vehicle', route: 'Green Line'},
-                {lat: 42.3314, lng: -71.0202, type: 'vehicle', route: 'Orange Line'},
-                {lat: 42.3736, lng: -71.1097, type: 'problem', route: 'Red Line'},
-                {lat: 42.3584, lng: -71.0598, type: 'problem', route: 'Green Line'}
-            ];
-
-            sampleLocations.forEach(location => {
-                if (location.type === 'vehicle') {
+            // Add REAL vehicle locations from MBTA API
+            if (data.vehicle_locations && data.vehicle_locations.length > 0) {
+                data.vehicle_locations.forEach(location => {
                     const marker = L.marker([location.lat, location.lng])
-                        .bindPopup(`<b>${location.route}</b><br>Active Vehicle`)
+                        .bindPopup(`<b>${location.route}</b><br>Active Vehicle<br>Location: ${location.lat.toFixed(4)}, ${location.lng.toFixed(4)}`)
                         .addTo(map);
                     vehicleMarkers.push(marker);
-                } else {
-                    const marker = L.marker([location.lat, location.lng], {
+                });
+            }
+
+            // Add problem hotspots based on delay data
+            if (data.problem_routes && Object.keys(data.problem_routes).length > 0) {
+                // For now, add sample problem markers - in future, could use actual stop locations
+                const problemAreas = [
+                    {lat: 42.3736, lng: -71.1097, route: 'Red Line', issues: 'High delay frequency'},
+                    {lat: 42.3584, lng: -71.0598, route: 'Green Line', issues: 'Service disruptions'}
+                ];
+
+                problemAreas.forEach(area => {
+                    const marker = L.marker([area.lat, area.lng], {
                         icon: L.divIcon({
                             className: 'problem-marker',
                             html: '⚠️',
                             iconSize: [30, 30]
                         })
                     })
-                    .bindPopup(`<b>${location.route}</b><br>Problem Area`)
+                    .bindPopup(`<b>${area.route}</b><br>Problem Area<br>${area.issues}`)
                     .addTo(map);
                     problemMarkers.push(marker);
-                }
-            });
+                });
+            }
+
+            // Fit map to show all markers
+            if (vehicleMarkers.length > 0 || problemMarkers.length > 0) {
+                const group = new L.featureGroup([...vehicleMarkers, ...problemMarkers]);
+                map.fitBounds(group.getBounds().pad(0.1));
+            }
         }
 
         // Initialize dashboard
@@ -365,6 +424,6 @@
     </script>
 </body>
 </html>
-</html>
+
 
 
