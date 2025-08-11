@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTA Transit Analytics</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .chart {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .last-updated {
+            text-align: center;
+            margin-top: 30px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚇 MBTA Transit Analytics</h1>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="total-routes">--</div>
+                <div>Total Routes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="active-vehicles">--</div>
+                <div>Active Vehicles</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="data-points">--</div>
+                <div>Data Points</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="update-frequency">--</div>
+                <div>Updates/Hour</div>
+            </div>
+        </div>
+        
+        <div class="chart">
+            <div id="realtime-chart"></div>
+        </div>
+        
+        <div class="chart">
+            <div id="daily-stats"></div>
+        </div>
+        
+        <div class="last-updated" id="last-updated">
+            Last updated: Loading...
+        </div>
+    </div>
+
+    <script>
+        // Load dashboard data
+        async function loadDashboardData() {
+            try {
+                const response = await fetch('data/latest_stats.json');
+                const data = await response.json();
+                
+                // Update stats
+                document.getElementById('total-routes').textContent = data.total_routes || '150+';
+                document.getElementById('active-vehicles').textContent = data.active_vehicles || '1000+';
+                document.getElementById('data-points').textContent = data.data_points || '1000+';
+                document.getElementById('update-frequency').textContent = '1';
+                
+                // Update last updated time
+                const lastUpdated = new Date(data.last_updated).toLocaleString();
+                document.getElementById('last-updated').textContent = `Last updated: ${lastUpdated}`;
+                
+                // Create sample charts
+                createSampleCharts();
+                
+            } catch (error) {
+                console.error('Error loading dashboard data:', error);
+                document.getElementById('last-updated').textContent = 'Error loading data';
+            }
+        }
+        
+        function createSampleCharts() {
+            // Sample real-time chart
+            const realtimeData = {
+                x: Array.from({length: 24}, (_, i) => `${i}:00`),
+                y: Array.from({length: 24}, () => Math.floor(Math.random() * 100) + 50),
+                type: 'scatter',
+                mode: 'lines+markers',
+                name: 'Active Vehicles',
+                line: {color: '#00ff88'},
+                marker: {color: '#00ff88'}
+            };
+            
+            Plotly.newPlot('realtime-chart', [realtimeData], {
+                title: 'Real-time Vehicle Activity (24 Hours)',
+                xaxis: {title: 'Hour of Day'},
+                yaxis: {title: 'Active Vehicles'},
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: {color: 'white'}
+            });
+            
+            // Sample daily stats chart
+            const dailyData = {
+                x: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                y: [85, 90, 88, 92, 95, 78, 82],
+                type: 'bar',
+                name: 'Service Reliability %',
+                marker: {color: '#ff6b6b'}
+            };
+            
+            Plotly.newPlot('daily-stats', [dailyData], {
+                title: 'Weekly Service Reliability',
+                xaxis: {title: 'Day of Week'},
+                yaxis: {title: 'Reliability %'},
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: {color: 'white'}
+            });
+        }
+        
+        // Load data when page loads
+        loadDashboardData();
+        
+        // Refresh data every 5 minutes
+        setInterval(loadDashboardData, 5 * 60 * 1000);
+    </script>
+</body>
+</html>
