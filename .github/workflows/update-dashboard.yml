@@ -76,6 +76,10 @@ jobs:
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
+        
+        # Add and commit changes
         git add docs/data/latest_data.json
         git commit -m "Update dashboard data [skip ci]" || exit 0
-        git push
+        
+        # Force push (overwrites remote with local changes)
+        git push origin main --force
