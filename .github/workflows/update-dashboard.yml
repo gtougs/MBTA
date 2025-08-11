@@ -29,7 +29,7 @@ jobs:
       run: |
         pip install requests psycopg2-binary
         
-    - name: Collect MBTA data
+        - name: Collect MBTA data
       env:
         MBTA_API_KEY: ${{ secrets.MBTA_API_KEY }}
       run: |
@@ -49,74 +49,110 @@ jobs:
         # Collect comprehensive MBTA data
         headers = {'x-api-key': api_key}
         
-        # Get routes with detailed info
-        routes_response = requests.get('https://api-v3.mbta.com/routes', headers=headers)
-        routes_data = routes_response.json() if routes_response.status_code == 200 else {'data': []}
-        
-        # Get vehicles with location data
-        vehicles_response = requests.get('https://api-v3.mbta.com/vehicles', headers=headers)
-        vehicles_data = vehicles_response.json() if vehicles_response.status_code == 200 else {'data': []}
-        
-        # Get predictions to identify delays
-        predictions_response = requests.get('https://api-v3.mbta.com/predictions', headers=headers)
-        predictions_data = predictions_response.json() if predictions_response.status_code == 200 else {'data': []}
-        
-        # Get alerts for service disruptions
-        alerts_response = requests.get('https://api-v3.mbta.com/alerts', headers=headers)
-        alerts_data = alerts_response.json() if alerts_response.status_code == 200 else {'data': []}
-        
-        # Analyze problems by route
-        route_problems = defaultdict(lambda: {'delays': 0, 'alerts': 0, 'vehicles': 0})
-        
-        # Count vehicles per route
-        for vehicle in vehicles_data.get('data', []):
-            route_id = vehicle.get('relationships', {}).get('route', {}).get('data', {}).get('id')
-            if route_id:
-                route_problems[route_id]['vehicles'] += 1
-        
-        # Count delays per route
-        for prediction in predictions_data.get('data', []):
-            route_id = prediction.get('relationships', {}).get('route', {}).get('data', {}).get('id')
-            if route_id and prediction.get('attributes', {}).get('delay') and prediction.get('attributes', {}).get('delay') > 300:  # 5+ min delay
-                route_problems[route_id]['delays'] += 1
-        
-        # Count alerts per route
-        for alert in alerts_data.get('data', []):
-            for route in alert.get('relationships', {}).get('routes', {}).get('data', []):
-                route_id = route.get('id')
-                if route_id:
-                    route_problems[route_id]['alerts'] += 1
-        
-        # Get top problematic routes
-        problematic_routes = sorted(route_problems.items(), 
-                                  key=lambda x: (x[1]['alerts'], x[1]['delays']), 
-                                  reverse=True)[:10]
-        
-        # Create summary data
-        summary = {
-            'last_updated': datetime.now().isoformat(),
-            'total_routes': len(routes_data.get('data', [])),
-            'active_vehicles': len(vehicles_data.get('data', [])),
-            'total_delays': sum(r[1]['delays'] for r in route_problems.values()),
-            'total_alerts': sum(r[1]['alerts'] for r in route_problems.values()),
-            'problematic_routes': [
-                {
-                    'route_id': route_id,
-                    'alerts': data['alerts'],
-                    'delays': data['delays'],
-                    'vehicles': data['vehicles']
-                }
-                for route_id, data in problematic_routes
-            ],
-            'status': 'active' if vehicles_data.get('data') else 'no_data'
-        }
-        
-        # Save to docs/data directory
-        os.makedirs('docs/data', exist_ok=True)
-        with open('docs/data/latest_stats.json', 'w') as f:
-            json.dump(summary, f, indent=2)
+        try:
+            # Get routes with detailed info
+            routes_response = requests.get('https://api-v3.mbta.com/routes', headers=headers)
+            routes_data = routes_response.json() if routes_response.status_code == 200 else {'data': []}
             
-        print('Enhanced problem data collected successfully')
+            # Get vehicles with location data
+            vehicles_response = requests.get('https://api-v3.mbta.com/vehicles', headers=headers)
+            vehicles_data = vehicles_response.json() if vehicles_response.status_code == 200 else {'data': []}
+            
+            # Get predictions to identify delays
+            predictions_response = requests.get('https://api-v3.mbta.com/predictions', headers=headers)
+            predictions_data = predictions_response.json() if predictions_response.status_code == 200 else {'data': []}
+            
+            # Get alerts for service disruptions
+            alerts_response = requests.get('https://api-v3.mbta.com/alerts', headers=headers)
+            alerts_data = alerts_response.json() if alerts_response.status_code == 200 else {'data': []}
+            
+            # Analyze problems by route
+            route_problems = defaultdict(lambda: {'delays': 0, 'alerts': 0, 'vehicles': 0})
+            
+            # Count vehicles per route
+            for vehicle in vehicles_data.get('data', []):
+                try:
+                    route_id = vehicle.get('relationships', {}).get('route', {}).get('data', {}).get('id')
+                    if route_id:
+                        route_problems[route_id]['vehicles'] += 1
+                except (KeyError, AttributeError):
+                    continue
+            
+            # Count delays per route
+            for prediction in predictions_data.get('data', []):
+                try:
+                    route_id = prediction.get('relationships', {}).get('route', {}).get('data', {}).get('id')
+                    if route_id:
+                        delay = prediction.get('attributes', {}).get('delay', 0)
+                        if delay and delay > 300:  # 5+ min delay
+                            route_problems[route_id]['delays'] += 1
+                except (KeyError, AttributeError):
+                    continue
+            
+            # Count alerts per route
+            for alert in alerts_data.get('data', []):
+                try:
+                    routes = alert.get('relationships', {}).get('routes', {}).get('data', [])
+                    if isinstance(routes, list):
+                        for route in routes:
+                            route_id = route.get('id')
+                            if route_id:
+                                route_problems[route_id]['alerts'] += 1
+                except (KeyError, AttributeError):
+                    continue
+            
+            # Get top problematic routes (safely)
+            problematic_routes = []
+            for route_id, data in route_problems.items():
+                problematic_routes.append({
+                    'route_id': str(route_id),
+                    'alerts': int(data.get('alerts', 0)),
+                    'delays': int(data.get('delays', 0)),
+                    'vehicles': int(data.get('vehicles', 0))
+                })
+            
+            # Sort by total problems
+            problematic_routes.sort(key=lambda x: (x['alerts'], x['delays']), reverse=True)
+            problematic_routes = problematic_routes[:10]  # Top 10
+            
+            # Create summary data
+            summary = {
+                'last_updated': datetime.now().isoformat(),
+                'total_routes': len(routes_data.get('data', [])),
+                'active_vehicles': len(vehicles_data.get('data', [])),
+                'total_delays': sum(r.get('delays', 0) for r in problematic_routes),
+                'total_alerts': sum(r.get('alerts', 0) for r in problematic_routes),
+                'problematic_routes': problematic_routes,
+                'status': 'active' if vehicles_data.get('data') else 'no_data'
+            }
+            
+            # Save to docs/data directory
+            os.makedirs('docs/data', exist_ok=True)
+            with open('docs/data/latest_stats.json', 'w') as f:
+                json.dump(summary, f, indent=2)
+                
+            print('Enhanced problem data collected successfully')
+            print(f'Found {len(problematic_routes)} problematic routes')
+            
+        except Exception as e:
+            print(f'Error collecting data: {e}')
+            # Fallback to basic data
+            fallback_data = {
+                'last_updated': datetime.now().isoformat(),
+                'total_routes': 0,
+                'active_vehicles': 0,
+                'total_delays': 0,
+                'total_alerts': 0,
+                'problematic_routes': [],
+                'status': 'error'
+            }
+            
+            os.makedirs('docs/data', exist_ok=True)
+            with open('docs/data/latest_stats.json', 'w') as f:
+                json.dump(fallback_data, f, indent=2)
+            
+            print('Saved fallback data due to error')
+            exit(1)
         "
         
     - name: Commit and push changes
