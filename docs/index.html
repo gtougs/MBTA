@@ -3,50 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MBTA Transit Analytics</title>
+    <title>MBTA Problem Analysis Dashboard</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             color: white;
             min-height: 100vh;
         }
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
-        h1 {
+        .header {
             text-align: center;
             margin-bottom: 30px;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        .header h1 {
+            margin: 0;
             font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: #e74c3c;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.8;
+            font-size: 1.1em;
         }
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             margin-bottom: 30px;
         }
         .stat-card {
             background: rgba(255,255,255,0.1);
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 15px;
+            text-align: center;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.2);
         }
+        .stat-card.critical {
+            background: rgba(231, 76, 60, 0.2);
+            border-color: #e74c3c;
+        }
+        .stat-card.warning {
+            background: rgba(243, 156, 18, 0.2);
+            border-color: #f39c12;
+        }
+        .stat-card.good {
+            background: rgba(46, 204, 113, 0.2);
+            border-color: #2ecc71;
+        }
         .stat-value {
-            font-size: 2em;
+            font-size: 2.5em;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin: 10px 0;
+        }
+        .stat-label {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+        .problem-section {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .problem-section h2 {
+            color: #e74c3c;
+            margin-top: 0;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+        .route-problem {
+            background: rgba(231, 76, 60, 0.1);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border-left: 4px solid #e74c3c;
+        }
+        .route-problem h3 {
+            margin: 0 0 10px 0;
+            color: #e74c3c;
+        }
+        .problem-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .metric {
+            text-align: center;
+            padding: 10px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+        }
+        .metric-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .metric-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        .chart-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
         }
         .chart {
             background: rgba(255,255,255,0.1);
             padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
+            border-radius: 15px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.2);
         }
@@ -54,116 +134,234 @@
             text-align: center;
             margin-top: 30px;
             opacity: 0.8;
+            font-size: 0.9em;
         }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .status-active { background-color: #2ecc71; }
+        .status-warning { background-color: #f39c12; }
+        .status-critical { background-color: #e74c3c; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🚇 MBTA Transit Analytics</h1>
-        
+        <div class="header">
+            <h1>🚇 MBTA Problem Analysis Dashboard</h1>
+            <p>Identifying system failures, delays, and problem areas in real-time</p>
+        </div>
+
         <div class="stats-grid">
-            <div class="stat-card">
+            <div class="stat-card" id="total-routes-card">
                 <div class="stat-value" id="total-routes">--</div>
-                <div>Total Routes</div>
+                <div class="stat-label">Total Routes</div>
             </div>
-            <div class="stat-card">
+            <div class="stat-card" id="active-vehicles-card">
                 <div class="stat-value" id="active-vehicles">--</div>
-                <div>Active Vehicles</div>
+                <div class="stat-label">Active Vehicles</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-value" id="data-points">--</div>
-                <div>Data Points</div>
+            <div class="stat-card critical" id="total-delays-card">
+                <div class="stat-value" id="total-delays">--</div>
+                <div class="stat-label">Active Delays</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-value" id="update-frequency">--</div>
-                <div>Updates/Hour</div>
+            <div class="stat-card warning" id="total-alerts-card">
+                <div class="stat-value" id="total-alerts">--</div>
+                <div class="stat-label">Service Alerts</div>
             </div>
         </div>
-        
-        <div class="chart">
-            <div id="realtime-chart"></div>
+
+        <div class="problem-section">
+            <h2>🚨 Top Problematic Routes</h2>
+            <div id="problematic-routes">
+                <p>Loading problem analysis...</p>
+            </div>
         </div>
-        
-        <div class="chart">
-            <div id="daily-stats"></div>
+
+        <div class="chart-container">
+            <div class="chart">
+                <div id="delays-by-route"></div>
+            </div>
+            <div class="chart">
+                <div id="alerts-by-route"></div>
+            </div>
         </div>
-        
+
+        <div class="chart-container">
+            <div class="chart">
+                <div id="problem-heatmap"></div>
+            </div>
+        </div>
+
         <div class="last-updated" id="last-updated">
+            <span class="status-indicator status-active"></span>
             Last updated: Loading...
         </div>
     </div>
 
     <script>
-        // Load dashboard data
         async function loadDashboardData() {
             try {
                 const response = await fetch('data/latest_stats.json');
                 const data = await response.json();
                 
-                // Update stats
-                document.getElementById('total-routes').textContent = data.total_routes || '150+';
-                document.getElementById('active-vehicles').textContent = data.active_vehicles || '1000+';
-                document.getElementById('data-points').textContent = data.data_points || '1000+';
-                document.getElementById('update-frequency').textContent = '1';
+                // Update main stats
+                updateStatCard('total-routes', data.total_routes, 'good');
+                updateStatCard('active-vehicles', data.active_vehicles, 'good');
+                updateStatCard('total-delays', data.total_delays, 'critical');
+                updateStatCard('total-alerts', data.total_alerts, 'warning');
                 
                 // Update last updated time
                 const lastUpdated = new Date(data.last_updated).toLocaleString();
-                document.getElementById('last-updated').textContent = `Last updated: ${lastUpdated}`;
+                document.getElementById('last-updated').innerHTML = 
+                    `<span class="status-indicator status-active"></span>Last updated: ${lastUpdated}`;
                 
-                // Create sample charts
-                createSampleCharts();
+                // Display problematic routes
+                displayProblematicRoutes(data.problematic_routes);
+                
+                // Create problem-focused charts
+                createProblemCharts(data);
                 
             } catch (error) {
                 console.error('Error loading dashboard data:', error);
-                document.getElementById('last-updated').textContent = 'Error loading data';
+                document.getElementById('last-updated').innerHTML = 
+                    '<span class="status-indicator status-critical"></span>Error loading data';
             }
         }
         
-        function createSampleCharts() {
-            // Sample real-time chart
-            const realtimeData = {
-                x: Array.from({length: 24}, (_, i) => `${i}:00`),
-                y: Array.from({length: 24}, () => Math.floor(Math.random() * 100) + 50),
-                type: 'scatter',
-                mode: 'lines+markers',
-                name: 'Active Vehicles',
-                line: {color: '#00ff88'},
-                marker: {color: '#00ff88'}
-            };
+        function updateStatCard(id, value, severity) {
+            const card = document.getElementById(id + '-card');
+            const valueElement = document.getElementById(id);
             
-            Plotly.newPlot('realtime-chart', [realtimeData], {
-                title: 'Real-time Vehicle Activity (24 Hours)',
-                xaxis: {title: 'Hour of Day'},
-                yaxis: {title: 'Active Vehicles'},
-                paper_bgcolor: 'rgba(0,0,0,0)',
-                plot_bgcolor: 'rgba(0,0,0,0)',
-                font: {color: 'white'}
+            // Remove existing classes
+            card.className = 'stat-card';
+            // Add severity class
+            card.classList.add(severity);
+            
+            valueElement.textContent = value || '--';
+        }
+        
+        function displayProblematicRoutes(routes) {
+            const container = document.getElementById('problematic-routes');
+            
+            if (!routes || routes.length === 0) {
+                container.innerHTML = '<p>✅ No major problems detected at this time</p>';
+                return;
+            }
+            
+            let html = '';
+            routes.forEach((route, index) => {
+                const severity = route.alerts > 5 || route.delays > 10 ? 'critical' : 
+                               route.alerts > 2 || route.delays > 5 ? 'warning' : 'good';
+                
+                html += `
+                    <div class="route-problem">
+                        <h3>Route ${route.route_id} ${getSeverityIcon(severity)}</h3>
+                        <div class="problem-metrics">
+                            <div class="metric">
+                                <div class="metric-value">${route.alerts}</div>
+                                <div class="metric-label">Service Alerts</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">${route.delays}</div>
+                                <div class="metric-label">Active Delays</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">${route.vehicles}</div>
+                                <div class="metric-label">Active Vehicles</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
             });
             
-            // Sample daily stats chart
-            const dailyData = {
-                x: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                y: [85, 90, 88, 92, 95, 78, 82],
+            container.innerHTML = html;
+        }
+        
+        function getSeverityIcon(severity) {
+            switch(severity) {
+                case 'critical': return '🚨';
+                case 'warning': return '⚠️';
+                default: return '✅';
+            }
+        }
+        
+        function createProblemCharts(data) {
+            if (!data.problematic_routes) return;
+            
+            const routes = data.problematic_routes;
+            const routeIds = routes.map(r => r.route_id);
+            const delays = routes.map(r => r.delays);
+            const alerts = routes.map(r => r.alerts);
+            
+            // Delays by Route Chart
+            const delaysChart = {
+                x: routeIds,
+                y: delays,
                 type: 'bar',
-                name: 'Service Reliability %',
-                marker: {color: '#ff6b6b'}
+                name: 'Active Delays',
+                marker: {color: '#e74c3c'}
             };
             
-            Plotly.newPlot('daily-stats', [dailyData], {
-                title: 'Weekly Service Reliability',
-                xaxis: {title: 'Day of Week'},
-                yaxis: {title: 'Reliability %'},
+            Plotly.newPlot('delays-by-route', [delaysChart], {
+                title: 'Delays by Route - Problem Identification',
+                xaxis: {title: 'Route ID'},
+                yaxis: {title: 'Number of Delays'},
                 paper_bgcolor: 'rgba(0,0,0,0)',
                 plot_bgcolor: 'rgba(0,0,0,0)',
-                font: {color: 'white'}
+                font: {color: 'white'},
+                margin: {t: 50, b: 80, l: 80, r: 50}
+            });
+            
+            // Alerts by Route Chart
+            const alertsChart = {
+                x: routeIds,
+                y: alerts,
+                type: 'bar',
+                name: 'Service Alerts',
+                marker: {color: '#f39c12'}
+            };
+            
+            Plotly.newPlot('alerts-by-route', [alertsChart], {
+                title: 'Service Alerts by Route - System Issues',
+                xaxis: {title: 'Route ID'},
+                yaxis: {title: 'Number of Alerts'},
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: {color: 'white'},
+                margin: {t: 50, b: 80, l: 80, r: 50}
+            });
+            
+            // Problem Heatmap (simplified)
+            const heatmapData = [delays, alerts];
+            const heatmap = {
+                z: heatmapData,
+                x: routeIds,
+                y: ['Delays', 'Alerts'],
+                type: 'heatmap',
+                colorscale: 'Reds'
+            };
+            
+            Plotly.newPlot('problem-heatmap', [heatmap], {
+                title: 'Problem Heatmap - Route vs Issue Type',
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: {color: 'white'},
+                margin: {t: 50, b: 80, l: 80, r: 50}
             });
         }
         
         // Load data when page loads
         loadDashboardData();
         
-        // Refresh data every 5 minutes
-        setInterval(loadDashboardData, 5 * 60 * 1000);
+        // Refresh data every 2 minutes (more frequent for problem monitoring)
+        setInterval(loadDashboardData, 2 * 60 * 1000);
     </script>
 </body>
 </html>
+</body>
+</html>
+
