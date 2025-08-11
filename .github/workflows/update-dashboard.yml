@@ -1,0 +1,76 @@
+name: Update MBTA Dashboard
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Every hour at minute 0
+  workflow_dispatch:  # Allow manual triggers from GitHub UI
+  push:
+    branches: [ main ]  # Run when you push to main branch
+
+jobs:
+  update-dashboard:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        pip install requests psycopg2-binary
+        
+    - name: Collect MBTA data
+      env:
+        MBTA_API_KEY: ${{ secrets.MBTA_API_KEY }}
+      run: |
+        python -c "
+        import requests
+        import json
+        import os
+        from datetime import datetime
+        
+        # Get MBTA API key from environment
+        api_key = os.getenv('MBTA_API_KEY')
+        if not api_key:
+            print('No API key found')
+            exit(1)
+            
+        # Collect basic MBTA data
+        headers = {'x-api-key': api_key}
+        
+        # Get routes
+        routes_response = requests.get('https://api-v3.mbta.com/routes', headers=headers)
+        routes_data = routes_response.json() if routes_response.status_code == 200 else {'data': []}
+        
+        # Get vehicles
+        vehicles_response = requests.get('https://api-v3.mbta.com/vehicles', headers=headers)
+        vehicles_data = vehicles_response.json() if vehicles_response.status_code == 200 else {'data': []}
+        
+        # Create summary data
+        summary = {
+            'last_updated': datetime.now().isoformat(),
+            'total_routes': len(routes_data.get('data', [])),
+            'active_vehicles': len(vehicles_data.get('data', [])),
+            'status': 'active' if vehicles_data.get('data') else 'no_data'
+        }
+        
+        # Save to docs/data directory
+        os.makedirs('docs/data', exist_ok=True)
+        with open('docs/data/latest_data.json', 'w') as f:
+            json.dump(summary, f, indent=2)
+            
+        print('Data collected successfully')
+        "
+        
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add docs/data/latest_data.json
+        git commit -m "Update dashboard data" || exit 0
+        git push
