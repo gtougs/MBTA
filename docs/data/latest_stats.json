@@ -1,15 +1,770 @@
 {
-  "last_updated": "2025-08-11T22:59:59.144925",
+  "last_updated": "2025-08-11T23:05:30.586092",
   "total_routes": 178,
-  "active_vehicles": 639,
+  "active_vehicles": 621,
   "total_predictions": 0,
-  "active_alerts": 109,
+  "active_alerts": 99,
   "delays": {
     "total_delays": 0,
     "average_delay_minutes": 0,
-    "max_delay_minutes": 0
+    "max_delay_minutes": 0,
+    "delay_distribution": {
+      "minor": 0,
+      "moderate": 0,
+      "severe": 0
+    }
   },
   "problem_routes": {},
   "problem_stops": {},
+  "vehicle_locations": [
+    {
+      "lat": 42.373406849,
+      "lng": -71.120417308,
+      "route": "96",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.42649,
+      "lng": -71.07397,
+      "route": "104",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.28892121,
+      "lng": -70.87755209,
+      "route": "714",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.383288739,
+      "lng": -71.10706987,
+      "route": "Shuttle-Generic",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.38591423,
+      "lng": -71.02256885,
+      "route": "112",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.40764792,
+      "lng": -71.054938169,
+      "route": "104",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.35682772,
+      "lng": -71.206703559,
+      "route": "59",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.39638,
+      "lng": -71.1386,
+      "route": "Red",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.40811943,
+      "lng": -71.0621974,
+      "route": "105",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.35213,
+      "lng": -71.12407,
+      "route": "Green-B",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.20112533,
+      "lng": -71.06256675,
+      "route": "240",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.37891916,
+      "lng": -71.03928348,
+      "route": "116",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.33591,
+      "lng": -71.12042,
+      "route": "66",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.34643022,
+      "lng": -71.15221835,
+      "route": "65",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.34832,
+      "lng": -71.05348,
+      "route": "Red",
+      "type": "vehicle"
+    },
+    {
+      "lat": 41.88678741455078,
+      "lng": -70.97152709960938,
+      "route": "CR-NewBedford",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.33776,
+      "lng": -71.08795,
+      "route": "Orange",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.33791,
+      "lng": -71.09507,
+      "route": "Green-E",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.4177,
+      "lng": -71.10603,
+      "route": "96",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.40274651,
+      "lng": -71.06754852,
+      "route": "97",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.33218,
+      "lng": -71.11179,
+      "route": "Green-E",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.378455619,
+      "lng": -71.123687869,
+      "route": "74",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.29010425,
+      "lng": -71.11826634,
+      "route": "32",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.35312,
+      "lng": -71.13305,
+      "route": "57",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.14473,
+      "lng": -71.25458,
+      "route": "34E",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.083763122558594,
+      "lng": -71.39523315429688,
+      "route": "CR-Franklin",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.30225,
+      "lng": -71.0865,
+      "route": "45",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.32798081,
+      "lng": -71.067537119,
+      "route": "708",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.34395207,
+      "lng": -71.03378047,
+      "route": "742",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.46823753,
+      "lng": -71.178950589,
+      "route": "350",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.32392,
+      "lng": -71.22709,
+      "route": "Green-D",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.40065242,
+      "lng": -71.0213463,
+      "route": "116",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.3880769,
+      "lng": -71.11554767,
+      "route": "87",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.35749053,
+      "lng": -71.06373006,
+      "route": "43",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.38893223,
+      "lng": -71.02994116,
+      "route": "104",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.554311269,
+      "lng": -70.881019539,
+      "route": "451",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.39211013,
+      "lng": -71.04598874,
+      "route": "112",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.49711539,
+      "lng": -71.12675009,
+      "route": "354",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.39618,
+      "lng": -71.14054,
+      "route": "Red",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.3483036,
+      "lng": -71.08843774,
+      "route": "1",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.33862321,
+      "lng": -71.09763019,
+      "route": "47",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.3518,
+      "lng": -71.07081,
+      "route": "Green-E",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.312040889,
+      "lng": -71.0934005,
+      "route": "22",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.4224309,
+      "lng": -71.1734393,
+      "route": "77",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.29777,
+      "lng": -71.11496,
+      "route": "32",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.13459494,
+      "lng": -71.03967862,
+      "route": "240",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.306684699,
+      "lng": -71.08449566,
+      "route": "28",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.35285475,
+      "lng": -71.131615539,
+      "route": "57",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.35625,
+      "lng": -71.06264,
+      "route": "Green-D",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.38900616,
+      "lng": -71.10405518,
+      "route": "88",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.25597874,
+      "lng": -71.12412351,
+      "route": "50",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.33405258,
+      "lng": -71.25672101,
+      "route": "558",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.25257568,
+      "lng": -71.00510299,
+      "route": "216",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.34259,
+      "lng": -71.11936,
+      "route": "Green-C",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.36411919,
+      "lng": -71.18540431,
+      "route": "57",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.32876073,
+      "lng": -71.08474686,
+      "route": "23",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.33665567,
+      "lng": -71.0354766,
+      "route": "7",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.33314161,
+      "lng": -71.0271199,
+      "route": "11",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.35287153,
+      "lng": -71.04795156,
+      "route": "743",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.3000577,
+      "lng": -71.0612464,
+      "route": "201",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.35614,
+      "lng": -71.06243,
+      "route": "Green-B",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.39621,
+      "lng": -71.14124,
+      "route": "350",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.35164,
+      "lng": -71.07172,
+      "route": "Green-B",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.39144986,
+      "lng": -71.02561144,
+      "route": "743",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.37819135,
+      "lng": -71.12374846,
+      "route": "75",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.36536,
+      "lng": -71.09085,
+      "route": "64",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.39782272,
+      "lng": -71.02536109,
+      "route": "116",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.25566397,
+      "lng": -71.12413344,
+      "route": "32",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.3518,
+      "lng": -71.07081,
+      "route": "Green-D",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.34416747,
+      "lng": -71.08623698,
+      "route": "1",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.28357533,
+      "lng": -71.131237,
+      "route": "34",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.33694,
+      "lng": -71.08962,
+      "route": "22",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.34759,
+      "lng": -71.06723,
+      "route": "Orange",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.36214695,
+      "lng": -71.056408729,
+      "route": "111",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.293676269,
+      "lng": -71.161799589,
+      "route": "51",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.34898,
+      "lng": -71.09557,
+      "route": "60",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.35492926,
+      "lng": -71.061411869,
+      "route": "749",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.27490408,
+      "lng": -71.141062399,
+      "route": "34",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.24411633,
+      "lng": -71.00300285,
+      "route": "230",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.39827,
+      "lng": -70.99309,
+      "route": "119",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.387377809,
+      "lng": -71.02341091,
+      "route": "743",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.404945373535156,
+      "lng": -71.32091522216797,
+      "route": "CR-Fitchburg",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.044437408447266,
+      "lng": -70.88319396972656,
+      "route": "CR-Kingston",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.42634317,
+      "lng": -71.0735477,
+      "route": "106",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.34995478,
+      "lng": -71.077943149,
+      "route": "9",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.34057,
+      "lng": -71.12704,
+      "route": "Green-C",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.152369999,
+      "lng": -71.14804169,
+      "route": "716",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.36424,
+      "lng": -71.0592,
+      "route": "Orange",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.36870125,
+      "lng": -71.0242387,
+      "route": "741",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.32052,
+      "lng": -71.05226,
+      "route": "Red",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.39787,
+      "lng": -71.13092,
+      "route": "Red",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.30547618,
+      "lng": -71.08069083,
+      "route": "23",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.33952,
+      "lng": -71.1349,
+      "route": "Green-C",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.351078033447266,
+      "lng": -71.11214447021484,
+      "route": "CR-Worcester",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.22459316,
+      "lng": -71.00507883,
+      "route": "230",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.33597,
+      "lng": -71.14308,
+      "route": "Green-D",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.36054502,
+      "lng": -71.05626035,
+      "route": "92",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.28871898,
+      "lng": -71.12575476,
+      "route": "40",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.34997,
+      "lng": -71.07748,
+      "route": "Green-E",
+      "type": "vehicle"
+    },
+    {
+      "lat": 42.33335304,
+      "lng": -71.080783929,
+      "route": "749",
+      "type": "vehicle"
+    }
+  ],
+  "hourly_vehicle_counts": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    621
+  ],
+  "service_alerts": [
+    {
+      "id": "660311",
+      "title": "Route 112 is experiencing delays of up to 20 minutes due to traffic",
+      "description": null,
+      "severity": 5
+    },
+    {
+      "id": "435698",
+      "title": "Bowdoin Escalator 125 (Lobby to street) is unavailable until further notice pending replacement. ",
+      "description": "The escalator will remain out of service for the foreseeable future. This decision was made after a thorough inspection determined that corrosion on the escalator\u2019s steel truss was so severe that it could not be repaired further and that a complete replacement of the escalator would be required. Replacing the escalator at this location requires a more extended unit meeting modern escalator safety requirements. This longer unit will require significant alteration to the station entrance to meet code requirements. The MBTA has currently begun design work to understand what station upgrades will be needed. \r\n  \r\nDue to these complexities, we expect the escalator will remain out of service for a significant time. We recognize the challenges this poses to our riders, and please know we are working to identify a solution as quickly as possible. In the meantime, Government Center Station, which is fully accessible and serves the Blue Line, is under a quarter-mile from Bowdoin Station. \r\n",
+      "severity": 3
+    },
+    {
+      "id": "656012",
+      "title": "To accommodate Providence Station Renovations, construction barriers have been installed and the Southern stairwell to Track 1 & 3 is out of service. The Northern access is open.",
+      "description": "Affected lines:\r\nProvidence/Stoughton Line\r\nFoxboro (Special Events)",
+      "severity": 1
+    },
+    {
+      "id": "416078",
+      "title": "Lynn Parking Garage arcade stairs 1 and 2 are closed until further notice due to structural issues. Customers may exit the garage via elevators to the ground level or by using the south stairs located on the Market street side of the garage.",
+      "description": "Vehicular access to the upper 2 levels of the garage is restricted. The garage has sufficient parking capacity to accommodate daily demand.",
+      "severity": 3
+    },
+    {
+      "id": "660251",
+      "title": "Airport Escalator 409 (Bowdoin platform to paid mezzanine) unavailable from Tue Aug 12 through Wed Aug 13 due to maintenance",
+      "description": null,
+      "severity": 3
+    },
+    {
+      "id": "658299",
+      "title": "Starting at 10pm on Friday, August 15th through Sunday, August 17th & at 10pm on Friday, August 22nd through Sunday, August 24th, shuttle buses will replace train service between North Station and Lowell.",
+      "description": "There will be 3 shuttle bus options:\r\n-Express bus between Lowell & North Station (with 1 stop at Anderson/Woburn).\r\n-Local bus between Lowell & Anderson/Woburn, then operating express to North Station.\r\n-Local bus between Anderson/Woburn & North Station.\r\n\nThere will be no service to Winchester Center.\r\n\nThis allows for work on the High Line Bridge Replacement Project.\r\n\nA diversion schedule will be in effect and available soon on mbta.com/cr.",
+      "severity": 1
+    },
+    {
+      "id": "659239",
+      "title": "Franklin Line Train 743 (1:28 pm from South Station) will make an additional stop at Hyde Park today due to Amtrak infrastructure repairs.",
+      "description": "Affected direction: Outbound\r\n\nAffected stops:\r\nHyde Park",
+      "severity": 1
+    },
+    {
+      "id": "660345",
+      "title": "Fairmount Line Train 1677 (6:17 pm from South Station) is operating 5-15 minutes behind schedule between Uphams Corner and Readville.",
+      "description": "Affected direction: Outbound",
+      "severity": 4
+    },
+    {
+      "id": "660283",
+      "title": "Route 65 is experiencing delays of up to 20 minutes due to disabled bus",
+      "description": null,
+      "severity": 5
+    },
+    {
+      "id": "654244",
+      "title": "The Washington Ave @ Broadway stop is closed from 7 AM - 5 PM, Monday through Thursday, until further notice for construction. Riders can board at Washington Ave @ Chestnut St.",
+      "description": "Affected routes:\r\n104\r\n111\r\n112\r\n114\r\n116",
+      "severity": 5
+    },
+    {
+      "id": "653683",
+      "title": "Route 354 bus stop at Common St @ Woburn City Hall (inbound) has moved to Pleasant St @ Woburn District Court. This is a new MBTA bus stop located in front of Woburn District Court.",
+      "description": "Affected routes:\r\n354",
+      "severity": 1
+    },
+    {
+      "id": "660347",
+      "title": "Haverhill Line Train 265 (5:35 pm from North Station) will terminate at Bradford today due to police activity in the Haverhill area. Passengers are advised to seek alternate transportation to Haverhill.",
+      "description": "Affected direction: Outbound",
+      "severity": 1
+    },
+    {
+      "id": "652201",
+      "title": "Jackson Square: The stairway connecting the Jackson Sq lobby and the south end of the platform is closed until winter 2026. Use the stairway at the north end of the platform. This closure is for the construction of a new stairway and a second elevator.",
+      "description": null,
+      "severity": 1
+    },
+    {
+      "id": "658295",
+      "title": "On the weekends of August 16th-17th & 23rd-24th, Red and Green Line subway service will replace regular Commuter Rail service between North Station and Porter.",
+      "description": "Passengers can utilize the Green Line from North Station to Park Street and then switch to the Red Line from Park Street to Porter. Passengers will then connect with a Commuter Rail train.\r\n\nThis allows for work on the North Station Terminal Area Signal System Improvement Project.\r\n\nA diversion schedule will be in effect and available soon on mbta.com/cr.",
+      "severity": 1
+    },
+    {
+      "id": "639578",
+      "title": "Malden Center Escalator 312 (Street level to Commuter Rail platform) unavailable due to maintenance.",
+      "description": null,
+      "severity": 3
+    },
+    {
+      "id": "630009",
+      "title": "There is no accessible path connecting the inbound and outbound platforms at Wellesley Square Station. The existing path includes steep slopes and is long. Designs are underway to provide for a fully compliant pathway.",
+      "description": "There are accessible mini-high platforms at the Western end of both the Track 1 and Track 2 sides. However, the existing pedestrian path between the two sides is long and includes steep slopes, especially on the Crest Road bridge over the tracks. Designs are underway to provide for a fully compliant pathway. ",
+      "severity": 1
+    },
+    {
+      "id": "659469",
+      "title": "Beginning on Sunday, August 24, 2025, Routes 62 and 76 will run as separate bus routes, with more frequent service on both. Route 62 will run every day, and the combined 62/76 route will be discontinued.",
+      "description": "Routes 62 & 76: Bedford VA Hospital \u2013 Alewife Station, Hanscom Airport, and Lincoln Lab:\r\n\nIf you ride the combined Route 62/76:\r\nThe combined 62/76 route pattern will be discontinued, ending Saturday service to Lincoln Lab and all service on Hartwell Ave in Lexington.\r\n\nFor weekday service between Lexington Center, Hanscom Field, and Lincoln Lab, use Route 76.\r\nFor Saturday service between Lexington Center, Hanscom Field, and Lincoln Lab, use an alternative travel option.\r\nOn Hartwell Ave in Lexington, use Route 62 or an alternative travel option.\r\n\nIf you ride Route 62:\r\nYou'll have more frequent service, every day of the week. There won't be any changes to the route.\r\n\nRoute 62 will run every day, with weekend service on both Saturday and Sunday.\r\nOn weekdays during peak hours (7 \u2013 9 AM and 4 \u2013 6:30 PM), a Route 62 bus will arrive every 30 minutes, compared to 45 minutes today.\r\n\nOn weekdays during peak hours, between Alewife and Lexington Center, a 62 or 76 bus will arrive every 15 \u2013 30 minutes.\r\n\nOn weekends, a Route 62 bus will arrive every 50 minutes, compared to 65 minutes on the 62/76 today. \r\nTrips between the Bedford VA Hospital and Alewife will be 15 \u2013 20 minutes shorter.\r\n\nIf you ride Route 76:\r\nRoute 76 will continue to run on weekdays only, with more frequent service during peak hours (7 \u2013 9 AM and 4 \u2013 6:30 PM). There won't be any changes to the route.\r\n\nDuring peak hours, a Route 76 bus will arrive every 30 minutes, compared to 45 minutes today.\r\nDuring peak hours, between Alewife and Lexington Center, a 62 or 76 bus will arrive every 15 \u2013 30 minutes.\r\nRoute 76 will run new midday and evening service.",
+      "severity": 3
+    },
+    {
+      "id": "660349",
+      "title": "Haverhill Line Train 274 (6:57 pm from Haverhill) will originate at Bradford due to police activity near Haverhill.",
+      "description": "Affected direction: Inbound",
+      "severity": 1
+    },
+    {
+      "id": "660241",
+      "title": "Routes 210 and 238 are detoured due to construction at Quincy Adams busway. Buses will pick up/drop off on Independence Ave where customers may use the existing pedestrian pathway to access Quincy Adams Station.",
+      "description": "Affected routes:\r\n210\r\n238",
+      "severity": 1
+    },
+    {
+      "id": "658986",
+      "title": "The Franklin/Foxboro line will experience service and schedule changes due to Amtrak infrastructure repair work. Passengers can expect delays of up to 25 minutes in both directions. View PDF Timetable on the MBTA website.",
+      "description": null,
+      "severity": 5
+    }
+  ],
   "status": "active"
 }
