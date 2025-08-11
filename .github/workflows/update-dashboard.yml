@@ -53,24 +53,36 @@ jobs:
         
         try:
             # Get routes with detailed information
+            print('�� Fetching routes...')
             routes_response = requests.get(f'{base_url}/routes', headers=headers)
             routes_response.raise_for_status()
             routes_data = routes_response.json()
+            print(f'✅ Found {len(routes_data.get(\"data\", []))} routes')
             
             # Get vehicles with positions
+            print('🚌 Fetching vehicles...')
             vehicles_response = requests.get(f'{base_url}/vehicles', headers=headers)
             vehicles_response.raise_for_status()
             vehicles_data = vehicles_response.json()
+            print(f'✅ Found {len(vehicles_data.get(\"data\", []))} vehicles')
             
             # Get service alerts
+            print('⚠️  Fetching service alerts...')
             alerts_response = requests.get(f'{base_url}/alerts', headers=headers)
             alerts_response.raise_for_status()
             alerts_data = alerts_response.json()
+            print(f'✅ Found {len(alerts_data.get(\"data\", []))} alerts')
             
-            # Get predictions for delay analysis
-            predictions_response = requests.get(f'{base_url}/predictions', headers=headers)
-            predictions_response.raise_for_status()
-            predictions_data = predictions_response.json()
+            # Get predictions with proper parameters (limit to avoid 400 errors)
+            print('⏰ Fetching predictions...')
+            try:
+                predictions_response = requests.get(f'{base_url}/predictions?limit=100', headers=headers)
+                predictions_response.raise_for_status()
+                predictions_data = predictions_response.json()
+                print(f'✅ Found {len(predictions_data.get(\"data\", []))} predictions')
+            except requests.exceptions.HTTPError as e:
+                print(f'⚠️  Predictions API error: {e}')
+                predictions_data = {'data': []}
             
             # Process routes by type
             routes_by_type = defaultdict(list)
@@ -122,18 +134,19 @@ jobs:
                             })
                             break
             
-            # Process delays from predictions
+            # Process delays from predictions (if available)
             delays_by_route = defaultdict(list)
-            for prediction in predictions_data.get('data', []):
-                attrs = prediction['attributes']
-                if attrs.get('delay') and attrs['delay'] > 0:
-                    route_id = prediction['relationships'].get('route', {}).get('data', {}).get('id')
-                    if route_id:
-                        delays_by_route[route_id].append({
-                            'delay': attrs['delay'],
-                            'stop_id': attrs.get('stop_id'),
-                            'direction': attrs.get('direction_id')
-                        })
+            if predictions_data.get('data'):
+                for prediction in predictions_data['data']:
+                    attrs = prediction['attributes']
+                    if attrs.get('delay') and attrs['delay'] > 0:
+                        route_id = prediction['relationships'].get('route', {}).get('data', {}).get('id')
+                        if route_id:
+                            delays_by_route[route_id].append({
+                                'delay': attrs['delay'],
+                                'stop_id': attrs.get('stop_id'),
+                                'direction': attrs.get('direction_id')
+                            })
             
             # Create comprehensive data structure
             dashboard_data = {
@@ -164,11 +177,16 @@ jobs:
             with open('docs/data/latest_data.json', 'w') as f:
                 json.dump(dashboard_data, f, indent=2)
             
-            print(f'✅ Collected data: {dashboard_data[\"total_routes\"]} routes, {dashboard_data[\"active_vehicles\"]} vehicles, {len(active_alerts)} alerts')
+            print(f'🎉 Successfully collected data:')
+            print(f'   �� {dashboard_data[\"total_routes\"]} routes')
+            print(f'   �� {dashboard_data[\"active_vehicles\"]} vehicles')
+            print(f'   ⚠️  {len(active_alerts)} active alerts')
+            print(f'   📍 {len(dashboard_data[\"vehicle_positions\"])} vehicle positions')
+            print(f'   ⏰ {len(delays_by_route)} routes with delays')
             
         except Exception as e:
             print(f'❌ Error collecting data: {str(e)}')
-            # Create fallback data
+            # Create fallback data with what we have
             fallback_data = {
                 'last_updated': datetime.utcnow().isoformat(),
                 'total_routes': 0,
@@ -177,10 +195,12 @@ jobs:
                 'routes_by_type': {},
                 'active_alerts': [],
                 'delays_by_route': {},
-                'vehicle_positions': []
+                'vehicle_positions': [],
+                'error_message': str(e)
             }
             with open('docs/data/latest_data.json', 'w') as f:
                 json.dump(fallback_data, f, indent=2)
+            print('⚠️  Created fallback data file')
             exit(1)
         "
     
