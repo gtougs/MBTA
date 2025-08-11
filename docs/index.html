@@ -45,16 +45,24 @@
             border-radius: 15px;
             border: 2px solid #3498db;
             box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, cursor: pointer;
+            position: relative;
         }
         .stat-card:hover {
             transform: translateY(-5px);
+            border-color: #e74c3c;
         }
         .stat-card.delays {
             border-color: #e74c3c;
         }
         .stat-card.alerts {
             border-color: #f39c12;
+        }
+        .stat-card.routes {
+            border-color: #9b59b6;
+        }
+        .stat-card.vehicles {
+            border-color: #27ae60;
         }
         .stat-value {
             font-size: 2.5em;
@@ -67,6 +75,25 @@
         }
         .stat-card.alerts .stat-value {
             color: #f39c12;
+        }
+        .stat-card.routes .stat-value {
+            color: #9b59b6;
+        }
+        .stat-card.vehicles .stat-value {
+            color: #27ae60;
+        }
+        .stat-subtitle {
+            font-size: 0.9em;
+            color: #bdc3c7;
+            margin-top: 10px;
+        }
+        .click-hint {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 0.8em;
+            color: #95a5a6;
+            opacity: 0.7;
         }
         .chart-container {
             display: grid;
@@ -93,6 +120,27 @@
             height: 400px;
             border-radius: 10px;
             background: #34495e;
+        }
+        .map-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(52, 73, 94, 0.5);
+            border-radius: 8px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid white;
         }
         .problem-routes {
             background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
@@ -160,6 +208,77 @@
         .delay-category.minor { border-color: #f39c12; background: rgba(243, 156, 18, 0.1); }
         .delay-category.moderate { border-color: #e67e22; background: rgba(230, 126, 34, 0.1); }
         .delay-category.severe { border-color: #e74c3c; background: rgba(231, 76, 60, 0.1); }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+        }
+        .modal-content {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 2px solid #3498db;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #e74c3c;
+        }
+        .modal h2 {
+            color: #e67e22;
+            margin-top: 0;
+        }
+        .detail-item {
+            background: rgba(52, 73, 94, 0.5);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        .detail-item.alert {
+            border-left-color: #f39c12;
+        }
+        .detail-item.route {
+            border-left-color: #9b59b6;
+        }
+        .detail-item.vehicle {
+            border-left-color: #27ae60;
+        }
+        .route-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .route-card {
+            background: rgba(155, 89, 182, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #9b59b6;
+            text-align: center;
+        }
+        .route-count {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #9b59b6;
+        }
     </style>
 </head>
 <body>
@@ -168,15 +287,20 @@
         <div class="subtitle">Identifying system failures, delays, and problem areas in real-time</div>
         
         <div class="stats-grid">
-            <div class="stat-card">
+            <div class="stat-card routes" onclick="showRouteDetails()">
+                <div class="click-hint">📋 Click for details</div>
                 <div class="stat-value" id="total-routes">--</div>
                 <div>Total Routes</div>
+                <div class="stat-subtitle" id="route-breakdown">Loading...</div>
             </div>
-            <div class="stat-card">
+            <div class="stat-card vehicles" onclick="showVehicleDetails()">
+                <div class="click-hint">📋 Click for details</div>
                 <div class="stat-value" id="active-vehicles">--</div>
                 <div>Active Vehicles</div>
+                <div class="stat-subtitle" id="vehicle-breakdown">Loading...</div>
             </div>
-            <div class="stat-card delays">
+            <div class="stat-card delays" onclick="showDelayDetails()">
+                <div class="click-hint">📋 Click for details</div>
                 <div class="stat-value" id="active-delays">--</div>
                 <div>Active Delays</div>
                 <div class="delay-distribution">
@@ -194,9 +318,11 @@
                     </div>
                 </div>
             </div>
-            <div class="stat-card alerts">
+            <div class="stat-card alerts" onclick="showAlertDetails()">
+                <div class="click-hint">📋 Click for details</div>
                 <div class="stat-value" id="service-alerts">--</div>
                 <div>Service Alerts</div>
+                <div class="stat-subtitle">Click to see active alerts</div>
             </div>
         </div>
         
@@ -212,6 +338,28 @@
         <div class="map-container">
             <h3>🚂 Live Vehicle Locations & Problem Hotspots</h3>
             <div id="map"></div>
+            <div class="map-legend" id="map-legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #00843D;"></div>
+                    <span>Green Line</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #DA291C;"></div>
+                    <span>Red Line</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ED8B00;"></div>
+                    <span>Orange Line</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #003DA5;"></div>
+                    <span>Blue Line</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #E74C3C;"></div>
+                    <span>Problem Areas</span>
+                </div>
+            </div>
         </div>
         
         <div class="problem-routes">
@@ -227,10 +375,47 @@
         </div>
     </div>
 
+    <!-- Route Details Modal -->
+    <div id="routeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('routeModal')">&times;</span>
+            <h2>�� Route Breakdown</h2>
+            <div id="route-details-content"></div>
+        </div>
+    </div>
+
+    <!-- Vehicle Details Modal -->
+    <div id="vehicleModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('vehicleModal')">&times;</span>
+            <h2>🚌 Vehicle Breakdown by Route</h2>
+            <div id="vehicle-details-content"></div>
+        </div>
+    </div>
+
+    <!-- Delay Details Modal -->
+    <div id="delayModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('delayModal')">&times;</span>
+            <h2>⏰ Delay Analysis</h2>
+            <div id="delay-details-content"></div>
+        </div>
+    </div>
+
+    <!-- Alert Details Modal -->
+    <div id="alertModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('alertModal')">&times;</span>
+            <h2>🚨 Active Service Alerts</h2>
+            <div id="alert-details-content"></div>
+        </div>
+    </div>
+
     <script>
         let map;
         let vehicleMarkers = [];
         let problemMarkers = [];
+        let currentData = {};
 
         // Initialize map
         function initMap() {
@@ -245,6 +430,7 @@
             try {
                 const response = await fetch('data/latest_stats.json');
                 const data = await response.json();
+                currentData = data;
                 
                 // Update stats with REAL data
                 document.getElementById('total-routes').textContent = data.total_routes || '--';
@@ -258,6 +444,12 @@
                     document.getElementById('moderate-delays').textContent = data.delays.delay_distribution.moderate || '--';
                     document.getElementById('severe-delays').textContent = data.delays.delay_distribution.severe || '--';
                 }
+                
+                // Update route breakdown
+                updateRouteBreakdown(data);
+                
+                // Update vehicle breakdown
+                updateVehicleBreakdown(data);
                 
                 // Update last updated time
                 const lastUpdated = new Date(data.last_updated).toLocaleString();
@@ -276,6 +468,38 @@
             } catch (error) {
                 console.error('Error loading dashboard data:', error);
                 document.getElementById('last-updated').textContent = 'Error loading data';
+            }
+        }
+
+        function updateRouteBreakdown(data) {
+            const breakdown = document.getElementById('route-breakdown');
+            if (data.route_details && Object.keys(data.route_details).length > 0) {
+                const routeTypes = {};
+                Object.values(data.route_details).forEach(route => {
+                    const type = route.type || 'unknown';
+                    routeTypes[type] = (routeTypes[type] || 0) + 1;
+                });
+                
+                const summary = Object.entries(routeTypes)
+                    .map(([type, count]) => `${type}: ${count}`)
+                    .join(', ');
+                breakdown.textContent = summary;
+            } else {
+                breakdown.textContent = 'Route details loading...';
+            }
+        }
+
+        function updateVehicleBreakdown(data) {
+            const breakdown = document.getElementById('vehicle-breakdown');
+            if (data.route_vehicle_counts && Object.keys(data.route_vehicle_counts).length > 0) {
+                const topRoutes = Object.entries(data.route_vehicle_counts)
+                    .sort(([,a], [,b]) => b - a)
+                    .slice(0, 3)
+                    .map(([route, count]) => `${route}: ${count}`)
+                    .join(', ');
+                breakdown.textContent = topRoutes;
+            } else {
+                breakdown.textContent = 'Vehicle counts loading...';
             }
         }
 
@@ -374,12 +598,20 @@
             vehicleMarkers = [];
             problemMarkers = [];
 
-            // Add REAL vehicle locations from MBTA API
+            // Add REAL vehicle locations from MBTA API with color-coded pins
             if (data.vehicle_locations && data.vehicle_locations.length > 0) {
                 data.vehicle_locations.forEach(location => {
-                    const marker = L.marker([location.lat, location.lng])
-                        .bindPopup(`<b>${location.route}</b><br>Active Vehicle<br>Location: ${location.lat.toFixed(4)}, ${location.lng.toFixed(4)}`)
-                        .addTo(map);
+                    const routeColor = getRouteColor(location.route, data.route_details);
+                    const marker = L.circleMarker([location.lat, location.lng], {
+                        radius: 8,
+                        fillColor: routeColor,
+                        color: 'white',
+                        weight: 2,
+                        opacity: 1,
+                        fillOpacity: 0.8
+                    })
+                    .bindPopup(`<b>${location.route}</b><br>Active Vehicle<br>Location: ${location.lat.toFixed(4)}, ${location.lng.toFixed(4)}`)
+                    .addTo(map);
                     vehicleMarkers.push(marker);
                 });
             }
@@ -413,6 +645,149 @@
             }
         }
 
+        function getRouteColor(routeId, routeDetails) {
+            if (routeDetails && routeDetails[routeId]) {
+                return '#' + routeDetails[routeId].color;
+            }
+            
+            // Default MBTA colors
+            const defaultColors = {
+                'Green': '#00843D',
+                'Red': '#DA291C',
+                'Orange': '#ED8B00',
+                'Blue': '#003DA5'
+            };
+            
+            for (const [line, color] of Object.entries(defaultColors)) {
+                if (routeId.includes(line)) {
+                    return color;
+                }
+            }
+            
+            return '#95a5a6'; // Default gray
+        }
+
+        // Modal functions
+        function showRouteDetails() {
+            const modal = document.getElementById('routeModal');
+            const content = document.getElementById('route-details-content');
+            
+            if (currentData.route_details) {
+                let html = '<div class="route-breakdown">';
+                Object.entries(currentData.route_details).forEach(([routeId, details]) => {
+                    html += `
+                        <div class="route-card">
+                            <div class="route-count">${details.short_name || routeId}</div>
+                            <div>${details.name}</div>
+                            <div style="font-size: 0.8em; color: #bdc3c7;">Type: ${details.type}</div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+                content.innerHTML = html;
+            } else {
+                content.innerHTML = '<p>Route details not available</p>';
+            }
+            
+            modal.style.display = 'block';
+        }
+
+        function showVehicleDetails() {
+            const modal = document.getElementById('vehicleModal');
+            const content = document.getElementById('vehicle-details-content');
+            
+            if (currentData.route_vehicle_counts) {
+                let html = '<div class="route-breakdown">';
+                Object.entries(currentData.route_vehicle_counts)
+                    .sort(([,a], [,b]) => b - a)
+                    .forEach(([routeId, count]) => {
+                        const routeName = currentData.route_details?.[routeId]?.short_name || routeId;
+                        html += `
+                            <div class="route-card">
+                                <div class="route-count">${count}</div>
+                                <div>${routeName}</div>
+                                <div style="font-size: 0.8em; color: #bdc3c7;">Active Vehicles</div>
+                            </div>
+                        `;
+                    });
+                html += '</div>';
+                content.innerHTML = html;
+            } else {
+                content.innerHTML = '<p>Vehicle details not available</p>';
+            }
+            
+            modal.style.display = 'block';
+        }
+
+        function showDelayDetails() {
+            const modal = document.getElementById('delayModal');
+            const content = document.getElementById('delay-details-content');
+            
+            if (currentData.delays) {
+                const delays = currentData.delays;
+                let html = `
+                    <div class="detail-item">
+                        <h3>Delay Summary</h3>
+                        <p><strong>Total Delays:</strong> ${delays.total_delays}</p>
+                        <p><strong>Average Delay:</strong> ${delays.average_delay_minutes} minutes</p>
+                        <p><strong>Maximum Delay:</strong> ${delays.max_delay_minutes} minutes</p>
+                    </div>
+                `;
+                
+                if (currentData.problem_routes && Object.keys(currentData.problem_routes).length > 0) {
+                    html += '<div class="detail-item"><h3>Routes with Most Delays</h3>';
+                    Object.entries(currentData.problem_routes)
+                        .slice(0, 5)
+                        .forEach(([routeId, count]) => {
+                            html += `<p><strong>${routeId}:</strong> ${count} delays</p>`;
+                        });
+                    html += '</div>';
+                }
+                
+                content.innerHTML = html;
+            } else {
+                content.innerHTML = '<p>Delay details not available</p>';
+            }
+            
+            modal.style.display = 'block';
+        }
+
+        function showAlertDetails() {
+            const modal = document.getElementById('alertModal');
+            const content = document.getElementById('alert-details-content');
+            
+            if (currentData.service_alerts && currentData.service_alerts.length > 0) {
+                let html = '';
+                currentData.service_alerts.forEach(alert => {
+                    html += `
+                        <div class="detail-item alert">
+                            <h4>${alert.title}</h4>
+                            <p><strong>Severity:</strong> ${alert.severity}</p>
+                            <p>${alert.description}</p>
+                            <p><strong>Affected Routes:</strong> ${alert.affected_routes.join(', ') || 'All routes'}</p>
+                            <p><strong>Updated:</strong> ${new Date(alert.updated_at).toLocaleString()}</p>
+                        </div>
+                    `;
+                });
+                content.innerHTML = html;
+            } else {
+                content.innerHTML = '<p>No active service alerts at this time</p>';
+            }
+            
+            modal.style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
         // Initialize dashboard
         document.addEventListener('DOMContentLoaded', function() {
             initMap();
@@ -424,6 +799,7 @@
     </script>
 </body>
 </html>
+
 
 
 
