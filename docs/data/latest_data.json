@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-08-12T06:36:50.862857",
+  "last_updated": "2025-08-12T07:24:39.644938",
   "total_routes": 178,
   "active_vehicles": 15,
   "status": "active",
@@ -31,6 +31,13 @@
       "title": "Airport Escalator 409 (Bowdoin platform to paid mezzanine) unavailable from Tue Aug 12 through Wed Aug 13 due to maintenance",
       "description": null,
       "severity": 3,
+      "route_id": "unknown"
+    },
+    {
+      "id": "654244",
+      "title": "The Washington Ave @ Broadway stop is closed from 7 AM - 5 PM, Mon through Thu, until further notice for construction",
+      "description": "Affected routes:\r\n104\r\n111\r\n112\r\n114\r\n116",
+      "severity": 5,
       "route_id": "unknown"
     },
     {
@@ -73,6 +80,13 @@
       "title": "Littleton/Route 495 passengers can expect occasional traffic and detours accessing the station due to the Foster Street reconstruction work",
       "description": "Scheduled to complete sometime in 2027, the Reconstruction of Foster Street includes widening and resurfacing with the addition of bicycle lanes.  ",
       "severity": 1,
+      "route_id": "unknown"
+    },
+    {
+      "id": "643427",
+      "title": "The following stop is closed Mon through Thu, from 7AM to 5PM, due to construction until further notice: Hawthorne St @ Broadway (outbound)",
+      "description": "Riders can board at the following stops:\r\n\nCity Hall Ave @ Broadway (for the northbound 111)\r\nBroadway @ City Hall Ave (for the northbound 116)\r\nWashington Ave @ Broadway (for the westbound 104, 112, and 114)\r\n\nAffected routes:\r\n104\r\n111\r\n112\r\n114\r\n116",
+      "severity": 5,
       "route_id": "unknown"
     },
     {
@@ -174,6 +188,13 @@
       "route_id": "unknown"
     },
     {
+      "id": "659683",
+      "title": "Please board Prov Line Train 802 on the outbound platform at Pawtucket/Central Falls & S Attleboro on weekdays until further notice",
+      "description": "Affected direction: Inbound\r\n\nAffected stops:\r\nPawtucket/Central Falls\r\nSouth Attleboro\r\n\nAffected trips:\r\n802 (4:12 am from Providence)\r\n",
+      "severity": 7,
+      "route_id": "unknown"
+    },
+    {
       "id": "651836",
       "title": "Assembly Escalator 442 (Foley Street to unpaid lobby) unavailable due to maintenance",
       "description": null,
@@ -265,6 +286,13 @@
       "route_id": "unknown"
     },
     {
+      "id": "660262",
+      "title": "Please board Prov Line Train 810 on the outbound platform at Pawtucket/Central Falls & S Attleboro on weekdays until further notice",
+      "description": "Affected direction: Inbound\r\n\nAffected stops:\r\nPawtucket/Central Falls\r\nSouth Attleboro\r\n\nAffected trips:\r\n810 (6:00 am from Providence)\r\n",
+      "severity": 7,
+      "route_id": "unknown"
+    },
+    {
       "id": "640942",
       "title": "The Bus Stop at Saint James Ave @ Dartmouth St is closed until further notice. Riders should use the stop at Saint James Ave @ Clarendon St",
       "description": "Affected routes:\r\n9\r\n10\r\n39\r\n55\r\n501\r\n504",
@@ -303,12 +331,32 @@
   "delays_by_route": {},
   "vehicle_positions": [
     {
+      "id": "ynk237",
+      "route_id": "Shuttle-Generic",
+      "route_type": null,
+      "latitude": 42.338462,
+      "longitude": -71.0446,
+      "bearing": 208,
+      "speed": null,
+      "status": null
+    },
+    {
       "id": "ynk252",
       "route_id": "Shuttle-Generic",
       "route_type": null,
       "latitude": 42.203051,
       "longitude": -71.064814,
       "bearing": 116,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y1860",
+      "route_id": "15",
+      "route_type": null,
+      "latitude": 42.30304543,
+      "longitude": -71.05949138,
+      "bearing": 186,
       "speed": null,
       "status": null
     },
@@ -336,9 +384,19 @@
       "id": "ynk228",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.203011,
-      "longitude": -71.065012,
-      "bearing": 355,
+      "latitude": 42.203058,
+      "longitude": -71.064946,
+      "bearing": 95,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "ynk231",
+      "route_id": "Shuttle-Generic",
+      "route_type": null,
+      "latitude": 42.338735,
+      "longitude": -71.044783,
+      "bearing": 191,
       "speed": null,
       "status": null
     },
@@ -346,19 +404,9 @@
       "id": "ynk215",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.202527,
-      "longitude": -71.064275,
-      "bearing": 65,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk255",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.202497,
-      "longitude": -71.064417,
-      "bearing": 7,
+      "latitude": 42.202523,
+      "longitude": -71.064358,
+      "bearing": 331,
       "speed": null,
       "status": null
     },
@@ -366,9 +414,9 @@
       "id": "ynk224",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.339001,
-      "longitude": -71.044385,
-      "bearing": 214,
+      "latitude": 42.338982,
+      "longitude": -71.044373,
+      "bearing": 36,
       "speed": null,
       "status": null
     },
@@ -383,12 +431,12 @@
       "status": null
     },
     {
-      "id": "ynk254",
-      "route_id": "Shuttle-Generic",
+      "id": "y1847",
+      "route_id": "28",
       "route_type": null,
-      "latitude": 42.202481,
-      "longitude": -71.064287,
-      "bearing": 225,
+      "latitude": 42.28664026,
+      "longitude": -71.09048149,
+      "bearing": 14,
       "speed": null,
       "status": null
     },
@@ -396,9 +444,9 @@
       "id": "ynk305",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.33869,
-      "longitude": -71.044018,
-      "bearing": 113,
+      "latitude": 42.338431,
+      "longitude": -71.043721,
+      "bearing": 226,
       "speed": null,
       "status": null
     },
@@ -423,32 +471,12 @@
       "status": null
     },
     {
-      "id": "ynk249",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.202615,
-      "longitude": -71.064322,
-      "bearing": 67,
-      "speed": null,
-      "status": null
-    },
-    {
       "id": "ynk222",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338972,
-      "longitude": -71.044348,
-      "bearing": 56,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk250",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.202659,
-      "longitude": -71.064277,
-      "bearing": 80,
+      "latitude": 42.339,
+      "longitude": -71.044411,
+      "bearing": 29,
       "speed": null,
       "status": null
     }
