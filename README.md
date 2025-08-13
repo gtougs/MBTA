@@ -2,7 +2,7 @@
 
 A real-time data engineering pipeline for ingesting, processing, and analyzing MBTA (Massachusetts Bay Transportation Authority) transit data. This project demonstrates modern data engineering practices including real-time ingestion, streaming, and analytics.
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
@@ -47,7 +47,7 @@ A real-time data engineering pipeline for ingesting, processing, and analyzing M
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-## 🚀 Features
+## Features
 
 - **Dual Data Sources**: 
   - MBTA V3 REST API (JSON) for predictions and vehicle data
@@ -62,7 +62,7 @@ A real-time data engineering pipeline for ingesting, processing, and analyzing M
 
 ## 📋 Prerequisites
 
-- Python 3.9+
+- Python 3.11+
 - Docker and Docker Compose
 - MBTA API key (request at [MBTA Developer Portal](https://api-v3.mbta.com/))
 - Google Cloud account (for BigQuery)
