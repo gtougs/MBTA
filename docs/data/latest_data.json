@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-08-13T06:37:06.435598",
+  "last_updated": "2025-08-13T07:25:12.157230",
   "total_routes": 178,
-  "active_vehicles": 23,
+  "active_vehicles": 25,
   "status": "active",
   "routes_by_type": {},
   "active_alerts": [
@@ -24,6 +24,13 @@
       "title": "Lynn Parking Garage arcade stairs 1 & 2 are closed until further notice. Customers may exit the garage via elevators to the ground level or ",
       "description": "Vehicular access to the upper 2 levels of the garage is restricted. The garage has sufficient parking capacity to accommodate daily demand.",
       "severity": 3,
+      "route_id": "unknown"
+    },
+    {
+      "id": "654244",
+      "title": "The Washington Ave @ Broadway stop is closed from 7 AM - 5 PM, Mon through Thu, until further notice for construction",
+      "description": "Affected routes:\r\n104\r\n111\r\n112\r\n114\r\n116",
+      "severity": 5,
       "route_id": "unknown"
     },
     {
@@ -76,16 +83,16 @@
       "route_id": "unknown"
     },
     {
-      "id": "507767",
-      "title": "Beginning Fri, Jun 30, the Riverside Ave entrance at Campello Station will be closed.",
-      "description": "Affected lines:\r\nFall River/New Bedford Line",
-      "severity": 1,
+      "id": "643427",
+      "title": "The following stop is closed Mon through Thu, from 7AM to 5PM, due to construction until further notice: Hawthorne St @ Broadway (outbound)",
+      "description": "Riders can board at the following stops:\r\n\nCity Hall Ave @ Broadway (for the northbound 111)\r\nBroadway @ City Hall Ave (for the northbound 116)\r\nWashington Ave @ Broadway (for the westbound 104, 112, and 114)\r\n\nAffected routes:\r\n104\r\n111\r\n112\r\n114\r\n116",
+      "severity": 5,
       "route_id": "unknown"
     },
     {
-      "id": "659448",
-      "title": "Prov Line Train 806 (5:10am from Prov) will make additional stops at Readville and Forest Hills today due to Amtrak infrastructure repairs",
-      "description": "Affected direction: Inbound\r\n",
+      "id": "507767",
+      "title": "Beginning Fri, Jun 30, the Riverside Ave entrance at Campello Station will be closed.",
+      "description": "Affected lines:\r\nFall River/New Bedford Line",
       "severity": 1,
       "route_id": "unknown"
     },
@@ -132,9 +139,9 @@
       "route_id": "unknown"
     },
     {
-      "id": "659447",
-      "title": "Prov Line Train 810 (6am from Prov) will make additional stops at Readville and Forest Hills today due to Amtrak infrastructure repairs",
-      "description": "Affected direction: Inbound\r\n\nAffected stops:\r\nReadville\r\nForest Hills",
+      "id": "659445",
+      "title": "Prov Line Train 818 (7:10am from Prov) will make additional stops at Readville and Forest Hills today due to Amtrak infrastructure repairs",
+      "description": "Affected direction: Inbound\r\n\nPlease board on the inbound platform (TRACK 2) at Readville.\r\nPlease board on the Commuter Rail platform (TRACK 3) at Forest Hills.",
       "severity": 1,
       "route_id": "unknown"
     },
@@ -324,12 +331,22 @@
   "delays_by_route": {},
   "vehicle_positions": [
     {
+      "id": "y1823",
+      "route_id": "15",
+      "route_type": null,
+      "latitude": 42.2838548,
+      "longitude": -71.06392963,
+      "bearing": 5,
+      "speed": null,
+      "status": null
+    },
+    {
       "id": "ynk237",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338592,
-      "longitude": -71.044304,
-      "bearing": 277,
+      "latitude": 42.338757,
+      "longitude": -71.044089,
+      "bearing": 119,
       "speed": null,
       "status": null
     },
@@ -387,9 +404,9 @@
       "id": "ynk228",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.202628,
-      "longitude": -71.064317,
-      "bearing": 199,
+      "latitude": 42.20253,
+      "longitude": -71.064434,
+      "bearing": 251,
       "speed": null,
       "status": null
     },
@@ -397,19 +414,9 @@
       "id": "ynk231",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338741,
-      "longitude": -71.044472,
-      "bearing": 87,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk190",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.33907,
-      "longitude": -71.043686,
-      "bearing": 186,
+      "latitude": 42.338716,
+      "longitude": -71.044664,
+      "bearing": 256,
       "speed": null,
       "status": null
     },
@@ -417,8 +424,8 @@
       "id": "ynk215",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.202447,
-      "longitude": -71.064235,
+      "latitude": 42.202472,
+      "longitude": -71.064208,
       "bearing": 50,
       "speed": null,
       "status": null
@@ -427,8 +434,8 @@
       "id": "ynk255",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.202749,
-      "longitude": -71.064497,
+      "latitude": 42.202768,
+      "longitude": -71.06445,
       "bearing": 71,
       "speed": null,
       "status": null
@@ -487,9 +494,19 @@
       "id": "ynk251",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338922,
-      "longitude": -71.044237,
-      "bearing": 265,
+      "latitude": 42.338678,
+      "longitude": -71.044655,
+      "bearing": 220,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y1789",
+      "route_id": "28",
+      "route_type": null,
+      "latitude": 42.26784843,
+      "longitude": -71.09187023,
+      "bearing": 67,
       "speed": null,
       "status": null
     },
@@ -517,9 +534,19 @@
       "id": "ynk248",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.202755,
-      "longitude": -71.064431,
+      "latitude": 42.202704,
+      "longitude": -71.064453,
       "bearing": 231,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "ynk304",
+      "route_id": "Shuttle-Generic",
+      "route_type": null,
+      "latitude": 42.338683,
+      "longitude": -71.043887,
+      "bearing": 43,
       "speed": null,
       "status": null
     },
@@ -527,9 +554,9 @@
       "id": "ynk232",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338847,
-      "longitude": -71.044246,
-      "bearing": 30,
+      "latitude": 42.338666,
+      "longitude": -71.044629,
+      "bearing": 221,
       "speed": null,
       "status": null
     },
