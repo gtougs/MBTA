@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MBTA Problem Analysis Dashboard</title>
+    <title>MBTA Service Analysis Dashboard</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -655,7 +655,9 @@
                 'Green': '#00843D',
                 'Red': '#DA291C',
                 'Orange': '#ED8B00',
-                'Blue': '#003DA5'
+                'Blue': '#003DA5',
+                'Commuter Rail': '#A020F0',
+                'Bus': '#FFFF00'
             };
             
             for (const [line, color] of Object.entries(defaultColors)) {
@@ -799,4 +801,5 @@
     </script>
 </body>
 </html>
+
 
