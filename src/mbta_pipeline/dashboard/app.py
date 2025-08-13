@@ -236,6 +236,8 @@ async def run_analytics_query(
                 sql = AnalyticsQueries.get_service_alerts_summary(hours)
             elif query_name == 'headways':
                 sql = AnalyticsQueries.get_headway_analysis(hours, route_id)
+            elif query_name == 'hourly_trends':
+                sql = AnalyticsQueries.get_hourly_performance_trends(hours, route_id)
             elif query_name == 'peak':
                 sql = AnalyticsQueries.get_peak_hour_analysis(hours)
             elif query_name == 'anomalies':

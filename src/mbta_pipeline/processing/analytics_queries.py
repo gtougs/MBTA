@@ -47,24 +47,43 @@ class AnalyticsQueries:
     
     @staticmethod
     def get_delay_trends(hours: int = 24, route_id: Optional[str] = None) -> str:
-        """Get delay trends over time."""
+        """Get delay trends over time with complete hour buckets."""
         route_filter = f"AND p.route_id = '{route_id}'" if route_id else ""
         
         return f"""
+        WITH hour_buckets AS (
+            SELECT 
+                generate_series(
+                    DATE_TRUNC('hour', NOW() - INTERVAL '{hours} hours'),
+                    DATE_TRUNC('hour', NOW()),
+                    INTERVAL '1 hour'
+                ) as hour_bucket
+        ),
+        hourly_delays AS (
+            SELECT 
+                DATE_TRUNC('hour', p.timestamp) as hour_bucket,
+                COUNT(*) as total_predictions,
+                COUNT(CASE WHEN p.delay > 0 THEN 1 END) as delayed_count,
+                ROUND((AVG(p.delay) / 60.0)::numeric, 2) as avg_delay_minutes,
+                ROUND((MAX(p.delay) / 60.0)::numeric, 2) as max_delay_minutes,
+                ROUND(
+                    (COUNT(CASE WHEN p.delay > 0 THEN 1 END)::numeric / COUNT(*)) * 100, 2
+                ) as delay_percentage
+            FROM predictions p
+            WHERE p.timestamp >= NOW() - INTERVAL '{hours} hours'
+            {route_filter}
+            GROUP BY DATE_TRUNC('hour', p.timestamp)
+        )
         SELECT 
-            DATE_TRUNC('hour', p.timestamp) as hour_bucket,
-            COUNT(*) as total_predictions,
-            COUNT(CASE WHEN p.delay > 0 THEN 1 END) as delayed_count,
-            ROUND((AVG(p.delay) / 60.0)::numeric, 2) as avg_delay_minutes,
-            ROUND((MAX(p.delay) / 60.0)::numeric, 2) as max_delay_minutes,
-            ROUND(
-                (COUNT(CASE WHEN p.delay > 0 THEN 1 END)::numeric / COUNT(*)) * 100, 2
-            ) as delay_percentage
-        FROM predictions p
-        WHERE p.timestamp >= NOW() - INTERVAL '{hours} hours'
-        {route_filter}
-        GROUP BY hour_bucket
-        ORDER BY hour_bucket DESC;
+            hb.hour_bucket,
+            COALESCE(hd.total_predictions, 0) as total_predictions,
+            COALESCE(hd.delayed_count, 0) as delayed_count,
+            COALESCE(hd.avg_delay_minutes, 0) as avg_delay_minutes,
+            COALESCE(hd.max_delay_minutes, 0) as max_delay_minutes,
+            COALESCE(hd.delay_percentage, 0) as delay_percentage
+        FROM hour_buckets hb
+        LEFT JOIN hourly_delays hd ON hb.hour_bucket = hd.hour_bucket
+        ORDER BY hb.hour_bucket ASC;
         """
     
     @staticmethod
@@ -120,24 +139,45 @@ class AnalyticsQueries:
     
     @staticmethod
     def get_vehicle_performance(hours: int = 24) -> str:
-        """Get performance metrics by vehicle."""
+        """Get vehicle performance metrics by hour with complete hour buckets."""
         return f"""
+        WITH hour_buckets AS (
+            SELECT 
+                generate_series(
+                    DATE_TRUNC('hour', NOW() - INTERVAL '{hours} hours'),
+                    DATE_TRUNC('hour', NOW()),
+                    INTERVAL '1 hour'
+                ) as hour_bucket
+        ),
+        hourly_vehicle_data AS (
+            SELECT 
+                DATE_TRUNC('hour', vp.timestamp) as hour_bucket,
+                COUNT(DISTINCT vp.vehicle_id) as vehicle_count,
+                COUNT(CASE WHEN vp.congestion_level > 0 THEN 1 END) as congested_count,
+                ROUND(AVG(vp.speed), 2) as avg_speed_mps,
+                ROUND(MAX(vp.speed), 2) as max_speed_mps,
+                ROUND(MIN(vp.speed), 2) as min_speed_mps
+            FROM vehicle_positions vp
+            WHERE vp.timestamp >= NOW() - INTERVAL '{hours} hours'
+            GROUP BY DATE_TRUNC('hour', vp.timestamp)
+        )
         SELECT 
-            v.id as vehicle_id,
-            v.vehicle_label,
-            COUNT(vp.id) as total_positions,
-            COUNT(DISTINCT vp.trip_id) as unique_trips,
-            COUNT(DISTINCT vp.route_id) as unique_routes,
-            ROUND(AVG(vp.speed), 2) as avg_speed_mps,
-            ROUND(MAX(vp.speed), 2) as max_speed_mps,
-            COUNT(CASE WHEN vp.congestion_level > 0 THEN 1 END) as congestion_incidents,
-            COUNT(CASE WHEN vp.occupancy_status > 0 THEN 1 END) as occupancy_incidents
-        FROM vehicles v
-        JOIN vehicle_positions vp ON v.id = vp.vehicle_id
-        WHERE vp.timestamp >= NOW() - INTERVAL '{hours} hours'
-        GROUP BY v.id, v.vehicle_label
-        HAVING COUNT(vp.id) >= 10  -- Only vehicles with sufficient data
-        ORDER BY total_positions DESC;
+            hb.hour_bucket,
+            COALESCE(vd.vehicle_count, 0) as vehicle_count,
+            COALESCE(vd.congested_count, 0) as congested_count,
+            COALESCE(vd.avg_speed_mps, 0) as avg_speed_mps,
+            COALESCE(vd.max_speed_mps, 0) as max_speed_mps,
+            COALESCE(vd.min_speed_mps, 0) as min_speed_mps,
+            CASE 
+                WHEN vd.vehicle_count IS NULL THEN 'No Data'
+                WHEN vd.vehicle_count = 0 THEN 'No Vehicles'
+                WHEN vd.vehicle_count < 10 THEN 'Low Activity'
+                WHEN vd.vehicle_count < 50 THEN 'Normal Activity'
+                ELSE 'High Activity'
+            END as activity_level
+        FROM hour_buckets hb
+        LEFT JOIN hourly_vehicle_data vd ON hb.hour_bucket = vd.hour_bucket
+        ORDER BY hb.hour_bucket ASC;
         """
     
     @staticmethod
@@ -353,4 +393,52 @@ class AnalyticsQueries:
             AND s.stop_lon IS NOT NULL
         GROUP BY geographic_area
         ORDER BY total_predictions DESC;
+        """
+
+    @staticmethod
+    def get_hourly_performance_trends(hours: int = 24, route_id: Optional[str] = None) -> str:
+        """Get performance trends by hour with complete hour buckets for charts."""
+        route_filter = f"AND p.route_id = '{route_id}'" if route_id else ""
+        
+        return f"""
+        WITH hour_buckets AS (
+            SELECT 
+                generate_series(
+                    DATE_TRUNC('hour', NOW() - INTERVAL '{hours} hours'),
+                    DATE_TRUNC('hour', NOW()),
+                    INTERVAL '1 hour'
+                ) as hour_bucket
+        ),
+        hourly_performance AS (
+            SELECT 
+                DATE_TRUNC('hour', p.timestamp) as hour_bucket,
+                COUNT(*) as total_predictions,
+                COUNT(CASE WHEN p.delay > 0 THEN 1 END) as delayed_count,
+                ROUND(AVG(CASE WHEN p.delay > 0 THEN p.delay ELSE 0 END) / 60.0, 2) as avg_delay_minutes,
+                ROUND(MAX(p.delay) / 60.0, 2) as max_delay_minutes,
+                COUNT(DISTINCT p.route_id) as active_routes,
+                COUNT(DISTINCT p.stop_id) as active_stops
+            FROM predictions p
+            WHERE p.timestamp >= NOW() - INTERVAL '{hours} hours'
+            {route_filter}
+            GROUP BY DATE_TRUNC('hour', p.timestamp)
+        )
+        SELECT 
+            hb.hour_bucket,
+            COALESCE(hp.total_predictions, 0) as total_predictions,
+            COALESCE(hp.delayed_count, 0) as delayed_count,
+            COALESCE(hp.avg_delay_minutes, 0) as avg_delay_minutes,
+            COALESCE(hp.max_delay_minutes, 0) as max_delay_minutes,
+            COALESCE(hp.active_routes, 0) as active_routes,
+            COALESCE(hp.active_stops, 0) as active_stops,
+            CASE 
+                WHEN hp.total_predictions IS NULL THEN 'No Data'
+                WHEN hp.total_predictions = 0 THEN 'No Activity'
+                WHEN hp.delayed_count::float / NULLIF(hp.total_predictions, 0) > 0.3 THEN 'High Delays'
+                WHEN hp.delayed_count::float / NULLIF(hp.total_predictions, 0) > 0.1 THEN 'Moderate Delays'
+                ELSE 'Good Performance'
+            END as performance_status
+        FROM hour_buckets hb
+        LEFT JOIN hourly_performance hp ON hb.hour_bucket = hp.hour_bucket
+        ORDER BY hb.hour_bucket ASC;
         """
