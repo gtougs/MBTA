@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-08-14T06:37:21.748947",
+  "last_updated": "2025-08-14T07:24:44.636162",
   "total_routes": 178,
-  "active_vehicles": 23,
+  "active_vehicles": 20,
   "status": "active",
   "routes_by_type": {},
   "active_alerts": [
@@ -24,6 +24,13 @@
       "title": "Lynn Parking Garage arcade stairs 1 & 2 are closed until further notice. Customers may exit the garage via elevators to the ground level or ",
       "description": "Vehicular access to the upper 2 levels of the garage is restricted. The garage has sufficient parking capacity to accommodate daily demand.",
       "severity": 3,
+      "route_id": "unknown"
+    },
+    {
+      "id": "654244",
+      "title": "The Washington Ave @ Broadway stop is closed from 7 AM - 5 PM, Mon through Thu, until further notice for construction",
+      "description": "Affected routes:\r\n104\r\n111\r\n112\r\n114\r\n116",
+      "severity": 5,
       "route_id": "unknown"
     },
     {
@@ -69,6 +76,13 @@
       "route_id": "unknown"
     },
     {
+      "id": "643427",
+      "title": "The following stop is closed Mon through Thu, from 7AM to 5PM, due to construction until further notice: Hawthorne St @ Broadway (outbound)",
+      "description": "Riders can board at the following stops:\r\n\nCity Hall Ave @ Broadway (for the northbound 111)\r\nBroadway @ City Hall Ave (for the northbound 116)\r\nWashington Ave @ Broadway (for the westbound 104, 112, and 114)\r\n\nAffected routes:\r\n104\r\n111\r\n112\r\n114\r\n116",
+      "severity": 5,
+      "route_id": "unknown"
+    },
+    {
       "id": "507767",
       "title": "Beginning Fri, Jun 30, the Riverside Ave entrance at Campello Station will be closed.",
       "description": "Affected lines:\r\nFall River/New Bedford Line",
@@ -108,6 +122,13 @@
       "title": "Ruggles Escalator 136 (Orange Line platform to upper lobby) unavailable",
       "description": null,
       "severity": 3,
+      "route_id": "unknown"
+    },
+    {
+      "id": "659445",
+      "title": "Prov Line Train 818 (7:10am from Prov) will make additional stops at Readville and Forest Hills today due to Amtrak infrastructure repairs",
+      "description": "Affected direction: Inbound\r\n\nPlease board on the inbound platform (TRACK 2) at Readville.\r\nPlease board on the Commuter Rail platform (TRACK 3) at Forest Hills.",
+      "severity": 1,
       "route_id": "unknown"
     },
     {
@@ -209,6 +230,13 @@
       "route_id": "unknown"
     },
     {
+      "id": "660647",
+      "title": "Rt. 34E detoured on Thurs, Aug 14, & Fri, Aug 15, from 7 AM to 4 PM. Inb. connections at East St @ High Plain St & Washington St @ Short St.",
+      "description": "Affected stops:\r\nWashington St @ Lafayette Dr (outbound)\r\n625 Washington St (outbound)\r\nWashington St @ Pilgrim Way (inbound)\r\nWashington St @ Polley Ln (inbound)\r\nWashington St opp Washington Green (inbound)\r\n238 Washington St opp May St (inbound)\r\nWashington St @ Rhoades Ave (inbound)\r\nWashington St @ Chestnut St (inbound)\r\nWashington St opp Mansion Dr (inbound)\r\nOpp 67 Washington St (inbound)\r\nWashington St opp Rockhill St (inbound)\r\nWashington St opp Mylod St (inbound)\r\nWashington St @ Morse St (inbound)",
+      "severity": 7,
+      "route_id": "unknown"
+    },
+    {
       "id": "654937",
       "title": "Routes 71 and 73 detoured beginning Sat Jul 19. The nearest connections are Mt Auburn St @ Mt Auburn Hospital or Mt Auburn St @ Traill St",
       "description": "Affected stops:\r\nMt Auburn St @ Longfellow Rd (outbound)\r\nMt Auburn St @ Sparks St (outbound)\r\nMt Auburn St opp Sparks St (inbound)",
@@ -306,9 +334,9 @@
       "id": "ynk316",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.35672,
-      "longitude": -71.020564,
-      "bearing": 108,
+      "latitude": 42.361303,
+      "longitude": -71.024421,
+      "bearing": 291,
       "speed": null,
       "status": null
     },
@@ -323,32 +351,12 @@
       "status": null
     },
     {
-      "id": "ynk236",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.202571,
-      "longitude": -71.064366,
-      "bearing": 323,
-      "speed": null,
-      "status": null
-    },
-    {
       "id": "ynk317",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.356848,
-      "longitude": -71.020711,
-      "bearing": 98,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk260",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.202577,
-      "longitude": -71.064319,
-      "bearing": 58,
+      "latitude": 42.361354,
+      "longitude": -71.024327,
+      "bearing": 299,
       "speed": null,
       "status": null
     },
@@ -363,12 +371,12 @@
       "status": null
     },
     {
-      "id": "ynk229",
+      "id": "ynk226",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.202685,
-      "longitude": -71.0644,
-      "bearing": 49,
+      "latitude": 42.429708,
+      "longitude": -71.013942,
+      "bearing": 211,
       "speed": null,
       "status": null
     },
@@ -386,9 +394,9 @@
       "id": "ynk228",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.202601,
-      "longitude": -71.064344,
-      "bearing": 152,
+      "latitude": 42.202637,
+      "longitude": -71.064415,
+      "bearing": 330,
       "speed": null,
       "status": null
     },
@@ -396,9 +404,9 @@
       "id": "ynk231",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338933,
-      "longitude": -71.04437,
-      "bearing": 31,
+      "latitude": 42.338762,
+      "longitude": -71.04461,
+      "bearing": 268,
       "speed": null,
       "status": null
     },
@@ -443,6 +451,36 @@
       "status": null
     },
     {
+      "id": "y1862",
+      "route_id": "15",
+      "route_type": null,
+      "latitude": 42.3117659,
+      "longitude": -71.057477899,
+      "bearing": 193,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "ynk342",
+      "route_id": "Shuttle-Generic",
+      "route_type": null,
+      "latitude": 42.338378,
+      "longitude": -71.044111,
+      "bearing": 114,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y1826",
+      "route_id": "28",
+      "route_type": null,
+      "latitude": 42.26815947,
+      "longitude": -71.091323869,
+      "bearing": 360,
+      "speed": null,
+      "status": null
+    },
+    {
       "id": "ynk254",
       "route_id": "Shuttle-Generic",
       "route_type": null,
@@ -453,32 +491,12 @@
       "status": null
     },
     {
-      "id": "ynk247",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.203062,
-      "longitude": -71.064789,
-      "bearing": 359,
-      "speed": null,
-      "status": null
-    },
-    {
       "id": "ynk251",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.33896,
-      "longitude": -71.044368,
-      "bearing": 38,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk235",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.202653,
-      "longitude": -71.064404,
-      "bearing": 66,
+      "latitude": 42.338795,
+      "longitude": -71.044779,
+      "bearing": 201,
       "speed": null,
       "status": null
     },
@@ -503,32 +521,12 @@
       "status": null
     },
     {
-      "id": "ynk232",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.202696,
-      "longitude": -71.064371,
-      "bearing": 148,
-      "speed": null,
-      "status": null
-    },
-    {
       "id": "ynk222",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338768,
-      "longitude": -71.044698,
-      "bearing": 216,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk250",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.202594,
-      "longitude": -71.06434,
-      "bearing": 59,
+      "latitude": 42.338524,
+      "longitude": -71.044011,
+      "bearing": 167,
       "speed": null,
       "status": null
     }
