@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-08-15T06:36:35.891245",
+  "last_updated": "2025-08-15T07:23:43.644099",
   "total_routes": 178,
-  "active_vehicles": 19,
+  "active_vehicles": 11,
   "status": "active",
   "routes_by_type": {},
   "active_alerts": [
@@ -111,6 +111,13 @@
       "route_id": "unknown"
     },
     {
+      "id": "659445",
+      "title": "Prov Line Train 818 (7:10am from Prov) will make additional stops at Readville and Forest Hills today due to Amtrak infrastructure repairs",
+      "description": "Affected direction: Inbound\r\n\nPlease board on the inbound platform (TRACK 2) at Readville.\r\nPlease board on the Commuter Rail platform (TRACK 3) at Forest Hills.",
+      "severity": 1,
+      "route_id": "unknown"
+    },
+    {
       "id": "652726",
       "title": "Hynes Convention Center Esc. 315 (Kenmore & West platform to paid lobby) unavailable from Mon Aug 11 through Fri Aug 29 due to maintenance",
       "description": null,
@@ -199,6 +206,13 @@
       "title": " All inb. Franklin/Foxboro trains will bypass Forest Hills, Ruggles & Back Bay. After 9am, all Franklin Ln trains will terminate & originate",
       "description": "Affected direction: Inbound\r\n\nInbound Franklin/Foxboro Line passengers traveling to Forest Hills, Ruggles, or Back Bay may:\r\n- Transfer to a Providence Line train at Readville (Track 4)\r\n- Stay on inbound Franklin/Foxboro train to South Station then transfer to an outbound train or the subway.\r\n\nAFTER 9:00 A.M: \r\nForge Park passengers should arrive 20 minutes earlier than the regularly scheduled train departure to take connecting shuttle bus service to Franklin Station for a connection with an inbound train for continued inbound service to South Station.\r\n",
       "severity": 1,
+      "route_id": "unknown"
+    },
+    {
+      "id": "660647",
+      "title": "Rt. 34E detoured on Thurs, Aug 14, & Fri, Aug 15, from 7 AM to 4 PM. Inb. connections at East St @ High Plain St & Washington St @ Short St.",
+      "description": "Affected stops:\r\nWashington St @ Lafayette Dr (outbound)\r\n625 Washington St (outbound)\r\nWashington St @ Pilgrim Way (inbound)\r\nWashington St @ Polley Ln (inbound)\r\nWashington St opp Washington Green (inbound)\r\n238 Washington St opp May St (inbound)\r\nWashington St @ Rhoades Ave (inbound)\r\nWashington St @ Chestnut St (inbound)\r\nWashington St opp Mansion Dr (inbound)\r\nOpp 67 Washington St (inbound)\r\nWashington St opp Rockhill St (inbound)\r\nWashington St opp Mylod St (inbound)\r\nWashington St @ Morse St (inbound)",
+      "severity": 7,
       "route_id": "unknown"
     },
     {
@@ -306,39 +320,29 @@
       "id": "ynk225",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338979,
-      "longitude": -71.044343,
-      "bearing": 47,
+      "latitude": 42.338983,
+      "longitude": -71.044352,
+      "bearing": 29,
       "speed": null,
       "status": null
     },
     {
-      "id": "ynk237",
-      "route_id": "Shuttle-Generic",
+      "id": "y1834",
+      "route_id": "15",
       "route_type": null,
-      "latitude": 42.33857,
-      "longitude": -71.044767,
-      "bearing": 190,
+      "latitude": 42.30211088,
+      "longitude": -71.059703,
+      "bearing": 192,
       "speed": null,
       "status": null
     },
     {
-      "id": "ynk252",
-      "route_id": "Shuttle-Generic",
+      "id": "y1785",
+      "route_id": "28",
       "route_type": null,
-      "latitude": 42.203044,
-      "longitude": -71.065008,
-      "bearing": 354,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk260",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.203008,
-      "longitude": -71.064913,
-      "bearing": 17,
+      "latitude": 42.26795994,
+      "longitude": -71.09308534,
+      "bearing": 218,
       "speed": null,
       "status": null
     },
@@ -373,26 +377,6 @@
       "status": null
     },
     {
-      "id": "ynk231",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.202596,
-      "longitude": -71.064305,
-      "bearing": 41,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk190",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.33822,
-      "longitude": -71.044238,
-      "bearing": 295,
-      "speed": null,
-      "status": null
-    },
-    {
       "id": "ynk224",
       "route_id": "Shuttle-Generic",
       "route_type": null,
@@ -403,32 +387,12 @@
       "status": null
     },
     {
-      "id": "ynk254",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.202713,
-      "longitude": -71.064322,
-      "bearing": 173,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk247",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.202696,
-      "longitude": -71.064352,
-      "bearing": 45,
-      "speed": null,
-      "status": null
-    },
-    {
       "id": "ynk251",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338964,
-      "longitude": -71.044386,
-      "bearing": 53,
+      "latitude": 42.338735,
+      "longitude": -71.044807,
+      "bearing": 246,
       "speed": null,
       "status": null
     },
@@ -453,42 +417,12 @@
       "status": null
     },
     {
-      "id": "ynk248",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.202686,
-      "longitude": -71.064447,
-      "bearing": 210,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk232",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.202578,
-      "longitude": -71.064422,
-      "bearing": 101,
-      "speed": null,
-      "status": null
-    },
-    {
       "id": "ynk222",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.33896,
-      "longitude": -71.044377,
-      "bearing": 41,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk250",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.202501,
-      "longitude": -71.064349,
-      "bearing": 56,
+      "latitude": 42.338988,
+      "longitude": -71.044421,
+      "bearing": 33,
       "speed": null,
       "status": null
     }
