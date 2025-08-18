@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-08-18T06:39:45.405536",
+  "last_updated": "2025-08-18T07:26:55.711394",
   "total_routes": 178,
-  "active_vehicles": 10,
+  "active_vehicles": 7,
   "status": "active",
   "routes_by_type": {},
   "active_alerts": [
@@ -38,6 +38,13 @@
       "title": "Porter Elevator 987 (Red Line platforms to lobby) unavailable due to maintenance",
       "description": "Please use nearby Porter Elevator 983 to access the Red Line platforms or lobby.",
       "severity": 3,
+      "route_id": "unknown"
+    },
+    {
+      "id": "654244",
+      "title": "The Washington Ave @ Broadway stop is closed from 7 AM - 5 PM, Mon through Thu, until further notice for construction",
+      "description": "Affected routes:\r\n104\r\n111\r\n112\r\n114\r\n116",
+      "severity": 5,
       "route_id": "unknown"
     },
     {
@@ -94,6 +101,13 @@
       "title": "Littleton/Route 495 passengers can expect occasional traffic and detours accessing the station due to the Foster Street reconstruction work",
       "description": "Scheduled to complete sometime in 2027, the Reconstruction of Foster Street includes widening and resurfacing with the addition of bicycle lanes.  ",
       "severity": 1,
+      "route_id": "unknown"
+    },
+    {
+      "id": "643427",
+      "title": "The following stop is closed Mon through Thu, from 7AM to 5PM, due to construction until further notice: Hawthorne St @ Broadway (outbound)",
+      "description": "Riders can board at the following stops:\r\n\nCity Hall Ave @ Broadway (for the northbound 111)\r\nBroadway @ City Hall Ave (for the northbound 116)\r\nWashington Ave @ Broadway (for the westbound 104, 112, and 114)\r\n\nAffected routes:\r\n104\r\n111\r\n112\r\n114\r\n116",
+      "severity": 5,
       "route_id": "unknown"
     },
     {
@@ -334,29 +348,19 @@
       "id": "y1863",
       "route_id": "28",
       "route_type": null,
-      "latitude": 42.33939,
-      "longitude": -71.05838,
-      "bearing": 315,
+      "latitude": 42.29883776,
+      "longitude": -71.086644179,
+      "bearing": 12,
       "speed": null,
       "status": null
     },
     {
-      "id": "y1662",
+      "id": "ynk302",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.30335,
-      "longitude": -71.10966,
-      "bearing": 225,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk233",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.33891,
-      "longitude": -71.044188,
-      "bearing": 58,
+      "latitude": 42.338472,
+      "longitude": -71.043809,
+      "bearing": 324,
       "speed": null,
       "status": null
     },
@@ -374,19 +378,9 @@
       "id": "ynk231",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.348465,
-      "longitude": -71.044878,
-      "bearing": 282,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y3254",
-      "route_id": "Shuttle-Generic-Blue",
-      "route_type": null,
-      "latitude": 42.34092,
-      "longitude": -71.0643,
-      "bearing": 90,
+      "latitude": 42.387531,
+      "longitude": -71.023661,
+      "bearing": 150,
       "speed": null,
       "status": null
     },
@@ -414,19 +408,9 @@
       "id": "ynk320",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338631,
-      "longitude": -71.044095,
-      "bearing": 119,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk250",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.338748,
-      "longitude": -71.044189,
-      "bearing": 160,
+      "latitude": 42.338664,
+      "longitude": -71.043873,
+      "bearing": 38,
       "speed": null,
       "status": null
     }
