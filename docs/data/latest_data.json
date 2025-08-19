@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-08-19T06:35:50.568380",
+  "last_updated": "2025-08-19T07:22:24.049617",
   "total_routes": 178,
-  "active_vehicles": 2,
+  "active_vehicles": 3,
   "status": "active",
   "routes_by_type": {},
   "active_alerts": [
@@ -31,6 +31,13 @@
       "title": "On Fri, Aug 15th through Sun, Aug 17th & Fri, Aug 22nd through Sun, Aug 24th, starting at 10pm, shuttle buses will replace train service bet",
       "description": "There will be 3 shuttle bus routes:\r\nRoute 1 - Express shuttle between Lowell and North Station via Anderson/Woburn\r\nRoute 2- Local shuttle serving all stops between Anderson/Woburn and North Station, except Winchester Center\r\nRoute 3 - Local shuttle serving all stops between Lowell and Anderson/Woburn, then express to North Station\r\n\nCustomers may transfer between shuttle routes at Anderson/Woburn.\r\n\nThere will be NO SERVICE at WINCHESTER CENTER \r\n\nShuttle Bus Locations:\r\n\nLowell:\r\nLRTA Gallagher Transportation Center\r\n\nNorth Billerica:\r\nStation Street (LRTA Bus Stop)\r\n\nWilmington:\r\nWilmington Station Parking Lot\r\n\nAnderson/Woburn:\r\nAnderson/Woburn Transportation Center Busway (Opposite Logan Express Stop)\r\n\nWedgemere:\r\nWedgemere Station Parking Lot\r\n\nWest Medford:\r\nInbound: High Street @ Canal Street (MBTA bus stop)\r\nOutbound: High Street @ Warren Street (MBTA bus stop)\r\n\nNorth Station:\r\nNashua Street @ Red Auerbach Way, at the back of TD Garden",
       "severity": 3,
+      "route_id": "unknown"
+    },
+    {
+      "id": "654244",
+      "title": "The Washington Ave @ Broadway stop is closed from 7 AM - 5 PM, Mon through Thu, until further notice for construction",
+      "description": "Affected routes:\r\n104\r\n111\r\n112\r\n114\r\n116",
+      "severity": 5,
       "route_id": "unknown"
     },
     {
@@ -94,6 +101,13 @@
       "title": "Littleton/Route 495 passengers can expect occasional traffic and detours accessing the station due to the Foster Street reconstruction work",
       "description": "Scheduled to complete sometime in 2027, the Reconstruction of Foster Street includes widening and resurfacing with the addition of bicycle lanes.  ",
       "severity": 1,
+      "route_id": "unknown"
+    },
+    {
+      "id": "643427",
+      "title": "The following stop is closed Mon through Thu, from 7AM to 5PM, due to construction until further notice: Hawthorne St @ Broadway (outbound)",
+      "description": "Riders can board at the following stops:\r\n\nCity Hall Ave @ Broadway (for the northbound 111)\r\nBroadway @ City Hall Ave (for the northbound 116)\r\nWashington Ave @ Broadway (for the westbound 104, 112, and 114)\r\n\nAffected routes:\r\n104\r\n111\r\n112\r\n114\r\n116",
+      "severity": 5,
       "route_id": "unknown"
     },
     {
@@ -334,9 +348,19 @@
       "id": "y1923",
       "route_id": "28",
       "route_type": null,
-      "latitude": 42.34097,
-      "longitude": -71.05776,
-      "bearing": 135,
+      "latitude": 42.27340092,
+      "longitude": -71.093482929,
+      "bearing": 3,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y1823",
+      "route_id": "15",
+      "route_type": null,
+      "latitude": 42.311736559,
+      "longitude": -71.057448179,
+      "bearing": 189,
       "speed": null,
       "status": null
     },
@@ -344,9 +368,9 @@
       "id": "ynk316",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338245,
-      "longitude": -71.044269,
-      "bearing": 180,
+      "latitude": 42.338748,
+      "longitude": -71.044362,
+      "bearing": 13,
       "speed": null,
       "status": null
     }
