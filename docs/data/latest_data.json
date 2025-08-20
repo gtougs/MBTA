@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-08-20T06:35:51.609905",
+  "last_updated": "2025-08-20T07:22:53.186796",
   "total_routes": 178,
-  "active_vehicles": 2,
+  "active_vehicles": 5,
   "status": "active",
   "routes_by_type": {},
   "active_alerts": [
@@ -101,6 +101,13 @@
       "title": "Ruggles Escalator 136 (Orange Line platform to upper lobby) unavailable",
       "description": null,
       "severity": 3,
+      "route_id": "unknown"
+    },
+    {
+      "id": "659445",
+      "title": "Prov Line Train 818 (7:10am from Prov) will make additional stops at Readville and Forest Hills today due to Amtrak infrastructure repairs",
+      "description": "Affected direction: Inbound\r\n\nPlease board on the inbound platform (TRACK 2) at Readville.\r\nPlease board on the Commuter Rail platform (TRACK 3) at Forest Hills.",
+      "severity": 1,
       "route_id": "unknown"
     },
     {
@@ -275,6 +282,16 @@
   "delays_by_route": {},
   "vehicle_positions": [
     {
+      "id": "ynk225",
+      "route_id": "Shuttle-Generic",
+      "route_type": null,
+      "latitude": 42.338686,
+      "longitude": -71.044778,
+      "bearing": 82,
+      "speed": null,
+      "status": null
+    },
+    {
       "id": "ynk223",
       "route_id": "Shuttle-Generic",
       "route_type": null,
@@ -285,12 +302,32 @@
       "status": null
     },
     {
+      "id": "y1822",
+      "route_id": "15",
+      "route_type": null,
+      "latitude": 42.32079002,
+      "longitude": -71.05676138,
+      "bearing": 180,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "ynk228",
+      "route_id": "Shuttle-Generic",
+      "route_type": null,
+      "latitude": 42.338759,
+      "longitude": -71.044227,
+      "bearing": 131,
+      "speed": null,
+      "status": null
+    },
+    {
       "id": "y1904",
       "route_id": "28",
       "route_type": null,
-      "latitude": 42.34096,
-      "longitude": -71.05771,
-      "bearing": 90,
+      "latitude": 42.27886543,
+      "longitude": -71.093202039,
+      "bearing": 9,
       "speed": null,
       "status": null
     }
