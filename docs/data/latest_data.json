@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-08-22T06:35:09.818401",
+  "last_updated": "2025-08-22T07:21:47.194121",
   "total_routes": 178,
-  "active_vehicles": 8,
+  "active_vehicles": 5,
   "status": "active",
   "routes_by_type": {},
   "active_alerts": [
@@ -293,6 +293,13 @@
       "route_id": "unknown"
     },
     {
+      "id": "661952",
+      "title": "Route 47 detoured from 7am to 4pm on Fri Aug 22. Connect at Brookline St @ Putnam Ave and Brookline St @ Green St",
+      "description": "Affected direction: Outbound\r\n\nAffected stops:\r\nBrookline St @ Erie St\r\nBrookline St @ Pacific St",
+      "severity": 7,
+      "route_id": "unknown"
+    },
+    {
       "id": "657362",
       "title": "Elev. #779 from the pedestrian bridge to the platform is temporarily out of service at East Taunton until further notice",
       "description": null,
@@ -303,32 +310,22 @@
   "delays_by_route": {},
   "vehicle_positions": [
     {
-      "id": "G-10081",
-      "route_id": "Green-B",
-      "route_type": null,
-      "latitude": 42.34018,
-      "longitude": -71.16709,
-      "bearing": 135,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk223",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.338846,
-      "longitude": -71.044269,
-      "bearing": 29,
-      "speed": null,
-      "status": null
-    },
-    {
       "id": "ynk226",
       "route_id": "Shuttle-Generic",
       "route_type": null,
       "latitude": 42.338758,
       "longitude": -71.044609,
       "bearing": 313,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "ynk209",
+      "route_id": "Shuttle-Generic",
+      "route_type": null,
+      "latitude": 42.339054,
+      "longitude": -71.044478,
+      "bearing": 97,
       "speed": null,
       "status": null
     },
@@ -343,42 +340,22 @@
       "status": null
     },
     {
+      "id": "y1816",
+      "route_id": "15",
+      "route_type": null,
+      "latitude": 42.321151209,
+      "longitude": -71.05671572,
+      "bearing": 178,
+      "speed": null,
+      "status": null
+    },
+    {
       "id": "y1800",
       "route_id": "28",
       "route_type": null,
-      "latitude": 42.339370199,
-      "longitude": -71.05840196,
-      "bearing": 225,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10049",
-      "route_id": "Green-B",
-      "route_type": null,
-      "latitude": 42.34018,
-      "longitude": -71.16709,
-      "bearing": 135,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10119",
-      "route_id": "Green-B",
-      "route_type": null,
-      "latitude": 42.34027,
-      "longitude": -71.16688,
-      "bearing": 0,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk249",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.203059,
-      "longitude": -71.064676,
-      "bearing": 355,
+      "latitude": 42.27631766,
+      "longitude": -71.09337798,
+      "bearing": 2,
       "speed": null,
       "status": null
     }
