@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-08-23T06:31:39.785961",
+  "last_updated": "2025-08-23T07:20:14.828538",
   "total_routes": 178,
-  "active_vehicles": 11,
+  "active_vehicles": 13,
   "status": "active",
   "routes_by_type": {},
   "active_alerts": [
@@ -181,13 +181,6 @@
       "route_id": "unknown"
     },
     {
-      "id": "662004",
-      "title": "All Lynn Ferry service has been cancelled for today and tomorrow, August 22 - 23, due to severe weather offshore.",
-      "description": null,
-      "severity": 7,
-      "route_id": "unknown"
-    },
-    {
       "id": "651836",
       "title": "Assembly Escalator 442 (Foley Street to unpaid lobby) unavailable due to maintenance",
       "description": null,
@@ -293,6 +286,13 @@
       "route_id": "unknown"
     },
     {
+      "id": "662105",
+      "title": "All Lynn Ferry service has been cancelled for today, August 23, due to severe weather offshore.",
+      "description": null,
+      "severity": 5,
+      "route_id": "unknown"
+    },
+    {
       "id": "658911",
       "title": "The Prov Ln will experience service & schedule changes. Passengers can expect delays of up to 25 minutes both ways",
       "description": null,
@@ -324,12 +324,22 @@
   "delays_by_route": {},
   "vehicle_positions": [
     {
-      "id": "G-10002",
-      "route_id": "Green-B",
+      "id": "ynk334",
+      "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.34027,
-      "longitude": -71.16688,
-      "bearing": 0,
+      "latitude": 42.33863185,
+      "longitude": -71.04405334,
+      "bearing": 7,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y1908",
+      "route_id": "15",
+      "route_type": null,
+      "latitude": 42.34041977,
+      "longitude": -71.05749814,
+      "bearing": 206,
       "speed": null,
       "status": null
     },
@@ -344,12 +354,12 @@
       "status": null
     },
     {
-      "id": "ynk314",
+      "id": "ynk344",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338663,
-      "longitude": -71.044451,
-      "bearing": 181,
+      "latitude": 42.20320049,
+      "longitude": -71.06555798,
+      "bearing": 21,
       "speed": null,
       "status": null
     },
@@ -360,6 +370,16 @@
       "latitude": 42.338586,
       "longitude": -71.044609,
       "bearing": 175,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y1921",
+      "route_id": "28",
+      "route_type": null,
+      "latitude": 42.26774,
+      "longitude": -71.09349,
+      "bearing": 225,
       "speed": null,
       "status": null
     },
@@ -377,9 +397,9 @@
       "id": "ynk215",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338688,
-      "longitude": -71.044635,
-      "bearing": 326,
+      "latitude": 42.338754,
+      "longitude": -71.044761,
+      "bearing": 220,
       "speed": null,
       "status": null
     },
@@ -404,16 +424,6 @@
       "status": null
     },
     {
-      "id": "ynk251",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.338643,
-      "longitude": -71.043762,
-      "bearing": 53,
-      "speed": null,
-      "status": null
-    },
-    {
       "id": "ynk249",
       "route_id": "Shuttle-Generic",
       "route_type": null,
@@ -424,12 +434,22 @@
       "status": null
     },
     {
-      "id": "O-5484FB35",
-      "route_id": "Orange",
+      "id": "ynk304",
+      "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.30122,
-      "longitude": -71.11384,
-      "bearing": 210,
+      "latitude": 42.338815,
+      "longitude": -71.044055,
+      "bearing": 315,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y1780",
+      "route_id": "15",
+      "route_type": null,
+      "latitude": 42.27623,
+      "longitude": -71.05191,
+      "bearing": 315,
       "speed": null,
       "status": null
     }
