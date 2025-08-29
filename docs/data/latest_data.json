@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-08-29T06:33:51.339365",
+  "last_updated": "2025-08-29T07:22:03.224434",
   "total_routes": 178,
-  "active_vehicles": 8,
+  "active_vehicles": 6,
   "status": "active",
   "routes_by_type": {},
   "active_alerts": [
@@ -157,6 +157,13 @@
       "title": "At Alewife, Route 350 inbound has moved down one berth and is now boarding at Berth B4.",
       "description": null,
       "severity": 3,
+      "route_id": "unknown"
+    },
+    {
+      "id": "662789",
+      "title": "Rts. 450 & 456 detoured from Thu, Aug 28, to Thu, Sep 4, between 7am & 4pm. Inb. connections are available at Salem & Essex St opp Warren St",
+      "description": "Affected stops:\r\nEssex St @ Beckford St (inbound)\r\nEssex St @ Flint St (inbound)\r\nEssex St @ Flint St (outbound)\r\nEssex St @ Hamilton st (outbound)\r\nEssex St @ Monroe St (inbound)\r\nEssex St @ Summer St (outbound)\r\nEssex St opp Monroe St (outbound)\r\nNorth St @ Essex St (inbound)\r\nWashington St @ Church St (outbound)\r\nWashington St @ New Derby St (outbound)",
+      "severity": 7,
       "route_id": "unknown"
     },
     {
@@ -394,6 +401,16 @@
   "delays_by_route": {},
   "vehicle_positions": [
     {
+      "id": "ynk303",
+      "route_id": "Shuttle-Generic",
+      "route_type": null,
+      "latitude": 42.338744,
+      "longitude": -71.044052,
+      "bearing": 313,
+      "speed": null,
+      "status": null
+    },
+    {
       "id": "ynk252",
       "route_id": "Shuttle-Generic",
       "route_type": null,
@@ -404,22 +421,22 @@
       "status": null
     },
     {
-      "id": "y3323",
-      "route_id": "116",
+      "id": "y1881",
+      "route_id": "28",
       "route_type": null,
-      "latitude": 42.39941368,
-      "longitude": -71.02251877,
-      "bearing": 40,
+      "latitude": 42.30175133,
+      "longitude": -71.08571258,
+      "bearing": 10,
       "speed": null,
       "status": null
     },
     {
-      "id": "y1775",
-      "route_id": "23",
+      "id": "ynk236",
+      "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.298417269,
-      "longitude": -71.07303926,
-      "bearing": 159,
+      "latitude": 42.338845,
+      "longitude": -71.044155,
+      "bearing": 44,
       "speed": null,
       "status": null
     },
@@ -434,42 +451,12 @@
       "status": null
     },
     {
-      "id": "y1819",
-      "route_id": "57",
+      "id": "y1849",
+      "route_id": "15",
       "route_type": null,
-      "latitude": 42.356349109,
-      "longitude": -71.182690339,
-      "bearing": 316,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10235",
-      "route_id": "Green-B",
-      "route_type": null,
-      "latitude": 42.34027,
-      "longitude": -71.16688,
-      "bearing": 0,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10119",
-      "route_id": "Green-B",
-      "route_type": null,
-      "latitude": 42.34018,
-      "longitude": -71.16709,
-      "bearing": 135,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y2030",
-      "route_id": "111",
-      "route_type": null,
-      "latitude": 42.38701239,
-      "longitude": -71.07257596,
-      "bearing": 17,
+      "latitude": 42.28372913,
+      "longitude": -71.06471758,
+      "bearing": 183,
       "speed": null,
       "status": null
     }
