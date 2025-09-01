@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-09-01T07:23:11.354968",
+  "last_updated": "2025-09-01T08:33:11.397048",
   "total_routes": 178,
-  "active_vehicles": 7,
+  "active_vehicles": 19,
   "status": "active",
   "routes_by_type": {},
   "active_alerts": [
@@ -216,6 +216,13 @@
       "route_id": "unknown"
     },
     {
+      "id": "663653",
+      "title": "Oak Grove Escalator 452 (Washington Street to unpaid lobby) unavailable due to maintenance",
+      "description": null,
+      "severity": 3,
+      "route_id": "unknown"
+    },
+    {
       "id": "662917",
       "title": "As of Mon, Aug 25, further schedule adjustments will be implemented on the Fairmount Ln reflecting the progress made by Amtrak repairs",
       "description": "Planned infrastructure improvements to prepare the Fairmount Line for battery-electric trains while Amtrak repairs will continue.\r\n\nFuture adjustments to service can be expected as Amtrak makes progress on repairs, with the goal of returning to normal Commuter Rail service for passengers as soon as possible.",
@@ -422,32 +429,142 @@
   "delays_by_route": {},
   "vehicle_positions": [
     {
-      "id": "ynk260",
-      "route_id": "Shuttle-Generic",
+      "id": "y3349",
+      "route_id": "116",
       "route_type": null,
-      "latitude": 41.900962,
-      "longitude": -71.101463,
+      "latitude": 42.41374367,
+      "longitude": -70.992308539,
       "bearing": 291,
       "speed": null,
       "status": null
     },
     {
-      "id": "ynk209",
+      "id": "G-10005",
+      "route_id": "Green-B",
+      "route_type": null,
+      "latitude": 42.34027,
+      "longitude": -71.16688,
+      "bearing": 0,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "G-10003",
+      "route_id": "Green-B",
+      "route_type": null,
+      "latitude": 42.34027,
+      "longitude": -71.16688,
+      "bearing": 0,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "ynk340",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.339001,
-      "longitude": -71.04449,
-      "bearing": 125,
+      "latitude": 42.338749,
+      "longitude": -71.043998,
+      "bearing": 97,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "O-54852A9E",
+      "route_id": "Orange",
+      "route_type": null,
+      "latitude": 42.30119,
+      "longitude": -71.11376,
+      "bearing": 30,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "ynk260",
+      "route_id": "Shuttle-Generic",
+      "route_type": null,
+      "latitude": 41.64331,
+      "longitude": -70.925975,
+      "bearing": 346,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y1921",
+      "route_id": "15",
+      "route_type": null,
+      "latitude": 42.34045018,
+      "longitude": -71.05730734,
+      "bearing": 177,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "ynk219",
+      "route_id": "Shuttle-Generic",
+      "route_type": null,
+      "latitude": 41.843786,
+      "longitude": -71.411166,
+      "bearing": 179,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y1966",
+      "route_id": "109",
+      "route_type": null,
+      "latitude": 42.400904079,
+      "longitude": -71.0611542,
+      "bearing": 42,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y2008",
+      "route_id": "110",
+      "route_type": null,
+      "latitude": 42.3878,
+      "longitude": -71.07348,
+      "bearing": 0,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "O-54851CA5",
+      "route_id": "Orange",
+      "route_type": null,
+      "latitude": 42.30122,
+      "longitude": -71.11384,
+      "bearing": 30,
       "speed": null,
       "status": null
     },
     {
       "id": "y1909",
-      "route_id": "15",
+      "route_id": "23",
       "route_type": null,
-      "latitude": 42.28378,
-      "longitude": -71.06371,
-      "bearing": 45,
+      "latitude": 42.27981191,
+      "longitude": -71.05451664,
+      "bearing": 341,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y2024",
+      "route_id": "104",
+      "route_type": null,
+      "latitude": 42.42042475,
+      "longitude": -71.07556039,
+      "bearing": 4,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "ynk345",
+      "route_id": "Shuttle-Generic",
+      "route_type": null,
+      "latitude": 42.338733,
+      "longitude": -71.044345,
+      "bearing": 137,
       "speed": null,
       "status": null
     },
@@ -455,19 +572,29 @@
       "id": "y1821",
       "route_id": "28",
       "route_type": null,
-      "latitude": 42.28995023,
-      "longitude": -71.08966314,
-      "bearing": 194,
+      "latitude": 42.29140641,
+      "longitude": -71.08922608,
+      "bearing": 193,
       "speed": null,
       "status": null
     },
     {
       "id": "y1904",
-      "route_id": "15",
+      "route_id": "171",
       "route_type": null,
-      "latitude": 42.3394,
-      "longitude": -71.05846,
-      "bearing": 270,
+      "latitude": 42.35057181,
+      "longitude": -71.048123419,
+      "bearing": 92,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y3136",
+      "route_id": "104",
+      "route_type": null,
+      "latitude": 42.41820171,
+      "longitude": -71.05084085,
+      "bearing": 126,
       "speed": null,
       "status": null
     },
@@ -475,19 +602,19 @@
       "id": "ynk248",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 41.909212,
-      "longitude": -71.040763,
-      "bearing": 205,
+      "latitude": 41.643087,
+      "longitude": -70.92611,
+      "bearing": 342,
       "speed": null,
       "status": null
     },
     {
-      "id": "ynk222",
-      "route_id": "Shuttle-Generic",
+      "id": "y1952",
+      "route_id": "109",
       "route_type": null,
-      "latitude": 42.203004,
-      "longitude": -71.065722,
-      "bearing": 19,
+      "latitude": 42.43070577,
+      "longitude": -71.03708553,
+      "bearing": 260,
       "speed": null,
       "status": null
     }
