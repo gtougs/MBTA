@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-09-16T06:34:15.789339",
+  "last_updated": "2025-09-16T07:22:18.243278",
   "total_routes": 177,
-  "active_vehicles": 11,
+  "active_vehicles": 6,
   "status": "active",
   "routes_by_type": {},
   "active_alerts": [
@@ -160,6 +160,13 @@
       "route_id": "unknown"
     },
     {
+      "id": "665393",
+      "title": "Route 439 (inbound only) detoured from 7am to 3pm everyday through Fri, Sep 19. Connect at Spring Rd @ Emerald Rd and Willow Rd @ Summer St",
+      "description": "Affected direction: Inbound\r\n\nAffected stops:\r\nEmerald Rd @ Pond St\r\nEmerald Rd @ Ocean St\r\nWillow Rd @ Valley Rd",
+      "severity": 7,
+      "route_id": "unknown"
+    },
+    {
       "id": "651836",
       "title": "Assembly Escalator 442 (Foley Street to unpaid lobby) unavailable due to maintenance",
       "description": null,
@@ -310,22 +317,32 @@
   "delays_by_route": {},
   "vehicle_positions": [
     {
-      "id": "y1834",
-      "route_id": "23",
+      "id": "ynk216",
+      "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.29133,
-      "longitude": -71.07169,
-      "bearing": 180,
+      "latitude": 42.3389,
+      "longitude": -71.044238,
+      "bearing": 0,
       "speed": null,
       "status": null
     },
     {
-      "id": "ynk210",
+      "id": "ynk252",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.339023,
-      "longitude": -71.04451,
+      "latitude": 42.338702,
+      "longitude": -71.044638,
       "bearing": 0,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y1881",
+      "route_id": "15",
+      "route_type": null,
+      "latitude": 42.31952,
+      "longitude": -71.05676,
+      "bearing": 180,
       "speed": null,
       "status": null
     },
@@ -333,58 +350,8 @@
       "id": "ynk233",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338848,
-      "longitude": -71.044327,
-      "bearing": 0,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10298",
-      "route_id": "Green-E",
-      "route_type": null,
-      "latitude": 42.37604,
-      "longitude": -71.08343,
-      "bearing": 145,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk322",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 41.796254,
-      "longitude": -71.437896,
-      "bearing": 0,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk246",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 40.653467,
-      "longitude": -74.175467,
-      "bearing": 0,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10059",
-      "route_id": "Green-B",
-      "route_type": null,
-      "latitude": 42.34018,
-      "longitude": -71.16709,
-      "bearing": 135,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk207",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 40.65356,
-      "longitude": -74.175271,
+      "latitude": 42.33909,
+      "longitude": -71.044367,
       "bearing": 0,
       "speed": null,
       "status": null
@@ -393,29 +360,19 @@
       "id": "y1918",
       "route_id": "28",
       "route_type": null,
-      "latitude": 42.33939,
-      "longitude": -71.05837,
-      "bearing": 270,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y2044",
-      "route_id": "111",
-      "route_type": null,
-      "latitude": 42.40358,
-      "longitude": -71.03604,
+      "latitude": 42.32379,
+      "longitude": -71.0826,
       "bearing": 0,
       "speed": null,
       "status": null
     },
     {
-      "id": "y1264",
-      "route_id": "28",
+      "id": "ynk249",
+      "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.335971,
-      "longitude": -71.090507,
-      "bearing": 37,
+      "latitude": 42.339043,
+      "longitude": -71.044405,
+      "bearing": 0,
       "speed": null,
       "status": null
     }
