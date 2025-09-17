@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-09-17T06:34:05.599174",
+  "last_updated": "2025-09-17T07:21:20.522805",
   "total_routes": 177,
-  "active_vehicles": 9,
+  "active_vehicles": 6,
   "status": "active",
   "routes_by_type": {},
   "active_alerts": [
@@ -188,6 +188,13 @@
       "route_id": "unknown"
     },
     {
+      "id": "665393",
+      "title": "Route 439 (inbound only) detoured from 7am to 3pm everyday through Fri, Sep 19. Connect at Spring Rd @ Emerald Rd and Willow Rd @ Summer St",
+      "description": "Affected direction: Inbound\r\n\nAffected stops:\r\nEmerald Rd @ Pond St\r\nEmerald Rd @ Ocean St\r\nWillow Rd @ Valley Rd",
+      "severity": 7,
+      "route_id": "unknown"
+    },
+    {
       "id": "651836",
       "title": "Assembly Escalator 442 (Foley Street to unpaid lobby) unavailable due to maintenance",
       "description": null,
@@ -331,32 +338,22 @@
   "delays_by_route": {},
   "vehicle_positions": [
     {
-      "id": "G-10333",
-      "route_id": "Green-B",
-      "route_type": null,
-      "latitude": 42.34018,
-      "longitude": -71.16709,
-      "bearing": 135,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1863",
-      "route_id": "57",
-      "route_type": null,
-      "latitude": 42.3496,
-      "longitude": -71.08042,
-      "bearing": 90,
-      "speed": null,
-      "status": null
-    },
-    {
       "id": "y1831",
       "route_id": "28",
       "route_type": null,
-      "latitude": 42.34107,
-      "longitude": -71.05775,
-      "bearing": 90,
+      "latitude": 42.32234,
+      "longitude": -71.08213,
+      "bearing": 0,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "ynk225",
+      "route_id": "Shuttle-Generic",
+      "route_type": null,
+      "latitude": 42.338858,
+      "longitude": -71.044321,
+      "bearing": 147,
       "speed": null,
       "status": null
     },
@@ -364,28 +361,18 @@
       "id": "ynk252",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.33863,
-      "longitude": -71.044021,
-      "bearing": 162,
+      "latitude": 42.338697,
+      "longitude": -71.044622,
+      "bearing": 204,
       "speed": null,
       "status": null
     },
     {
-      "id": "ynk322",
-      "route_id": "Shuttle-Generic",
+      "id": "y1804",
+      "route_id": "15",
       "route_type": null,
-      "latitude": 41.796196,
-      "longitude": -71.437156,
-      "bearing": 336,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1789",
-      "route_id": "23",
-      "route_type": null,
-      "latitude": 42.29677,
-      "longitude": -71.07226,
+      "latitude": 42.32092,
+      "longitude": -71.05679,
       "bearing": 180,
       "speed": null,
       "status": null
@@ -394,9 +381,9 @@
       "id": "ynk249",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.388414,
-      "longitude": -71.023696,
-      "bearing": 12,
+      "latitude": 42.367236,
+      "longitude": -71.025957,
+      "bearing": 150,
       "speed": null,
       "status": null
     },
@@ -404,19 +391,9 @@
       "id": "ynk222",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338812,
-      "longitude": -71.044395,
-      "bearing": 159,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1201",
-      "route_id": "28",
-      "route_type": null,
-      "latitude": 42.334408,
-      "longitude": -71.089558,
-      "bearing": 90,
+      "latitude": 42.338664,
+      "longitude": -71.044573,
+      "bearing": 211,
       "speed": null,
       "status": null
     }
