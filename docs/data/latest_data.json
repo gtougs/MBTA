@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-09-27T06:29:27.962791",
+  "last_updated": "2025-09-27T07:18:26.065872",
   "total_routes": 177,
-  "active_vehicles": 25,
+  "active_vehicles": 4,
   "status": "active",
   "routes_by_type": {},
   "active_alerts": [
@@ -307,6 +307,13 @@
       "route_id": "unknown"
     },
     {
+      "id": "668492",
+      "title": "Jackson Sq: The platform is undergoing renovations until fall 2025 to improve safety & accessibility. ",
+      "description": "Please see station personnel or use a station call box to request assistance.",
+      "severity": 1,
+      "route_id": "unknown"
+    },
+    {
       "id": "657362",
       "title": "Elev. #779 from the pedestrian bridge to the platform is temporarily out of service at East Taunton until further notice",
       "description": null,
@@ -317,171 +324,21 @@
   "delays_by_route": {},
   "vehicle_positions": [
     {
-      "id": "G-10269",
-      "route_id": "Green-E",
-      "route_type": null,
-      "latitude": 42.35551,
-      "longitude": -71.06316,
-      "bearing": 30,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1205",
+      "id": "y1917",
       "route_id": "28",
       "route_type": null,
-      "latitude": 42.328537,
-      "longitude": -71.083311,
-      "bearing": 60,
+      "latitude": 42.270969,
+      "longitude": -71.085629,
+      "bearing": 253,
       "speed": null,
       "status": null
     },
     {
-      "id": "G-10139",
-      "route_id": "Green-B",
-      "route_type": null,
-      "latitude": 42.35175,
-      "longitude": -71.12537,
-      "bearing": 225,
-      "speed": 5.1,
-      "status": null
-    },
-    {
-      "id": "G-10076",
-      "route_id": "Green-D",
-      "route_type": null,
-      "latitude": 42.3303,
-      "longitude": -71.18929,
-      "bearing": 270,
-      "speed": 16.5,
-      "status": null
-    },
-    {
-      "id": "G-10150",
-      "route_id": "Mattapan",
-      "route_type": null,
-      "latitude": 42.28247,
-      "longitude": -71.06232,
-      "bearing": 135,
-      "speed": 12.5,
-      "status": null
-    },
-    {
-      "id": "y1785",
-      "route_id": "23",
-      "route_type": null,
-      "latitude": 42.33155,
-      "longitude": -71.09412,
-      "bearing": 0,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10115",
-      "route_id": "Green-D",
-      "route_type": null,
-      "latitude": 42.33157,
-      "longitude": -71.12082,
-      "bearing": 270,
-      "speed": 10.4,
-      "status": null
-    },
-    {
-      "id": "y1784",
-      "route_id": "22",
-      "route_type": null,
-      "latitude": 42.324054,
-      "longitude": -71.098903,
-      "bearing": 228,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10102",
-      "route_id": "Green-B",
-      "route_type": null,
-      "latitude": 42.341,
-      "longitude": -71.16742,
-      "bearing": 75,
-      "speed": 4.1,
-      "status": null
-    },
-    {
-      "id": "y1869",
-      "route_id": "57",
-      "route_type": null,
-      "latitude": 42.356289,
-      "longitude": -71.182674,
-      "bearing": 299,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10082",
-      "route_id": "Green-B",
-      "route_type": null,
-      "latitude": 42.34018,
-      "longitude": -71.16709,
-      "bearing": 135,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1801",
-      "route_id": "23",
-      "route_type": null,
-      "latitude": 42.32007,
-      "longitude": -71.08159,
-      "bearing": 180,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10008",
-      "route_id": "Green-C",
-      "route_type": null,
-      "latitude": 42.33625,
-      "longitude": -71.14902,
-      "bearing": 225,
-      "speed": 3.1,
-      "status": null
-    },
-    {
-      "id": "y1260",
-      "route_id": "39",
-      "route_type": null,
-      "latitude": 42.344622,
-      "longitude": -71.083021,
-      "bearing": 200,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1904",
-      "route_id": "1",
-      "route_type": null,
-      "latitude": 42.33235,
-      "longitude": -71.075377,
-      "bearing": 49,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10282",
-      "route_id": "Green-C",
-      "route_type": null,
-      "latitude": 42.34341,
-      "longitude": -71.11665,
-      "bearing": 225,
-      "speed": 6.0,
-      "status": null
-    },
-    {
-      "id": "ynk320",
+      "id": "ynk310",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338991,
-      "longitude": -71.04438,
+      "latitude": 42.338918,
+      "longitude": -71.044374,
       "bearing": 41,
       "speed": null,
       "status": null
@@ -490,79 +347,19 @@
       "id": "ynk347",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338565,
-      "longitude": -71.044057,
-      "bearing": 136,
+      "latitude": 42.338415,
+      "longitude": -71.044115,
+      "bearing": 297,
       "speed": null,
       "status": null
     },
     {
-      "id": "y1217",
-      "route_id": "16",
+      "id": "y1812",
+      "route_id": "15",
       "route_type": null,
-      "latitude": 42.299997,
-      "longitude": -71.113756,
+      "latitude": 42.31329,
+      "longitude": -71.05717,
       "bearing": 180,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1817",
-      "route_id": "16",
-      "route_type": null,
-      "latitude": 42.303308,
-      "longitude": -71.084349,
-      "bearing": 45,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1902",
-      "route_id": "66",
-      "route_type": null,
-      "latitude": 42.331902,
-      "longitude": -71.112332,
-      "bearing": 73,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10122",
-      "route_id": "Green-E",
-      "route_type": null,
-      "latitude": 42.37131,
-      "longitude": -71.07605,
-      "bearing": 305,
-      "speed": 4.7,
-      "status": null
-    },
-    {
-      "id": "y2104",
-      "route_id": "111",
-      "route_type": null,
-      "latitude": 42.38949,
-      "longitude": -71.04143,
-      "bearing": 135,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1888",
-      "route_id": "66",
-      "route_type": null,
-      "latitude": 42.333355,
-      "longitude": -71.101907,
-      "bearing": 302,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1824",
-      "route_id": "1",
-      "route_type": null,
-      "latitude": 42.357545,
-      "longitude": -71.092701,
-      "bearing": 158,
       "speed": null,
       "status": null
     }
