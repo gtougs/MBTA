@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-10-04T06:30:39.447921",
+  "last_updated": "2025-10-04T07:18:33.501886",
   "total_routes": 177,
-  "active_vehicles": 43,
+  "active_vehicles": 23,
   "status": "active",
   "routes_by_type": {},
   "active_alerts": [
@@ -41,16 +41,16 @@
       "route_id": "unknown"
     },
     {
-      "id": "668071",
-      "title": "Shuttle Buses will replace Green Ln between N Station & Medford/Tufts, beginning at 8 PM on Fri, Oct 3, through Sun, Oct 5. ",
-      "description": "Service Information:\r\nB - Boston College and C - Cleveland Circle trains will terminate at Government Center.\r\nD - Riverside and E - Medford/Tufts trains will terminate at North Station. \r\n\nAccessibility Information:\r\nAccessible van service will be available at Magoun Square. Riders can request this service by seeing onsite personnel.\r\n\nOther Alternative Service Options:\r\n\nBus Route 109:\r\nServices Union Square and can take riders to the Red Line at Harvard Square, or the Orange Line at Sullivan Square. The route operates every 15 minutes or better. \r\n\nBus Route 91:\r\nServices Union Square and can take riders to East Somerville on the Medford/Tufts Branch, the Red Line at Central Square, or the Orange Line at Sullivan Square. \r\n\nShuttle Stop Locations:\r\n\nNorth Station:\r\nOutbound - Nashua St @ Red Auerbach Wy\r\n\nScience Park/West End:\r\nInbound - Martha Rd @ Amy Ct\r\nOutbound  - Nashua St @ Nashua St Park (opposite 200 Nashua St)\r\n\nLechmere:\r\nLechmere Busway\r\n\nUnion Square:\r\nUse Bus Route 87 to connect to shuttle buses at Lechmere, or Routes 91  and 109 to connect to the Red Line or Orange Line.\r\n\nEast Somerville:\r\nInbound - Medford St @ Washington St\r\nOutbound - McGrath Hwy @ Alston St\r\n\nGilman Square:\r\nMedford St @ School St\r\n\nMagoun Square:\r\nMedford St @ Broadway\r\n\nBall Square:\r\nInbound - Broadway @ Josephine Ave\r\nOutbound - Boston Ave @ Broadway\r\n\nMedford/Tufts:\r\nCollege Ave @ Boston Ave",
+      "id": "661698",
+      "title": "Rt. 34E detoured. The nearest inb. connections are 710 East St opp Kendall St or Washington St opp Washington Green. The nearest outb. conne",
+      "description": "Affected stops:\r\n624 Washington St opp Bird Middle School (inbound)\r\nWashington St @ Pilgrim Way (inbound)\r\nWashington St @ Polley Ln (inbound)",
       "severity": 7,
       "route_id": "unknown"
     },
     {
-      "id": "661698",
-      "title": "Rt. 34E detoured. The nearest inb. connections are 710 East St opp Kendall St or Washington St opp Washington Green. The nearest outb. conne",
-      "description": "Affected stops:\r\n624 Washington St opp Bird Middle School (inbound)\r\nWashington St @ Pilgrim Way (inbound)\r\nWashington St @ Polley Ln (inbound)",
+      "id": "669842",
+      "title": "Rt. 39 IB will be detoured from 7 AM to 3 PM on 10/4 and omitting Ring Rd @ Boylston St.\n",
+      "description": null,
       "severity": 7,
       "route_id": "unknown"
     },
@@ -164,6 +164,13 @@
       "title": "The Somerville Ave @ Central St bus stop is temporarily closed until the end of Oct. Riders can use the temporary stop located on the opposi",
       "description": "Affected routes:\r\n83\r\n87",
       "severity": 1,
+      "route_id": "unknown"
+    },
+    {
+      "id": "669839",
+      "title": "Rt. 9 IB will be detoured from 7 AM to 3 PM on Sat, Oct 4 and omitting Ring Rd @ Boylston St Connect on Boylston St @ Ring Rd.",
+      "description": null,
+      "severity": 7,
       "route_id": "unknown"
     },
     {
@@ -342,6 +349,13 @@
       "route_id": "unknown"
     },
     {
+      "id": "669619",
+      "title": "Shuttle Buses are replacing Green Ln between N Station & Medford/Tufts through Sun, Oct 5. Union Sq riders can use Rt 87 service to Lechmere",
+      "description": "Service Information:\r\nB - Boston College and C - Cleveland Circle trains will terminate at Government Center.\r\nD - Riverside and E - Medford/Tufts trains will terminate at North Station. \r\n\nAccessibility Information:\r\nAccessible van service will be available at Magoun Square. Riders can request this service by seeing onsite personnel.\r\n\nOther Alternative Service Options:\r\n\nBus Route 109:\r\nServices Union Square and can take riders to the Red Line at Harvard Square, or the Orange Line at Sullivan Square. The route operates every 15 minutes or better. \r\n\nBus Route 91:\r\nServices Union Square and can take riders to East Somerville on the Medford/Tufts Branch, the Red Line at Central Square, or the Orange Line at Sullivan Square. \r\n\nShuttle Stop Locations:\r\n\nNorth Station:\r\nOutbound - Nashua St @ Red Auerbach Wy\r\n\nScience Park/West End:\r\nInbound - Martha Rd @ Amy Ct\r\nOutbound  - Nashua St @ Nashua St Park (opposite 200 Nashua St)\r\n\nLechmere:\r\nLechmere Busway\r\n\nUnion Square:\r\nUse Bus Route 87 to connect to shuttle buses at Lechmere, or Routes 91  and 109 to connect to the Red Line or Orange Line.\r\n\nEast Somerville:\r\nInbound - Medford St @ Washington St\r\nOutbound - McGrath Hwy @ Alston St\r\n\nGilman Square:\r\nMedford St @ School St\r\n\nMagoun Square:\r\nMedford St @ Broadway\r\n\nBall Square:\r\nInbound - Broadway @ Josephine Ave\r\nOutbound - Boston Ave @ Broadway\r\n\nMedford/Tufts:\r\nCollege Ave @ Boston Ave",
+      "severity": 7,
+      "route_id": "unknown"
+    },
+    {
       "id": "669630",
       "title": "Natick Center Elevator 751 (Track 2 to street) unavailable",
       "description": "To exit: Go to the east end of the platform. Take the ramp to Washington St.\r\nTo board: Go south on Main St. Turn left on South Ave and go one block. Turn left on Washington St. Take the ramp to the Track 2 platform.",
@@ -352,32 +366,12 @@
   "delays_by_route": {},
   "vehicle_positions": [
     {
-      "id": "ynk257",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.201605,
-      "longitude": -71.064545,
-      "bearing": 133,
-      "speed": null,
-      "status": null
-    },
-    {
       "id": "ynk187",
       "route_id": "Shuttle-Generic",
       "route_type": null,
       "latitude": 42.201739,
       "longitude": -71.065048,
       "bearing": 317,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1256",
-      "route_id": "28",
-      "route_type": null,
-      "latitude": 42.272017,
-      "longitude": -71.093491,
-      "bearing": 4,
       "speed": null,
       "status": null
     },
@@ -392,32 +386,12 @@
       "status": null
     },
     {
-      "id": "y1207",
-      "route_id": "39",
+      "id": "ynk308",
+      "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.337832,
-      "longitude": -71.095655,
-      "bearing": 236,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10291",
-      "route_id": "Mattapan",
-      "route_type": null,
-      "latitude": 42.27004,
-      "longitude": -71.07334,
-      "bearing": 270,
-      "speed": 3.0,
-      "status": null
-    },
-    {
-      "id": "y3122",
-      "route_id": "111",
-      "route_type": null,
-      "latitude": 42.404841,
-      "longitude": -71.034668,
-      "bearing": 80,
+      "latitude": 42.338765,
+      "longitude": -71.044332,
+      "bearing": 115,
       "speed": null,
       "status": null
     },
@@ -425,30 +399,10 @@
       "id": "ynk237",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.365377,
-      "longitude": -71.060371,
-      "bearing": 337,
+      "latitude": 42.280587,
+      "longitude": -71.046457,
+      "bearing": 209,
       "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk258",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.201618,
-      "longitude": -71.064703,
-      "bearing": 145,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10056",
-      "route_id": "Green-B",
-      "route_type": null,
-      "latitude": 42.34588,
-      "longitude": -71.14143,
-      "bearing": 225,
-      "speed": 5.7,
       "status": null
     },
     {
@@ -462,22 +416,12 @@
       "status": null
     },
     {
-      "id": "y1855",
-      "route_id": "66",
+      "id": "y1865",
+      "route_id": "15",
       "route_type": null,
-      "latitude": 42.348009,
-      "longitude": -71.129328,
-      "bearing": 150,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk253",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.201616,
-      "longitude": -71.064457,
-      "bearing": 350,
+      "latitude": 42.33943,
+      "longitude": -71.05841,
+      "bearing": 180,
       "speed": null,
       "status": null
     },
@@ -485,49 +429,9 @@
       "id": "ynk233",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.24137,
-      "longitude": -71.026105,
-      "bearing": 141,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10251",
-      "route_id": "Green-B",
-      "route_type": null,
-      "latitude": 42.34018,
-      "longitude": -71.16709,
-      "bearing": 135,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10219",
-      "route_id": "Green-E",
-      "route_type": null,
-      "latitude": 42.34996,
-      "longitude": -71.07792,
-      "bearing": 240,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1869",
-      "route_id": "57",
-      "route_type": null,
-      "latitude": 42.363379,
-      "longitude": -71.186016,
-      "bearing": 357,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1893",
-      "route_id": "23",
-      "route_type": null,
-      "latitude": 42.334348,
-      "longitude": -71.089838,
-      "bearing": 64,
+      "latitude": 42.201587,
+      "longitude": -71.064807,
+      "bearing": 175,
       "speed": null,
       "status": null
     },
@@ -552,62 +456,22 @@
       "status": null
     },
     {
-      "id": "G-10034",
-      "route_id": "Green-B",
-      "route_type": null,
-      "latitude": 42.34027,
-      "longitude": -71.16688,
-      "bearing": 0,
-      "speed": null,
-      "status": null
-    },
-    {
       "id": "ynk228",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.32951,
-      "longitude": -71.060582,
-      "bearing": 145,
+      "latitude": 42.201613,
+      "longitude": -71.064851,
+      "bearing": 338,
       "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1252",
-      "route_id": "28",
-      "route_type": null,
-      "latitude": 42.318242,
-      "longitude": -71.081848,
-      "bearing": 22,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10156",
-      "route_id": "Green-B",
-      "route_type": null,
-      "latitude": 42.341,
-      "longitude": -71.16742,
-      "bearing": 75,
-      "speed": 1.7,
       "status": null
     },
     {
       "id": "ynk231",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.241135,
-      "longitude": -71.025836,
-      "bearing": 142,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10354",
-      "route_id": "Green-E",
-      "route_type": null,
-      "latitude": 42.36242,
-      "longitude": -71.05803,
-      "bearing": 355,
+      "latitude": 42.201604,
+      "longitude": -71.064862,
+      "bearing": 212,
       "speed": null,
       "status": null
     },
@@ -615,8 +479,8 @@
       "id": "ynk259",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.201559,
-      "longitude": -71.064744,
+      "latitude": 42.201539,
+      "longitude": -71.064759,
       "bearing": 166,
       "speed": null,
       "status": null
@@ -625,9 +489,9 @@
       "id": "ynk255",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.383497,
-      "longitude": -71.091466,
-      "bearing": 348,
+      "latitude": 42.201925,
+      "longitude": -71.064608,
+      "bearing": 243,
       "speed": null,
       "status": null
     },
@@ -638,16 +502,6 @@
       "latitude": 42.201736,
       "longitude": -71.065097,
       "bearing": 154,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10348",
-      "route_id": "Green-D",
-      "route_type": null,
-      "latitude": 42.34837,
-      "longitude": -71.09865,
-      "bearing": 240,
       "speed": null,
       "status": null
     },
@@ -665,8 +519,8 @@
       "id": "ynk207",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.201778,
-      "longitude": -71.064986,
+      "latitude": 42.201802,
+      "longitude": -71.06498,
       "bearing": 290,
       "speed": null,
       "status": null
@@ -675,9 +529,9 @@
       "id": "ynk230",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.366127,
-      "longitude": -71.063916,
-      "bearing": 337,
+      "latitude": 42.283276,
+      "longitude": -71.044381,
+      "bearing": 209,
       "speed": null,
       "status": null
     },
@@ -695,19 +549,9 @@
       "id": "ynk247",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.366954,
-      "longitude": -71.068118,
-      "bearing": 235,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk251",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.201673,
-      "longitude": -71.064585,
-      "bearing": 43,
+      "latitude": 42.201906,
+      "longitude": -71.06459,
+      "bearing": 356,
       "speed": null,
       "status": null
     },
@@ -715,19 +559,9 @@
       "id": "ynk235",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.388052,
-      "longitude": -71.096073,
-      "bearing": 143,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1789",
-      "route_id": "23",
-      "route_type": null,
-      "latitude": 42.309694,
-      "longitude": -71.082734,
-      "bearing": 135,
+      "latitude": 42.201904,
+      "longitude": -71.064679,
+      "bearing": 332,
       "speed": null,
       "status": null
     },
@@ -735,29 +569,9 @@
       "id": "ynk249",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.397012,
-      "longitude": -71.103268,
-      "bearing": 112,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk248",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.201617,
-      "longitude": -71.064542,
-      "bearing": 75,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1838",
-      "route_id": "1",
-      "route_type": null,
-      "latitude": 42.35969,
-      "longitude": -71.09422,
-      "bearing": 135,
+      "latitude": 42.201843,
+      "longitude": -71.0648,
+      "bearing": 238,
       "speed": null,
       "status": null
     },
@@ -765,19 +579,19 @@
       "id": "ynk232",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.387867,
-      "longitude": -71.095846,
-      "bearing": 322,
+      "latitude": 42.201814,
+      "longitude": -71.065142,
+      "bearing": 355,
       "speed": null,
       "status": null
     },
     {
-      "id": "ynk250",
-      "route_id": "Shuttle-Generic",
+      "id": "y1795",
+      "route_id": "28",
       "route_type": null,
-      "latitude": 42.201682,
-      "longitude": -71.064462,
-      "bearing": 140,
+      "latitude": 42.32854,
+      "longitude": -71.05256,
+      "bearing": 180,
       "speed": null,
       "status": null
     }
