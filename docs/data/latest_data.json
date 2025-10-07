@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-10-07T06:33:55.493841",
+  "last_updated": "2025-10-07T07:22:08.787528",
   "total_routes": 177,
-  "active_vehicles": 7,
+  "active_vehicles": 6,
   "status": "active",
   "routes_by_type": {},
   "active_alerts": [
@@ -136,6 +136,13 @@
       "title": "The Somerville Ave @ Central St bus stop is temporarily closed until the end of Oct. Riders can use the temporary stop located on the opposi",
       "description": "Affected routes:\r\n83\r\n87",
       "severity": 1,
+      "route_id": "unknown"
+    },
+    {
+      "id": "669148",
+      "title": "Rt. 47 will be detoured inb., omitting Pearl St @ Putnam Ave, from 7 AM - 4 PM, weekdays through Fri Oct 10 for sewer construction work. ",
+      "description": "Affected stops:\r\nPearl St @ Putnam Ave (inbound)",
+      "severity": 7,
       "route_id": "unknown"
     },
     {
@@ -324,52 +331,32 @@
   "delays_by_route": {},
   "vehicle_positions": [
     {
-      "id": "y1919",
-      "route_id": "57",
+      "id": "y1845",
+      "route_id": "15",
       "route_type": null,
-      "latitude": 42.347336,
-      "longitude": -71.057622,
-      "bearing": 16,
+      "latitude": 42.314412,
+      "longitude": -71.056904,
+      "bearing": 189,
       "speed": null,
       "status": null
     },
     {
-      "id": "G-10054",
-      "route_id": "Green-E",
+      "id": "ynk233",
+      "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.37604,
-      "longitude": -71.08343,
-      "bearing": 145,
+      "latitude": 42.338484,
+      "longitude": -71.044729,
+      "bearing": 44,
       "speed": null,
       "status": null
     },
     {
-      "id": "G-10098",
-      "route_id": "Green-E",
+      "id": "ynk320",
+      "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.37604,
-      "longitude": -71.08343,
-      "bearing": 145,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1915",
-      "route_id": "23",
-      "route_type": null,
-      "latitude": 42.293279,
-      "longitude": -71.071856,
-      "bearing": 177,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y3158",
-      "route_id": "111",
-      "route_type": null,
-      "latitude": 42.415376,
-      "longitude": -71.032307,
-      "bearing": 0,
+      "latitude": 42.338655,
+      "longitude": -71.044278,
+      "bearing": 175,
       "speed": null,
       "status": null
     },
@@ -384,12 +371,22 @@
       "status": null
     },
     {
-      "id": "G-10334",
-      "route_id": "Green-B",
+      "id": "y1899",
+      "route_id": "28",
       "route_type": null,
-      "latitude": 42.34018,
-      "longitude": -71.16709,
-      "bearing": 135,
+      "latitude": 42.296783,
+      "longitude": -71.087336,
+      "bearing": 10,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "ynk250",
+      "route_id": "Shuttle-Generic",
+      "route_type": null,
+      "latitude": 42.33839,
+      "longitude": -71.044664,
+      "bearing": 111,
       "speed": null,
       "status": null
     }
