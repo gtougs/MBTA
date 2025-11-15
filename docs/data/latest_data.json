@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-11-15T07:20:14.916273",
+  "last_updated": "2025-11-15T08:28:23.900434",
   "total_routes": 177,
-  "active_vehicles": 41,
+  "active_vehicles": 16,
   "status": "active",
   "routes_by_type": {},
   "active_alerts": [
@@ -23,13 +23,6 @@
       "id": "679129",
       "title": "Rt. 9 will be detoured inb. from 7 AM to 3 PM on Sat, Nov 15, for construction & omitting Ring Rd @ Boylston St. Connections are available a",
       "description": null,
-      "severity": 7,
-      "route_id": "unknown"
-    },
-    {
-      "id": "673353",
-      "title": "Orange Ln: Shuttle buses replace service between Back Bay & Forest Hills from 8:30pm on Fri, Nov 14 through Sun, Nov 16, for signal work.",
-      "description": "Accessibility:\r\nAll shuttle buses will be accessible. \r\n\nFare-Free Commuter Rail Alternative:\r\nRiders can use the Franklin/Foxboro, Needham, or Providence/Stoughton Lines fare-free for service between Forest Hills, Ruggles, Back Bay and South Station. Regular fares will apply to travel beyond Forest Hills.\r\n\nTravel Time:\r\nRiders using shuttle bus service should budget extra travel time. For example, a rider traveling to Downtown Crossing from Forest Hills should allow for at least 30 minutes of travel in addition to their regular commute.\r\n\nShuttle Bus Stops:\r\n\nBack Bay:\r\nNorthbound/Southbound - Back Bay Station (165 Dartmouth St)\r\n\nMassachusetts Avenue:\r\nNorthbound - Columbus Ave @ Mass Ave (584 Columbus Ave)\r\nSouthbound - Columbus Ave @ Mass Ave (585 Columbus Ave)\r\n\nRuggles:\r\nNorthbound - Ruggles Station (Upper Busway)\r\nSouthbound - 1125 Tremont St\r\n\nRoxbury Crossing:\r\nNorthbound - Columbus Ave @ Malcolm X Blvd (1184 Columbus Ave)\r\nSouthbound - Tremont St @ Roxbury Crossing Station (1135 Columbus Ave)\r\n\nJackson Square:\r\nNorthbound - Jackson Square Station (250 Centre St)\r\nSouthbound - Columbus Ave @ Amory St (1579 Columbus Ave)\r\n\nStony Brook:\r\nNorthbound - Stony Brook Station\r\nSouthbound - Amory St @ Boylston St (207 Amory St)\r\n\nGreen Street:\r\nNorthbound - Amory St @ Gordon St (Southwest Corridor Park at Green Street Station)\r\nSouthbound - Amory St @ Green St (433-451 Amory St)\r\n\nForest Hills:\r\nForest Hills Station (Lower Busway)",
       "severity": 7,
       "route_id": "unknown"
     },
@@ -136,6 +129,13 @@
       "title": "Andrew Escalator 123 (Ashmont/Braintree platform to busway) is unavailable until further notice pending replacement.",
       "description": null,
       "severity": 3,
+      "route_id": "unknown"
+    },
+    {
+      "id": "679122",
+      "title": "Orange Line: Shuttle buses are replacing service between Back Bay and Forest Hills until closing on Sun, Nov 16, for signal upgrades",
+      "description": "Accessibility:\r\nAll shuttle buses will be accessible. \r\n\nFare-Free Commuter Rail Alternative:\r\nRiders can use the Franklin/Foxboro, Needham, or Providence/Stoughton Lines fare-free for service between Forest Hills, Ruggles, Back Bay and South Station. Regular fares will apply to travel beyond Forest Hills.\r\n\nTravel Time:\r\nRiders using shuttle bus service should budget extra travel time. For example, a rider traveling to Downtown Crossing from Forest Hills should allow for at least 30 minutes of travel in addition to their regular commute.\r\n\nShuttle Bus Stops:\r\n\nBack Bay:\r\nNorthbound/Southbound - Back Bay Station (165 Dartmouth St)\r\n\nMassachusetts Avenue:\r\nNorthbound - Columbus Ave @ Mass Ave (584 Columbus Ave)\r\nSouthbound - Columbus Ave @ Mass Ave (585 Columbus Ave)\r\n\nRuggles:\r\nNorthbound - Ruggles Station (Upper Busway)\r\nSouthbound - 1125 Tremont St\r\n\nRoxbury Crossing:\r\nNorthbound - Columbus Ave @ Malcolm X Blvd (1184 Columbus Ave)\r\nSouthbound - Tremont St @ Roxbury Crossing Station (1135 Columbus Ave)\r\n\nJackson Square:\r\nNorthbound - Jackson Square Station (250 Centre St)\r\nSouthbound - Columbus Ave @ Amory St (1579 Columbus Ave)\r\n\nStony Brook:\r\nNorthbound - Stony Brook Station\r\nSouthbound - Amory St @ Boylston St (207 Amory St)\r\n\nGreen Street:\r\nNorthbound - Amory St @ Gordon St (Southwest Corridor Park at Green Street Station)\r\nSouthbound - Amory St @ Green St (433-451 Amory St)\r\n\nForest Hills:\r\nForest Hills Station (Lower Busway)",
+      "severity": 7,
       "route_id": "unknown"
     },
     {
@@ -317,52 +317,12 @@
   "delays_by_route": {},
   "vehicle_positions": [
     {
-      "id": "y3342",
-      "route_id": "116",
+      "id": "ynk345",
+      "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.399074,
-      "longitude": -71.023103,
-      "bearing": 33,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1633",
-      "route_id": "34",
-      "route_type": null,
-      "latitude": 42.29962,
-      "longitude": -71.11426,
-      "bearing": 45,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10151",
-      "route_id": "Mattapan",
-      "route_type": null,
-      "latitude": 42.27029,
-      "longitude": -71.06853,
-      "bearing": 90,
-      "speed": 8.4,
-      "status": null
-    },
-    {
-      "id": "G-10057",
-      "route_id": "Green-D",
-      "route_type": null,
-      "latitude": 42.3377,
-      "longitude": -71.25295,
-      "bearing": 180,
-      "speed": 2.9,
-      "status": null
-    },
-    {
-      "id": "y1268",
-      "route_id": "28",
-      "route_type": null,
-      "latitude": 42.273492,
-      "longitude": -71.093728,
-      "bearing": 182,
+      "latitude": 42.201327,
+      "longitude": -71.064223,
+      "bearing": null,
       "speed": null,
       "status": null
     },
@@ -377,32 +337,12 @@
       "status": null
     },
     {
-      "id": "y1329",
-      "route_id": "741",
+      "id": "ynk314",
+      "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.346405,
-      "longitude": -71.042027,
-      "bearing": 188,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10281",
-      "route_id": "Green-D",
-      "route_type": null,
-      "latitude": 42.3377,
-      "longitude": -71.25295,
-      "bearing": 180,
-      "speed": 2.4,
-      "status": null
-    },
-    {
-      "id": "y3267",
-      "route_id": "Shuttle-Generic-Orange",
-      "route_type": null,
-      "latitude": 42.331153,
-      "longitude": -71.061464,
-      "bearing": 315,
+      "latitude": 42.204261,
+      "longitude": -71.077316,
+      "bearing": 257,
       "speed": null,
       "status": null
     },
@@ -417,142 +357,22 @@
       "status": null
     },
     {
-      "id": "y3233",
-      "route_id": "Shuttle-Generic-Orange",
-      "route_type": null,
-      "latitude": 42.329238,
-      "longitude": -71.082535,
-      "bearing": 12,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "O-548674F4",
-      "route_id": "Orange",
-      "route_type": null,
-      "latitude": 42.43342,
-      "longitude": -71.07161,
-      "bearing": 20,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10312",
-      "route_id": "Green-B",
-      "route_type": null,
-      "latitude": 42.34018,
-      "longitude": -71.16709,
-      "bearing": 135,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y2014",
-      "route_id": "111",
-      "route_type": null,
-      "latitude": 42.370292,
-      "longitude": -71.063408,
-      "bearing": 78,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10362",
-      "route_id": "Green-D",
-      "route_type": null,
-      "latitude": 42.34837,
-      "longitude": -71.09865,
-      "bearing": 240,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y3211",
-      "route_id": "Shuttle-Generic-Orange",
-      "route_type": null,
-      "latitude": 42.3412,
-      "longitude": -71.06489,
-      "bearing": 90,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1785",
-      "route_id": "66",
-      "route_type": null,
-      "latitude": 42.353,
-      "longitude": -71.13233,
-      "bearing": 90,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y3240",
-      "route_id": "Shuttle-Generic-Orange",
-      "route_type": null,
-      "latitude": 42.312804,
-      "longitude": -71.105494,
-      "bearing": 195,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1793",
-      "route_id": "23",
-      "route_type": null,
-      "latitude": 42.333479,
-      "longitude": -71.091444,
-      "bearing": 233,
-      "speed": null,
-      "status": null
-    },
-    {
       "id": "ynk223",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338667,
-      "longitude": -71.044667,
+      "latitude": 42.338686,
+      "longitude": -71.044631,
       "bearing": null,
       "speed": null,
       "status": null
     },
     {
-      "id": "G-10249",
-      "route_id": "Green-E",
+      "id": "ynk310",
+      "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.36242,
-      "longitude": -71.05803,
-      "bearing": 355,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1910",
-      "route_id": "57",
-      "route_type": null,
-      "latitude": 42.353514,
-      "longitude": -71.135103,
-      "bearing": 281,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1792",
-      "route_id": "23",
-      "route_type": null,
-      "latitude": 42.310527,
-      "longitude": -71.083225,
-      "bearing": 342,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1266",
-      "route_id": "16",
-      "route_type": null,
-      "latitude": 42.301182,
-      "longitude": -71.112571,
-      "bearing": null,
+      "latitude": 42.32502,
+      "longitude": -71.056114,
+      "bearing": 325,
       "speed": null,
       "status": null
     },
@@ -560,8 +380,8 @@
       "id": "ynk229",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.388116,
-      "longitude": -71.024192,
+      "latitude": 42.387933,
+      "longitude": -71.024195,
       "bearing": null,
       "speed": null,
       "status": null
@@ -577,32 +397,12 @@
       "status": null
     },
     {
-      "id": "y3274",
-      "route_id": "Shuttle-Generic-Orange",
+      "id": "y1850",
+      "route_id": "28",
       "route_type": null,
-      "latitude": 42.34065,
-      "longitude": -71.06431,
-      "bearing": 270,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10088",
-      "route_id": "Green-C",
-      "route_type": null,
-      "latitude": 42.3425,
-      "longitude": -71.11992,
-      "bearing": 225,
-      "speed": 1.9,
-      "status": null
-    },
-    {
-      "id": "y3292",
-      "route_id": "Shuttle-Generic-Orange",
-      "route_type": null,
-      "latitude": 42.3406,
-      "longitude": -71.06438,
-      "bearing": 45,
+      "latitude": 42.292871,
+      "longitude": -71.088525,
+      "bearing": 13,
       "speed": null,
       "status": null
     },
@@ -620,59 +420,29 @@
       "id": "ynk224",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.372564,
-      "longitude": -71.027891,
-      "bearing": 321,
+      "latitude": 42.385046,
+      "longitude": -71.022184,
+      "bearing": null,
       "speed": null,
       "status": null
     },
     {
-      "id": "G-10301",
-      "route_id": "Green-B",
+      "id": "y1862",
+      "route_id": "15",
       "route_type": null,
-      "latitude": 42.35145,
-      "longitude": -71.11842,
-      "bearing": 315,
-      "speed": 5.6,
-      "status": null
-    },
-    {
-      "id": "y1455",
-      "route_id": "110",
-      "route_type": null,
-      "latitude": 42.408831,
-      "longitude": -70.995642,
-      "bearing": 113,
+      "latitude": 42.330159,
+      "longitude": -71.060062,
+      "bearing": null,
       "speed": null,
       "status": null
     },
     {
-      "id": "y1220",
-      "route_id": "28",
+      "id": "ynk320",
+      "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.318402,
-      "longitude": -71.081674,
-      "bearing": 23,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1817",
-      "route_id": "1",
-      "route_type": null,
-      "latitude": 42.372247,
-      "longitude": -71.119376,
-      "bearing": 162,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y3221",
-      "route_id": "Shuttle-Generic-Orange",
-      "route_type": null,
-      "latitude": 42.34072,
-      "longitude": -71.0642,
-      "bearing": 270,
+      "latitude": 42.338562,
+      "longitude": -71.043955,
+      "bearing": null,
       "speed": null,
       "status": null
     },
@@ -680,20 +450,10 @@
       "id": "ynk304",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338412,
-      "longitude": -71.043719,
-      "bearing": 226,
+      "latitude": 42.338442,
+      "longitude": -71.044044,
+      "bearing": null,
       "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10371",
-      "route_id": "Green-B",
-      "route_type": null,
-      "latitude": 42.341,
-      "longitude": -71.16742,
-      "bearing": 75,
-      "speed": 1.6,
       "status": null
     },
     {
@@ -707,22 +467,12 @@
       "status": null
     },
     {
-      "id": "G-10306",
-      "route_id": "Green-E",
+      "id": "ynk335",
+      "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.35614,
-      "longitude": -71.06243,
-      "bearing": 30,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1888",
-      "route_id": "16",
-      "route_type": null,
-      "latitude": 42.30048,
-      "longitude": -71.11347,
-      "bearing": 225,
+      "latitude": 42.338451,
+      "longitude": -71.04361,
+      "bearing": null,
       "speed": null,
       "status": null
     }
