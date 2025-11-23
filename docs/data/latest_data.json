@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-11-23T08:29:41.919283",
+  "last_updated": "2025-11-23T09:22:52.451965",
   "total_routes": 177,
-  "active_vehicles": 20,
+  "active_vehicles": 27,
   "status": "active",
   "routes_by_type": {},
   "active_alerts": [
@@ -321,13 +321,6 @@
       "route_id": "unknown"
     },
     {
-      "id": "680647",
-      "title": "Kendall/MIT Elev. 866 unavailable 6am-9am on Sun Nov 23. Passengers will need to travel to either Harvard or Charles/MGH for alternative ele",
-      "description": "To exit, exit the train at Harvard, then take an Ashmont or Braintree-bound train to Kendall/MIT and use Kendall/MIT Elevator 756 or 757 to access Main St. To board, cross Main St and use Kendall/MIT Elevator 756 or 757 to access the Ashmont/Braintree platform. Take an Ashmont or Braintree-bound train to Charles/MGH, then transfer to an Alewife-bound train.",
-      "severity": 3,
-      "route_id": "unknown"
-    },
-    {
       "id": "676885",
       "title": "The Route 47 Green St @ Magazine St bus stop is closed through Jan 2026. Please board at Green St @ Pearl St for service to Broadway",
       "description": null,
@@ -359,12 +352,62 @@
   "delays_by_route": {},
   "vehicle_positions": [
     {
-      "id": "y1787",
-      "route_id": "15",
+      "id": "y2012",
+      "route_id": "109",
       "route_type": null,
-      "latitude": 42.291609,
-      "longitude": -71.062732,
-      "bearing": 10,
+      "latitude": 42.41268,
+      "longitude": -71.050491,
+      "bearing": 34,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "ynk255",
+      "route_id": "Shuttle-Generic",
+      "route_type": null,
+      "latitude": 42.201957,
+      "longitude": -71.064894,
+      "bearing": null,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y1787",
+      "route_id": "171",
+      "route_type": null,
+      "latitude": 42.369112,
+      "longitude": -71.020178,
+      "bearing": 282,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y3310",
+      "route_id": "116",
+      "route_type": null,
+      "latitude": 42.423032,
+      "longitude": -71.003409,
+      "bearing": 209,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y2026",
+      "route_id": "104",
+      "route_type": null,
+      "latitude": 42.38799,
+      "longitude": -71.07343,
+      "bearing": 315,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y2017",
+      "route_id": "104",
+      "route_type": null,
+      "latitude": 42.42644,
+      "longitude": -71.07405,
+      "bearing": 180,
       "speed": null,
       "status": null
     },
@@ -382,28 +425,8 @@
       "id": "ynk253",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.366031,
-      "longitude": -71.023178,
-      "bearing": 114,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk256",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.20188,
-      "longitude": -71.064792,
-      "bearing": null,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk341",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.338622,
-      "longitude": -71.043819,
+      "latitude": 42.388328,
+      "longitude": -71.024008,
       "bearing": null,
       "speed": null,
       "status": null
@@ -412,9 +435,9 @@
       "id": "ynk333",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.203712,
-      "longitude": -71.13081,
-      "bearing": 285,
+      "latitude": 42.248949,
+      "longitude": -71.762577,
+      "bearing": null,
       "speed": null,
       "status": null
     },
@@ -422,8 +445,8 @@
       "id": "ynk344",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338161,
-      "longitude": -71.044092,
+      "latitude": 42.338745,
+      "longitude": -71.044338,
       "bearing": null,
       "speed": null,
       "status": null
@@ -439,6 +462,26 @@
       "status": null
     },
     {
+      "id": "y1644",
+      "route_id": "31",
+      "route_type": null,
+      "latitude": 42.30308,
+      "longitude": -71.11019,
+      "bearing": 180,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y1854",
+      "route_id": "171",
+      "route_type": null,
+      "latitude": 42.335565,
+      "longitude": -71.072236,
+      "bearing": 143,
+      "speed": null,
+      "status": null
+    },
+    {
       "id": "ynk229",
       "route_id": "Shuttle-Generic",
       "route_type": null,
@@ -446,6 +489,16 @@
       "longitude": -71.044379,
       "bearing": null,
       "speed": null,
+      "status": null
+    },
+    {
+      "id": "G-10004",
+      "route_id": "Green-D",
+      "route_type": null,
+      "latitude": 42.33692,
+      "longitude": -71.2515,
+      "bearing": 135,
+      "speed": 14.3,
       "status": null
     },
     {
@@ -492,8 +545,8 @@
       "id": "ynk320",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338606,
-      "longitude": -71.044266,
+      "latitude": 42.338599,
+      "longitude": -71.043659,
       "bearing": null,
       "speed": null,
       "status": null
@@ -502,9 +555,9 @@
       "id": "ynk347",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338624,
-      "longitude": -71.043808,
-      "bearing": null,
+      "latitude": 42.227823,
+      "longitude": -71.644762,
+      "bearing": 278,
       "speed": null,
       "status": null
     },
@@ -512,8 +565,8 @@
       "id": "ynk234",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.201851,
-      "longitude": -71.064922,
+      "latitude": 42.20179,
+      "longitude": -71.064926,
       "bearing": null,
       "speed": null,
       "status": null
@@ -522,18 +575,18 @@
       "id": "ynk307",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.338341,
-      "longitude": -71.0442,
+      "latitude": 42.338845,
+      "longitude": -71.044437,
       "bearing": null,
       "speed": null,
       "status": null
     },
     {
-      "id": "ynk232",
+      "id": "ynk304",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.201949,
-      "longitude": -71.065021,
+      "latitude": 42.201742,
+      "longitude": -71.06436,
       "bearing": null,
       "speed": null,
       "status": null
@@ -552,9 +605,19 @@
       "id": "y1871",
       "route_id": "28",
       "route_type": null,
-      "latitude": 42.307726,
-      "longitude": -71.083602,
-      "bearing": 15,
+      "latitude": 42.286656,
+      "longitude": -71.090824,
+      "bearing": 193,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y1997",
+      "route_id": "109",
+      "route_type": null,
+      "latitude": 42.394965,
+      "longitude": -71.066526,
+      "bearing": 32,
       "speed": null,
       "status": null
     }
