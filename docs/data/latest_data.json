@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-11-27T07:25:00.579633",
+  "last_updated": "2025-11-27T08:33:53.998571",
   "total_routes": 177,
-  "active_vehicles": 16,
+  "active_vehicles": 10,
   "status": "active",
   "routes_by_type": {},
   "active_alerts": [
@@ -125,6 +125,13 @@
       "route_id": "unknown"
     },
     {
+      "id": "681248",
+      "title": "Rt. 88 detoured on Thu, Nov 27, from 8 AM to 1 PM, due to the Somerville Gobble Gobble Rd Race. The nearest inb. connections are Broadway @ ",
+      "description": "Affected stops:\r\nHolland St @ Cameron Ave (inbound)\r\nHolland St @ Jay St (inbound)\r\nHolland St @ Dover St (inbound)\r\nElm St @ Chester St (inbound)",
+      "severity": 7,
+      "route_id": "unknown"
+    },
+    {
       "id": "675718",
       "title": "Amesbury St @ Vassar St (outbound) has moved permanently to Vassar St @ Audrey St.",
       "description": "Affected routes:\r\nCT2",
@@ -143,6 +150,13 @@
       "title": "Somerville Ave @ Central St is moving through Tue, Dec 2. Riders can board at the temporary stop located on the opposite side of Bleachery C",
       "description": "Affected routes:\r\n83\r\n87",
       "severity": 1,
+      "route_id": "unknown"
+    },
+    {
+      "id": "681249",
+      "title": "Rt. 87 detoured due to the Somerville Gobble Gobble Gobble Rd Race until 1pm. The nearest inb. connections are Broadway @ Holland St - Teel ",
+      "description": "Affected stops:\r\nHolland St @ Cameron Ave (inbound)\r\nHolland St @ Jay St (inbound)\r\nHolland St @ Dover St (inbound)\r\nElm St @ Chester St (inbound)\r\nElm St @ Russell St (inbound)\r\nElm St @ Beech St (inbound)",
+      "severity": 7,
       "route_id": "unknown"
     },
     {
@@ -171,6 +185,13 @@
       "title": "Broadway Escalator 367 (Platform to paid lobby) unavailable",
       "description": null,
       "severity": 3,
+      "route_id": "unknown"
+    },
+    {
+      "id": "681245",
+      "title": "Rts. 89 & 94 detoured Nov 27, 8AM-1PM, Rts. 89 & 94 detoured due to Somerville Gobble Gobble Rd Race. There is no service at Elm @ Chester",
+      "description": "Affected stops:\r\nElm St @ Chester St",
+      "severity": 7,
       "route_id": "unknown"
     },
     {
@@ -241,6 +262,13 @@
       "title": "Courthouse Escalator 415 (Airport/Design Center platform to lobby) unavailable due to ongoing construction at the station. ",
       "description": null,
       "severity": 1,
+      "route_id": "unknown"
+    },
+    {
+      "id": "681247",
+      "title": "Rt. 96 detoured due to the Somerville Gobble Gobble Gobble Rd Race until 1pm. The nearest inb. connections are College Ave @ Highland Ave or",
+      "description": "Affected stops:\r\nElm St @ Chester St (inbound)\r\nElm St @ Russell St (inbound)\r\nElm St @ Beech St (inbound)",
+      "severity": 7,
       "route_id": "unknown"
     },
     {
@@ -317,42 +345,12 @@
   "delays_by_route": {},
   "vehicle_positions": [
     {
-      "id": "y1864",
-      "route_id": "23",
+      "id": "y1851",
+      "route_id": "15",
       "route_type": null,
-      "latitude": 42.334418,
-      "longitude": -71.089664,
-      "bearing": 216,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk225",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.33797,
-      "longitude": -71.035937,
-      "bearing": null,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10042",
-      "route_id": "Green-B",
-      "route_type": null,
-      "latitude": 42.34018,
-      "longitude": -71.16709,
-      "bearing": 135,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk210",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.224819,
-      "longitude": -71.17349,
-      "bearing": null,
+      "latitude": 42.292933,
+      "longitude": -71.062317,
+      "bearing": 3,
       "speed": null,
       "status": null
     },
@@ -360,9 +358,9 @@
       "id": "ynk253",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.387944,
-      "longitude": -71.024245,
-      "bearing": null,
+      "latitude": 42.387697,
+      "longitude": -71.02389,
+      "bearing": 145,
       "speed": null,
       "status": null
     },
@@ -370,19 +368,9 @@
       "id": "ynk233",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.362182,
-      "longitude": -71.017691,
-      "bearing": 327,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1956",
-      "route_id": "111",
-      "route_type": null,
-      "latitude": 42.39089,
-      "longitude": -71.03511,
-      "bearing": 0,
+      "latitude": 42.378495,
+      "longitude": -71.025752,
+      "bearing": 338,
       "speed": null,
       "status": null
     },
@@ -390,8 +378,18 @@
       "id": "ynk223",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.339055,
-      "longitude": -71.044334,
+      "latitude": 42.338821,
+      "longitude": -71.044609,
+      "bearing": null,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "ynk209",
+      "route_id": "Shuttle-Generic",
+      "route_type": null,
+      "latitude": 42.337582,
+      "longitude": -71.036364,
       "bearing": null,
       "speed": null,
       "status": null
@@ -407,12 +405,12 @@
       "status": null
     },
     {
-      "id": "y1909",
-      "route_id": "57",
+      "id": "y1801",
+      "route_id": "28",
       "route_type": null,
-      "latitude": 42.34895,
-      "longitude": -71.16136,
-      "bearing": 270,
+      "latitude": 42.302741,
+      "longitude": -71.085283,
+      "bearing": 11,
       "speed": null,
       "status": null
     },
@@ -427,22 +425,12 @@
       "status": null
     },
     {
-      "id": "y3100",
-      "route_id": "116",
+      "id": "ynk234",
+      "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.39846,
-      "longitude": -71.02432,
-      "bearing": 47,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1264",
-      "route_id": "28",
-      "route_type": null,
-      "latitude": 42.296362,
-      "longitude": -71.087608,
-      "bearing": 190,
+      "latitude": 42.20181,
+      "longitude": -71.06486,
+      "bearing": null,
       "speed": null,
       "status": null
     },
@@ -453,26 +441,6 @@
       "latitude": 42.338905,
       "longitude": -71.04438,
       "bearing": null,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1615",
-      "route_id": "34",
-      "route_type": null,
-      "latitude": 42.30363,
-      "longitude": -71.10944,
-      "bearing": 135,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1221",
-      "route_id": "28",
-      "route_type": null,
-      "latitude": 42.319212,
-      "longitude": -71.081438,
-      "bearing": 6,
       "speed": null,
       "status": null
     }
