@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-12-14T08:31:14.843391",
+  "last_updated": "2025-12-14T09:24:50.599080",
   "total_routes": 177,
-  "active_vehicles": 6,
+  "active_vehicles": 13,
   "status": "active",
   "routes_by_type": {},
   "active_alerts": [
@@ -37,6 +37,13 @@
       "id": "679818",
       "title": "",
       "description": "Scope of Work:\r\nThis is to allow for work on the overhead catenary system, maintenance and upgrades, station brightening, and the continued installation of the Green Line Train Protection System. \r\n\nTravel Time:\r\nRiders should allow for ample extra travel time. Rider trip times are expected to be at least 20 minutes longer than usual. \r\n\nAccessibility:\r\nAccessible van service will be available for Green Line stops between Copley/Back Bay and North Station.\r\n\nBus Alternatives:\r\nRoute 39 Bus will be fare-free. This route runs parallel to the Green Line E Branch \r\n\nRoute 57 Bus will be fare-free. This route runs parallel to the Green Line B Branch between Kenmore and Packard's Corner.\r\n\nCommuter Rail Alternatives:\r\nCommuter Rail Worcester Line will be free to ride between Lansdowne, Back Bay, and South Station. Regular fares must be purchased for travel past Lansdowne Station. \r\n\nShuttle Bus Locations:\r\n\nCopley:\r\nWestbound Shuttle Stop - Stuart St @ Dartmouth St (Route 501/504 bus stop)\r\n\nHynes Convention Center:\r\nEastbound & Westbound Shuttle Stop  - Commonwealth Ave @ Massachusetts Ave\r\n\nKenmore:\r\nEastbound Shuttle Stop - 512 Commonwealth Ave\r\nWestbound Shuttle Stop - 497 Commonwealth Ave\r\n\nBlandford Street:\r\nEastbound Shuttle Stop - Commonwealth Ave @ Blandford St (Route 57 bus stop)\r\nWestbound Shuttle Stop - Commonwealth Ave @ Silber Way (Route 57 bus stop)\r\n\nBoston University East:\r\nEastbound Shuttle Stop - Commonwealth Ave @ Hinsdale St (Route 57 bus stop)\r\nWestbound Shuttle Stop - Commonwealth Ave @ Granby St (Route 57 bus stop)\r\n\nBoston University Central:\r\nEastbound and Westbound Shuttle Stops - Commonwealth Ave @ St Mary's St (Route 57 bus stop)  \r\n\nAmory Street:\r\nEastbound Shuttle Stop - Commonwealth Ave @ Pleasant St (Route 57 bus stop)\r\nWestbound Shuttle Stop  - Commonwealth Ave @ Buick St (Route 57 bus stop)\r\n\nBabcock Street:\r\nWestbound only Drop Off - Commonwealth Ave @ Babcock St (Route 57 bus stop) \r\nEastbound riders can use the Amory St stop at Commonwealth Ave @ Pleasant St (Route 57 bus stop)\r\n\nNearby Alternative Rail Service:\r\nNorth Station (Transfer within Station to Orange Line) \r\nHaymarket (Transfer within Station to Orange Line.) \r\nGovernment Center (use State, 0.2 mi.) \r\nPark Street (use Downtown Crossing, 0.2 mi.) \r\nBoylston (use Chinatown, 0.1 mi.) \r\nArlington (use Chinatown, 0.4 mi.) \r\nSymphony (use Mass Ave 0.1 mi.) \r\nNortheastern University (use Ruggles 0.3 mi) \r\nMuseum of Fine Arts (use Ruggles 0.3 mi) ",
+      "severity": 7,
+      "route_id": "unknown"
+    },
+    {
+      "id": "684029",
+      "title": "",
+      "description": null,
       "severity": 7,
       "route_id": "unknown"
     },
@@ -111,10 +118,24 @@
       "route_id": "unknown"
     },
     {
+      "id": "684034",
+      "title": "",
+      "description": "Affected stops:\r\nBroadway @ William St (outbound)\r\nBroadway @ Alfred St (outbound)\r\nBroadway @ Boston Ave - Ball Sq (outbound)\r\nBroadway @ Pearson Rd (outbound)",
+      "severity": 7,
+      "route_id": "unknown"
+    },
+    {
       "id": "683361",
       "title": "",
       "description": null,
       "severity": 3,
+      "route_id": "unknown"
+    },
+    {
+      "id": "684033",
+      "title": "",
+      "description": null,
+      "severity": 7,
       "route_id": "unknown"
     },
     {
@@ -209,6 +230,13 @@
       "route_id": "unknown"
     },
     {
+      "id": "684027",
+      "title": "",
+      "description": null,
+      "severity": 7,
+      "route_id": "unknown"
+    },
+    {
       "id": "577252",
       "title": "",
       "description": null,
@@ -256,10 +284,34 @@
       "description": "Please see station personnel or use a station call box to request assistance.",
       "severity": 1,
       "route_id": "unknown"
+    },
+    {
+      "id": "684030",
+      "title": "",
+      "description": null,
+      "severity": 7,
+      "route_id": "unknown"
+    },
+    {
+      "id": "684032",
+      "title": "",
+      "description": null,
+      "severity": 7,
+      "route_id": "unknown"
     }
   ],
   "delays_by_route": {},
   "vehicle_positions": [
+    {
+      "id": "G-10004",
+      "route_id": "Green-B",
+      "route_type": null,
+      "latitude": 42.341,
+      "longitude": -71.16742,
+      "bearing": 75,
+      "speed": null,
+      "status": null
+    },
     {
       "id": "ynk322",
       "route_id": "Shuttle-Generic",
@@ -272,11 +324,41 @@
     },
     {
       "id": "y1820",
-      "route_id": "15",
+      "route_id": "171",
       "route_type": null,
-      "latitude": 42.297086,
-      "longitude": -71.061068,
-      "bearing": 7,
+      "latitude": 42.36898,
+      "longitude": -71.01951,
+      "bearing": 270,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y2022",
+      "route_id": "104",
+      "route_type": null,
+      "latitude": 42.426168,
+      "longitude": -71.07387,
+      "bearing": null,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "ynk336",
+      "route_id": "Shuttle-Generic",
+      "route_type": null,
+      "latitude": 42.338716,
+      "longitude": -71.044062,
+      "bearing": null,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "G-10084",
+      "route_id": "Green-B",
+      "route_type": null,
+      "latitude": 42.34018,
+      "longitude": -71.16709,
+      "bearing": 135,
       "speed": null,
       "status": null
     },
@@ -284,9 +366,19 @@
       "id": "ynk253",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.364976,
-      "longitude": -71.020704,
-      "bearing": 126,
+      "latitude": 42.387871,
+      "longitude": -71.024304,
+      "bearing": null,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y1867",
+      "route_id": "171",
+      "route_type": null,
+      "latitude": 42.33624,
+      "longitude": -71.07341,
+      "bearing": 45,
       "speed": null,
       "status": null
     },
@@ -294,9 +386,9 @@
       "id": "y1815",
       "route_id": "28",
       "route_type": null,
-      "latitude": 42.306514,
-      "longitude": -71.084282,
-      "bearing": 15,
+      "latitude": 42.31283,
+      "longitude": -71.08341,
+      "bearing": 135,
       "speed": null,
       "status": null
     },
@@ -304,9 +396,9 @@
       "id": "ynk254",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.369369,
-      "longitude": -71.023199,
-      "bearing": 252,
+      "latitude": 42.375149,
+      "longitude": -71.029661,
+      "bearing": 199,
       "speed": null,
       "status": null
     },
@@ -317,6 +409,26 @@
       "latitude": 42.201837,
       "longitude": -71.064931,
       "bearing": null,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y2100",
+      "route_id": "109",
+      "route_type": null,
+      "latitude": 42.399069,
+      "longitude": -71.038478,
+      "bearing": 342,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y3300",
+      "route_id": "116",
+      "route_type": null,
+      "latitude": 42.420822,
+      "longitude": -71.004079,
+      "bearing": 96,
       "speed": null,
       "status": null
     }
