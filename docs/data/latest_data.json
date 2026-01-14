@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-01-14T07:30:16.183494",
+  "last_updated": "2026-01-14T08:37:35.921791",
   "total_routes": 177,
-  "active_vehicles": 16,
+  "active_vehicles": 10,
   "status": "active",
   "routes_by_type": {},
   "active_alerts": [
@@ -300,6 +300,13 @@
       "route_id": "unknown"
     },
     {
+      "id": "689028",
+      "title": "",
+      "description": null,
+      "severity": 3,
+      "route_id": "unknown"
+    },
+    {
       "id": "688984",
       "title": "",
       "description": "Affected stops:\r\nRowes Wharf\r\nHull\r\n\nAffected trips:\r\n6:50 am from Hingham to Rowes Wharf\r\n8:20 am from Hingham to Rowes Wharf",
@@ -324,16 +331,6 @@
   "delays_by_route": {},
   "vehicle_positions": [
     {
-      "id": "G-10046",
-      "route_id": "Green-E",
-      "route_type": null,
-      "latitude": 42.40839,
-      "longitude": -71.1173,
-      "bearing": 151,
-      "speed": null,
-      "status": null
-    },
-    {
       "id": "ynk258",
       "route_id": "Shuttle-Generic",
       "route_type": null,
@@ -354,42 +351,12 @@
       "status": null
     },
     {
-      "id": "ynk241",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.338075,
-      "longitude": -71.036181,
-      "bearing": null,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1860",
-      "route_id": "57",
-      "route_type": null,
-      "latitude": 42.347807,
-      "longitude": -71.074789,
-      "bearing": null,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10180",
-      "route_id": "Green-E",
-      "route_type": null,
-      "latitude": 42.37604,
-      "longitude": -71.08343,
-      "bearing": 145,
-      "speed": null,
-      "status": null
-    },
-    {
       "id": "ynk229",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.365048,
-      "longitude": -71.021434,
-      "bearing": 135,
+      "latitude": 42.388557,
+      "longitude": -71.023837,
+      "bearing": null,
       "speed": null,
       "status": null
     },
@@ -414,16 +381,6 @@
       "status": null
     },
     {
-      "id": "G-10154",
-      "route_id": "Green-E",
-      "route_type": null,
-      "latitude": 42.37604,
-      "longitude": -71.08343,
-      "bearing": 145,
-      "speed": null,
-      "status": null
-    },
-    {
       "id": "ynk240",
       "route_id": "Shuttle-Generic",
       "route_type": null,
@@ -434,32 +391,12 @@
       "status": null
     },
     {
-      "id": "y1259",
-      "route_id": "28",
+      "id": "ynk224",
+      "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.335568,
-      "longitude": -71.087583,
-      "bearing": 56,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "G-10121",
-      "route_id": "Green-B",
-      "route_type": null,
-      "latitude": 42.34018,
-      "longitude": -71.16709,
-      "bearing": 135,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "y1862",
-      "route_id": "23",
-      "route_type": null,
-      "latitude": 42.31139,
-      "longitude": -71.08302,
-      "bearing": 191,
+      "latitude": 42.201341,
+      "longitude": -71.064368,
+      "bearing": null,
       "speed": null,
       "status": null
     },
@@ -467,9 +404,19 @@
       "id": "y1871",
       "route_id": "15",
       "route_type": null,
-      "latitude": 42.34098,
-      "longitude": -71.0578,
-      "bearing": 90,
+      "latitude": 42.320338,
+      "longitude": -71.071421,
+      "bearing": 321,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y1888",
+      "route_id": "15",
+      "route_type": null,
+      "latitude": 42.319237,
+      "longitude": -71.056797,
+      "bearing": 179,
       "speed": null,
       "status": null
     },
@@ -477,9 +424,9 @@
       "id": "y1853",
       "route_id": "28",
       "route_type": null,
-      "latitude": 42.33937,
-      "longitude": -71.057746,
-      "bearing": 250,
+      "latitude": 42.287854,
+      "longitude": -71.090398,
+      "bearing": 193,
       "speed": null,
       "status": null
     }
