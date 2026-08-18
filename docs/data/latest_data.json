@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-18T06:50:38.105449",
+  "last_updated": "2026-08-18T07:40:54.031856",
   "total_routes": 178,
   "active_vehicles": 8,
   "status": "active",
@@ -111,6 +111,13 @@
       "route_id": "unknown"
     },
     {
+      "id": "1028013",
+      "title": "",
+      "description": "Skipped outbound stops:\r\nMeridian St @ Saratoga St\r\nLexington St @ Marion St\r\nLexington St @ Brooks St\r\nLexington St @ Putnam St\r\nLexington St @ Prescott St\r\nLexington St @ Shelby St\r\nE Eagle St @ Chelsea St\r\n\r\nSkipped inbound stops:\r\nEagle St @ Lexington St\r\nLexington St @ Prescott St\r\nLexington St @ Putnam St\r\nLexington St @ Brooks St\r\nLexington St @ Marion St\r\nLexington St @ Meridian St",
+      "severity": 7,
+      "route_id": "unknown"
+    },
+    {
       "id": "1027271",
       "title": "",
       "description": "Affected routes:\r\n505",
@@ -163,6 +170,20 @@
       "id": "1001859",
       "title": "",
       "description": "Affected routes:\r\n60\r\n65",
+      "severity": 1,
+      "route_id": "unknown"
+    },
+    {
+      "id": "1025831",
+      "title": "",
+      "description": "Affected routes:\r\n1",
+      "severity": 5,
+      "route_id": "unknown"
+    },
+    {
+      "id": "1001867",
+      "title": "",
+      "description": "Affected routes:\r\n77\r\n96",
       "severity": 1,
       "route_id": "unknown"
     },
@@ -428,19 +449,9 @@
       "id": "y1893",
       "route_id": "28",
       "route_type": null,
-      "latitude": 42.279959,
-      "longitude": -71.093014,
-      "bearing": 198,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk209",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.201517,
-      "longitude": -71.065216,
-      "bearing": null,
+      "latitude": 42.27747,
+      "longitude": -71.09353,
+      "bearing": 180,
       "speed": null,
       "status": null
     },
@@ -458,9 +469,9 @@
       "id": "ynk240",
       "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.354817,
-      "longitude": -71.193655,
-      "bearing": 253,
+      "latitude": 42.303652,
+      "longitude": -71.394659,
+      "bearing": null,
       "speed": null,
       "status": null
     },
@@ -475,6 +486,16 @@
       "status": null
     },
     {
+      "id": "y1778",
+      "route_id": "15",
+      "route_type": null,
+      "latitude": 42.318836,
+      "longitude": -71.06925,
+      "bearing": 301,
+      "speed": null,
+      "status": null
+    },
+    {
       "id": "ynk234",
       "route_id": "Shuttle-Generic",
       "route_type": null,
@@ -485,12 +506,12 @@
       "status": null
     },
     {
-      "id": "ynk343",
-      "route_id": "Shuttle-Generic",
+      "id": "y1811",
+      "route_id": "15",
       "route_type": null,
-      "latitude": 42.338433,
-      "longitude": -71.044145,
-      "bearing": null,
+      "latitude": 42.34107,
+      "longitude": -71.05799,
+      "bearing": 90,
       "speed": null,
       "status": null
     }
