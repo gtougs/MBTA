@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-08-19T06:50:54.653701",
+  "last_updated": "2026-08-19T07:41:45.685612",
   "total_routes": 178,
-  "active_vehicles": 12,
+  "active_vehicles": 14,
   "status": "active",
   "routes_by_type": {},
   "active_alerts": [
@@ -97,6 +97,13 @@
       "route_id": "unknown"
     },
     {
+      "id": "1028013",
+      "title": "",
+      "description": "Skipped outbound stops:\r\nMeridian St @ Saratoga St\r\nLexington St @ Marion St\r\nLexington St @ Brooks St\r\nLexington St @ Putnam St\r\nLexington St @ Prescott St\r\nLexington St @ Shelby St\r\nE Eagle St @ Chelsea St\r\n\r\nSkipped inbound stops:\r\nEagle St @ Lexington St\r\nLexington St @ Prescott St\r\nLexington St @ Putnam St\r\nLexington St @ Brooks St\r\nLexington St @ Marion St\r\nLexington St @ Meridian St",
+      "severity": 7,
+      "route_id": "unknown"
+    },
+    {
       "id": "1027271",
       "title": "",
       "description": "Affected routes:\r\n505",
@@ -153,6 +160,20 @@
       "route_id": "unknown"
     },
     {
+      "id": "1025831",
+      "title": "",
+      "description": "Affected routes:\r\n1",
+      "severity": 5,
+      "route_id": "unknown"
+    },
+    {
+      "id": "1001867",
+      "title": "",
+      "description": "Affected routes:\r\n77\r\n96",
+      "severity": 1,
+      "route_id": "unknown"
+    },
+    {
       "id": "1021672",
       "title": "",
       "description": "Beginning July 13, 2026, the Woburn Anderson Regional Transportation Center will undergo a major paving and infrastructure improvement project, with work expected to be completed by November 16, 2026. \r\n\r\nTo support these critical renovations and enhance the long-term safety and functionality of the facility, select areas of the MBTA Daily Lot and the gated Overnight Lot will be temporarily closed throughout the construction period.\r\n\r\nMotorists and facility users are encouraged to plan accordingly and carefully follow all posted signage, traffic control measures, and parking restrictions to ensure a safe and efficient experience during the project.",
@@ -164,6 +185,13 @@
       "title": "",
       "description": null,
       "severity": 1,
+      "route_id": "unknown"
+    },
+    {
+      "id": "1028268",
+      "title": "",
+      "description": null,
+      "severity": 3,
       "route_id": "unknown"
     },
     {
@@ -404,16 +432,6 @@
       "status": null
     },
     {
-      "id": "ynk344",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.338746,
-      "longitude": -71.044348,
-      "bearing": null,
-      "speed": null,
-      "status": null
-    },
-    {
       "id": "R-548B4377",
       "route_id": "Red",
       "route_type": null,
@@ -427,19 +445,9 @@
       "id": "y1886",
       "route_id": "28",
       "route_type": null,
-      "latitude": 42.266966,
-      "longitude": -71.092285,
-      "bearing": 82,
-      "speed": null,
-      "status": null
-    },
-    {
-      "id": "ynk342",
-      "route_id": "Shuttle-Generic",
-      "route_type": null,
-      "latitude": 42.33834,
-      "longitude": -71.044163,
-      "bearing": null,
+      "latitude": 42.268486,
+      "longitude": -71.093807,
+      "bearing": 182,
       "speed": null,
       "status": null
     },
@@ -449,6 +457,26 @@
       "route_type": null,
       "latitude": 42.338721,
       "longitude": -71.044671,
+      "bearing": null,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "ynk236",
+      "route_id": "Shuttle-Generic",
+      "route_type": null,
+      "latitude": 42.201499,
+      "longitude": -71.065265,
+      "bearing": null,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "y1877",
+      "route_id": "15",
+      "route_type": null,
+      "latitude": 42.328678131103516,
+      "longitude": -71.08330535888672,
       "bearing": null,
       "speed": null,
       "status": null
@@ -464,22 +492,22 @@
       "status": null
     },
     {
-      "id": "ynk240",
-      "route_id": "Shuttle-Generic",
+      "id": "G-10082",
+      "route_id": "Green-B",
       "route_type": null,
-      "latitude": 42.308439,
-      "longitude": -71.384902,
-      "bearing": null,
+      "latitude": 42.341,
+      "longitude": -71.16742,
+      "bearing": 75,
       "speed": null,
       "status": null
     },
     {
-      "id": "G-10118",
-      "route_id": "Green-E",
+      "id": "ynk240",
+      "route_id": "Shuttle-Generic",
       "route_type": null,
-      "latitude": 42.37604,
-      "longitude": -71.08343,
-      "bearing": 145,
+      "latitude": 42.30286,
+      "longitude": -71.394309,
+      "bearing": null,
       "speed": null,
       "status": null
     },
@@ -504,11 +532,31 @@
       "status": null
     },
     {
+      "id": "y1876",
+      "route_id": "15",
+      "route_type": null,
+      "latitude": 42.341108,
+      "longitude": -71.058013,
+      "bearing": 225,
+      "speed": null,
+      "status": null
+    },
+    {
       "id": "ynk234",
       "route_id": "Shuttle-Generic",
       "route_type": null,
       "latitude": 42.201735,
       "longitude": -71.06534,
+      "bearing": null,
+      "speed": null,
+      "status": null
+    },
+    {
+      "id": "ynk307",
+      "route_id": "Shuttle-Generic",
+      "route_type": null,
+      "latitude": 42.338135,
+      "longitude": -71.043941,
       "bearing": null,
       "speed": null,
       "status": null
